@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'jobs',
     'contracts',
     'payments',
+    'ratings',
 
 
     'HomeChain_app',
