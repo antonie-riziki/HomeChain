@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>HomeChain Worker Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1193d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen pb-24">
+<!-- Header Section -->
+<header class="px-6 pt-8 pb-4 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<img alt="Worker Profile Picture" class="w-12 h-12 rounded-full border-2 border-primary object-cover" data-alt="Professional portrait of a friendly female domestic worker" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC08XuiIdZ-WTrtQ9DMg-05VB4cFtBLFxYQE2pKtSBOS1Yq-qw86cqZct4gm0RZYJ_h7cKjvsvDFN8nq7W-wm2l4U7msEP8fmqQd1h0MycdhyjL_jLObI9Rjz3r6emoHBaLhTG0DnsTHhGK5kjqjBUeSSHlHbXwZhELqUbgCF1VeOjhfy4KgTQBm77-ThcSxlFdfLvDX0cugMQslUcEKcuvchKEM7_NC1gISrVU_bhd6wOcBxnTM1k4kr5pnBMhceE0PQn3lY-sqD0"/>
+<div>
+<p class="text-xs text-slate-500 font-medium">Welcome back,</p>
+<h1 class="text-xl font-bold">Maria Santos</h1>
+</div>
+</div>
+<div class="relative">
+<div class="bg-white dark:bg-slate-800 p-2 rounded-full shadow-sm">
+<span class="material-icons text-slate-400">notifications</span>
+</div>
+<span class="absolute top-0 right-0 w-3 h-3 bg-red-500 border-2 border-background-light rounded-full"></span>
+</div>
+</header>
+<main class="px-6 space-y-6">
+<!-- Earnings Summary Card -->
+<section class="bg-primary rounded-xl p-5 text-white shadow-lg shadow-primary/20">
+<div class="flex justify-between items-start mb-4">
+<div>
+<p class="text-white/80 text-sm font-light">Total Earned</p>
+<h2 class="text-3xl font-bold">$1,240.50</h2>
+</div>
+<span class="material-icons text-white/40">account_balance_wallet</span>
+</div>
+<div class="flex gap-4 border-t border-white/20 pt-4">
+<div class="flex-1">
+<p class="text-white/70 text-xs">Pending in Escrow</p>
+<p class="font-semibold">$320.00</p>
+</div>
+<div class="flex-1 border-l border-white/20 pl-4">
+<p class="text-white/70 text-xs">This Month</p>
+<p class="font-semibold">+$450.00</p>
+</div>
+</div>
+</section>
+<!-- Profile Strength & Upskill -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Profile Strength -->
+<section class="bg-white dark:bg-slate-800 p-5 rounded-xl shadow-sm">
+<div class="flex justify-between items-center mb-3">
+<h3 class="font-semibold text-sm">Profile Strength</h3>
+<span class="text-primary text-xs font-bold">85%</span>
+</div>
+<div class="w-full bg-slate-100 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+</div>
+<p class="text-[11px] text-slate-500 mt-3 flex items-center gap-1">
+<span class="material-icons text-[14px] text-primary">stars</span>
+                    Almost there! Complete your bio to reach 100%.
+                </p>
+</section>
+<!-- Upskill Suggestion -->
+<section class="bg-primary/10 border border-primary/20 p-5 rounded-xl flex items-center gap-4">
+<div class="bg-primary p-2 rounded-lg text-white">
+<span class="material-icons text-xl">school</span>
+</div>
+<div>
+<h3 class="text-sm font-bold text-primary">Level Up</h3>
+<p class="text-[11px] text-slate-600 dark:text-slate-400">Get Certified in First Aid to boost visibility by 2x.</p>
+</div>
+</section>
+</div>
+<!-- Jobs Near Me -->
+<section>
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-lg font-bold">Jobs Near Me</h3>
+<button class="text-primary text-sm font-semibold">View All</button>
+</div>
+<div class="space-y-4">
+<!-- Job Card 1 -->
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h4 class="font-bold text-slate-800 dark:text-white">Full-time Caretaker</h4>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-xs text-slate-500 flex items-center gap-0.5">
+<span class="material-icons text-[14px]">location_on</span>
+                                    Downtown (2.5 mi)
+                                </span>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span class="text-xs text-primary font-medium">Verified Employer</span>
+</div>
+</div>
+<div class="text-right">
+<p class="text-primary font-bold">$25/hr</p>
+</div>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded text-[10px] text-slate-600 dark:text-slate-300">Elder Care</span>
+<span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded text-[10px] text-slate-600 dark:text-slate-300">Immediate Start</span>
+</div>
+<button class="w-full bg-primary text-white py-2.5 rounded-lg font-semibold text-sm hover:opacity-90 active:scale-[0.98] transition-all">
+                        Apply Now
+                    </button>
+</div>
+<!-- Job Card 2 -->
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex justify-between items-start mb-3">
+<div>
+<h4 class="font-bold text-slate-800 dark:text-white">Home Cleaning Service</h4>
+<div class="flex items-center gap-2 mt-1">
+<span class="text-xs text-slate-500 flex items-center gap-0.5">
+<span class="material-icons text-[14px]">location_on</span>
+                                    Riverside (4.8 mi)
+                                </span>
+</div>
+</div>
+<div class="text-right">
+<p class="text-primary font-bold">$40/hr</p>
+</div>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded text-[10px] text-slate-600 dark:text-slate-300">Flexible</span>
+<span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded text-[10px] text-slate-600 dark:text-slate-300">Part-time</span>
+</div>
+<button class="w-full bg-primary/10 text-primary py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/20 transition-all">
+                        View Details
+                    </button>
+</div>
+</div>
+</section>
+<!-- My Applications -->
+<section>
+<h3 class="text-lg font-bold mb-4">My Applications</h3>
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="p-4 flex items-center justify-between border-b border-slate-50 dark:border-slate-700">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center">
+<span class="material-icons text-blue-500">assignment</span>
+</div>
+<div>
+<p class="text-sm font-semibold">Weekend Housekeeper</p>
+<p class="text-[10px] text-slate-400 uppercase tracking-wider">Applied 2 days ago</p>
+</div>
+</div>
+<span class="bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400 text-[10px] font-bold px-2 py-1 rounded-full">
+                        PENDING
+                    </span>
+</div>
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center">
+<span class="material-icons text-green-500">handshake</span>
+</div>
+<div>
+<p class="text-sm font-semibold">Childcare Assistant</p>
+<p class="text-[10px] text-slate-400 uppercase tracking-wider">Applied 1 week ago</p>
+</div>
+</div>
+<span class="bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-[10px] font-bold px-2 py-1 rounded-full">
+                        INTERVIEWING
+                    </span>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-6 py-4 flex justify-between items-center z-50">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons">search</span>
+<span class="text-[10px] font-medium">Jobs</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons">chat_bubble_outline</span>
+<span class="text-[10px] font-medium">Chat</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons">person_outline</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</nav>
+<!-- Map View Preview (Floating) -->
+<div class="fixed bottom-24 right-6">
+<button class="bg-slate-900 text-white flex items-center gap-2 px-4 py-3 rounded-full shadow-xl hover:scale-105 active:scale-95 transition-all">
+<span class="material-icons text-sm">map</span>
+<span class="text-xs font-bold">Map View</span>
+</button>
+</div>
+</body></html>

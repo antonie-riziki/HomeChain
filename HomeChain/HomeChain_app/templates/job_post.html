@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Post Job Confirmation - HomeChain</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1193d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                        "success-soft": "#e8f5e9",
+                        "success-deep": "#2e7d32"
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+            overscroll-behavior-y: contain;
+        }
+        .ios-shadow {
+            box-shadow: 0 4px 20px -2px rgba(17, 147, 212, 0.08);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen flex flex-col items-center justify-start">
+<!-- iOS Status Bar Spacer -->
+<div class="h-12 w-full"></div>
+<!-- Main Mobile Container -->
+<main class="w-full max-w-[430px] flex flex-col min-h-[calc(100vh-3rem)] px-5 pb-8">
+<!-- Header Navigation -->
+<header class="flex items-center justify-between mb-6">
+<button class="w-10 h-10 flex items-center justify-start text-slate-600 dark:text-slate-400">
+<span class="material-icons-round">arrow_back_ios</span>
+</button>
+<h1 class="text-lg font-semibold">Review Job</h1>
+<div class="w-10"></div> <!-- Spacer -->
+</header>
+<!-- Progress Bar -->
+<div class="mb-8">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs font-medium text-primary">Step 5 of 5</span>
+<span class="text-xs font-medium text-slate-400">Final Confirmation</span>
+</div>
+<div class="flex gap-1.5 h-1.5 w-full">
+<div class="flex-1 bg-primary rounded-full"></div>
+<div class="flex-1 bg-primary rounded-full"></div>
+<div class="flex-1 bg-primary rounded-full"></div>
+<div class="flex-1 bg-primary rounded-full"></div>
+<div class="flex-1 bg-primary rounded-full"></div>
+</div>
+</div>
+<!-- Confirmation Illustration/Icon -->
+<div class="flex flex-col items-center mb-8">
+<div class="w-16 h-16 bg-success-soft dark:bg-success-deep/20 rounded-full flex items-center justify-center mb-4">
+<span class="material-icons-round text-success-deep dark:text-success-soft text-3xl">check_circle</span>
+</div>
+<h2 class="text-xl font-bold text-center">Ready to Post?</h2>
+<p class="text-sm text-slate-500 dark:text-slate-400 text-center mt-1">Review your details before we find your professional match.</p>
+</div>
+<!-- Job Summary Card -->
+<div class="bg-white dark:bg-slate-900/50 rounded-xl p-5 ios-shadow border border-slate-100 dark:border-slate-800 space-y-5 mb-6">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0">
+<span class="material-icons-round">cleaning_services</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-medium text-slate-400 uppercase tracking-wider">Job Type</span>
+<span class="text-base font-semibold">Full-time Housekeeper</span>
+</div>
+</div>
+<div class="h-px bg-slate-50 dark:bg-slate-800 w-full"></div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0">
+<span class="material-icons-round">location_on</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-medium text-slate-400 uppercase tracking-wider">Location</span>
+<span class="text-base font-semibold">Brooklyn, New York</span>
+</div>
+</div>
+<div class="h-px bg-slate-50 dark:bg-slate-800 w-full"></div>
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center text-primary shrink-0">
+<span class="material-icons-round">schedule</span>
+</div>
+<div class="flex flex-col">
+<span class="text-xs font-medium text-slate-400 uppercase tracking-wider">Duration</span>
+<span class="text-base font-semibold">Indefinite / 40 hrs per week</span>
+</div>
+</div>
+</div>
+<!-- Salary Transparency Box -->
+<div class="bg-success-soft/50 dark:bg-emerald-950/20 border border-success-deep/10 rounded-xl p-5 mb-8 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 opacity-5">
+<span class="material-icons-round text-8xl text-success-deep">monetization_on</span>
+</div>
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs font-bold text-success-deep dark:text-emerald-400 uppercase tracking-widest">Salary Transparency</span>
+<span class="material-icons-round text-success-deep dark:text-emerald-400 text-lg">verified_user</span>
+</div>
+<div class="flex items-baseline gap-1 mb-2">
+<span class="text-3xl font-bold text-slate-900 dark:text-white">$25.00</span>
+<span class="text-slate-500 font-medium">/ hour</span>
+</div>
+<p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                This amount is based on your area and job type. HomeChain ensures fair market rates for both parties.
+            </p>
+</div>
+<!-- Trust Indicator -->
+<div class="flex items-center justify-center gap-2 mb-8">
+<span class="material-icons-round text-primary text-sm">shield</span>
+<span class="text-[10px] font-medium text-slate-500 uppercase tracking-tighter">Secure Escrow Enabled &amp; Trust Verified</span>
+</div>
+<!-- Sticky Footer Area -->
+<div class="mt-auto space-y-4 pt-4">
+<div class="flex items-start gap-3 px-1">
+<input class="mt-1 rounded text-primary focus:ring-primary border-slate-300 dark:bg-slate-800 dark:border-slate-700" id="terms" type="checkbox"/>
+<label class="text-[11px] text-slate-500 dark:text-slate-400 leading-tight" for="terms">
+                    I agree to the HomeChain Trust Agreement and authorize the secure escrow deposit for the first milestone.
+                </label>
+</div>
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary/20 active:scale-[0.98]">
+                Confirm &amp; Post Job
+            </button>
+<!-- Home Indicator Safe Area -->
+<div class="h-4"></div>
+</div>
+</main>
+<!-- Map Context Image (Optional Decorative) -->
+<div class="hidden">
+<img data-alt="Abstract minimal map route illustration" data-location="Brooklyn, NY" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJTFurwc3EUA5zWkJ2LCgZraxtmieqEdIMm8MwCGlXl8F-TzRP_3Wj5oP5LJFpVlE9ZsdpmB9WdyDpxnF48cPl8MTA9Q5AJXpkA8ADeRiqgspwczL3mgEJfj5gI6SdtN5-TtsfKXGlbmUBPDdZ5WmDOHNncxq_R6ddbbFIlGPEa2Y31ZcaoVohcSOauch_lAd3MBfFTOrUVFxiflgxOLojrJxfG6eLt2d2-ZPBAuXdfXT6XXN-bOtcao1yQQyvZOYkOxRCV-k4CM0"/>
+</div>
+</body></html>

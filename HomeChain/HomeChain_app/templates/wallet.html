@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Wallet &amp; Payments | HomeChain</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1193d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .ios-blur {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen font-display">
+<!-- Mobile Header / Status Bar Area -->
+<div class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 ios-blur px-6 pt-12 pb-4 flex justify-between items-center">
+<h1 class="text-xl font-semibold tracking-tight">Wallet</h1>
+<button class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center shadow-sm border border-slate-200 dark:border-slate-700">
+<span class="material-icons-round text-primary">support_agent</span>
+</button>
+</div>
+<main class="px-6 pb-24 space-y-6">
+<!-- Balance Card -->
+<div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 space-y-4">
+<div class="flex justify-between items-start">
+<div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Current Balance</p>
+<h2 class="text-4xl font-bold mt-1">$2,450.00</h2>
+</div>
+<div class="bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 px-3 py-1 rounded-full flex items-center gap-1.5 border border-amber-200 dark:border-amber-800">
+<span class="material-icons-round text-sm">schedule</span>
+<span class="text-xs font-semibold uppercase tracking-wider">Pending: $450.00</span>
+</div>
+</div>
+<div class="pt-2 flex flex-col gap-3">
+<button class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-4 rounded-lg flex items-center justify-center gap-2 transition-all">
+<span class="material-icons-round">account_balance_wallet</span>
+                    Withdraw to Bank
+                </button>
+<button class="w-full bg-primary/10 hover:bg-primary/20 text-primary font-semibold py-3 rounded-lg flex items-center justify-center gap-2 transition-all">
+<span class="material-icons-round text-sm">add</span>
+                    Add Funds
+                </button>
+</div>
+<div class="pt-4 border-t border-slate-100 dark:border-slate-700 flex items-center justify-center gap-2">
+<span class="material-icons-round text-green-500 text-sm">verified_user</span>
+<p class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">Bank-grade Encrypted Security</p>
+</div>
+</div>
+<!-- Quick Stats / Info -->
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+<p class="text-xs text-slate-500 mb-1 uppercase font-bold tracking-tighter">Next Payout</p>
+<p class="text-lg font-semibold">Oct 24</p>
+</div>
+<div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-100 dark:border-slate-700">
+<p class="text-xs text-slate-500 mb-1 uppercase font-bold tracking-tighter">Active Escrows</p>
+<p class="text-lg font-semibold">3 Jobs</p>
+</div>
+</div>
+<!-- Transaction History -->
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<h3 class="text-lg font-semibold tracking-tight">Recent Activity</h3>
+<button class="text-sm font-medium text-primary">See All</button>
+</div>
+<div class="space-y-3">
+<!-- Transaction Item 1 -->
+<div class="flex items-center justify-between p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
+<span class="material-icons-round">south_west</span>
+</div>
+<div>
+<p class="font-semibold text-sm">Payment from Sarah J.</p>
+<p class="text-xs text-slate-500">Oct 21, 2023 • Completed</p>
+</div>
+</div>
+<p class="font-bold text-green-600 dark:text-green-400">+$120.00</p>
+</div>
+<!-- Transaction Item 2 -->
+<div class="flex items-center justify-between p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400">
+<span class="material-icons-round">north_east</span>
+</div>
+<div>
+<p class="font-semibold text-sm">Bank Withdrawal</p>
+<p class="text-xs text-slate-500">Oct 19, 2023 • Processing</p>
+</div>
+</div>
+<p class="font-bold">-$850.00</p>
+</div>
+<!-- Transaction Item 3 -->
+<div class="flex items-center justify-between p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center text-amber-600 dark:text-amber-400">
+<span class="material-icons-round">hourglass_bottom</span>
+</div>
+<div>
+<p class="font-semibold text-sm">Escrow: Deep Clean Project</p>
+<p class="text-xs text-slate-500">Oct 18, 2023 • Pending</p>
+</div>
+</div>
+<p class="font-bold text-amber-600 dark:text-amber-400">+$450.00</p>
+</div>
+<!-- Transaction Item 4 -->
+<div class="flex items-center justify-between p-4 bg-white dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600 dark:text-green-400">
+<span class="material-icons-round">south_west</span>
+</div>
+<div>
+<p class="font-semibold text-sm">Payment from Mike R.</p>
+<p class="text-xs text-slate-500">Oct 15, 2023 • Completed</p>
+</div>
+</div>
+<p class="font-bold text-green-600 dark:text-green-400">+$300.00</p>
+</div>
+</div>
+</div>
+<!-- Security Badge Footer -->
+<div class="flex flex-col items-center justify-center py-6 opacity-60">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-icons-round text-slate-400 text-lg">lock</span>
+<p class="text-xs font-medium">Your funds are protected by HomeChain Escrow</p>
+</div>
+<p class="text-[10px] text-center px-8 text-slate-500">HomeChain uses bank-grade 256-bit encryption. Your financial data is never shared with employers or third parties.</p>
+</div>
+</main>
+<!-- Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 px-8 py-3 flex justify-between items-center z-50 shadow-[0_-4px_12px_rgba(0,0,0,0.03)]">
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">description</span>
+<span class="text-[10px] font-medium">Jobs</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons-round">account_balance_wallet</span>
+<span class="text-[10px] font-medium">Wallet</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">person</span>
+<span class="text-[10px] font-medium">Profile</span>
+</button>
+</nav>
+</body></html>
