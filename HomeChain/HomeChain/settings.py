@@ -45,8 +45,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',
+    'django_filters',
+    'weasyprint',
 
     'accounts',
+    'jobs',
+    'contracts',
+    'payments',
 
 
     'HomeChain_app',

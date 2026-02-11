@@ -1,7 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.utils import timezone
-from apps.accounts.models import User
+from accounts.models import User
 
 class Job(models.Model):
     """Job posting by employer"""
