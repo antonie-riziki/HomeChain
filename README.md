@@ -1,4 +1,6 @@
-<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/8ee77776-d722-4a32-b321-d92328e34241" /># HomeChain
+<img width="547" height="299" alt="image" src="https://github.com/user-attachments/assets/22eea8c6-bcad-4cab-b989-bd726480e385" />
+
+# HomeChain
 Decentralized Domestic Work Platform
 
 ## Overview
@@ -10,11 +12,7 @@ The platform combines:
 - Escrow-based payment protection
 - AI-powered job matching and salary prediction
 - Credit scoring and safety mechanisms
-- 
-![Uploading image.png…]()
-
-
-
+  
 
 
 ---
