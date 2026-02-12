@@ -13,11 +13,23 @@ from .serializers import *
 
 # ============ AUTH VIEWS ============
 
-class RegisterView(generics.CreateAPIView):
+class RegisterView(APIView):
     """User registration endpoint"""
-    queryset = User.objects.all()
-    serializer_class = RegisterSerializer
     permission_classes = [permissions.AllowAny]
+    
+    def post(self, request):
+        serializer = RegisterSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        
+        # Generate JWT tokens
+        refresh = RefreshToken.for_user(user)
+        
+        return Response({
+            'refresh': str(refresh),
+            'access': str(refresh.access_token),
+            'user': UserSerializer(user).data
+        }, status=status.HTTP_201_CREATED)
 
 
 class LoginView(APIView):

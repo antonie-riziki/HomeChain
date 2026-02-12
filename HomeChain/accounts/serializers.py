@@ -60,26 +60,11 @@ class RegisterSerializer(serializers.ModelSerializer):
                 "password": "Passwords do not match."
             })
         
-        # Validate worker has required fields
+        # Optional worker field validation
         if data['user_type'] == 'WORKER':
-            if not data.get('skills'):
-                raise serializers.ValidationError({
-                    "skills": "Workers must specify at least one skill."
-                })
-            if not data.get('hourly_rate'):
-                raise serializers.ValidationError({
-                    "hourly_rate": "Workers must set an hourly rate."
-                })
             if data.get('hourly_rate') and float(data['hourly_rate']) <= 0:
                 raise serializers.ValidationError({
                     "hourly_rate": "Hourly rate must be greater than 0."
-                })
-        
-        # Validate employer has company name
-        if data['user_type'] == 'EMPLOYER':
-            if not data.get('company_name'):
-                raise serializers.ValidationError({
-                    "company_name": "Employers must provide a company name."
                 })
         
         return data
@@ -122,9 +107,10 @@ class RegisterSerializer(serializers.ModelSerializer):
 
 
 class LoginSerializer(serializers.Serializer):
-    """User login serializer"""
+    """User login serializer - accepts email or username"""
     
-    username = serializers.CharField(required=True)
+    email = serializers.CharField(required=False)
+    username = serializers.CharField(required=False)
     password = serializers.CharField(
         write_only=True,
         required=True,
@@ -132,9 +118,28 @@ class LoginSerializer(serializers.Serializer):
     )
     
     def validate(self, data):
+        username = data.get('username')
+        email = data.get('email')
+        password = data.get('password')
+        
+        if not username and not email:
+            raise serializers.ValidationError(
+                "Either email or username is required."
+            )
+        
+        # If email is provided, look up the username
+        if email and not username:
+            try:
+                user_obj = User.objects.get(email=email)
+                username = user_obj.username
+            except User.DoesNotExist:
+                raise serializers.ValidationError(
+                    "Unable to log in with provided credentials."
+                )
+        
         user = authenticate(
-            username=data['username'],
-            password=data['password']
+            username=username,
+            password=password
         )
         
         if not user:

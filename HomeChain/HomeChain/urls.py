@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('HomeChain_app.urls')),
     path('api/accounts/',include('accounts.urls')),
-    path('api/jobs',include('jobs.urls')),
+    path('api/jobs/',include('jobs.urls')),
     path('api/contracts/',include('contracts.urls')),
     path('api/payments/',include('payments.urls')),
     path('api/ratings/',include('ratings.urls')),
