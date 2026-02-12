@@ -10,8 +10,9 @@ The platform combines:
 - Escrow-based payment protection
 - AI-powered job matching and salary prediction
 - Credit scoring and safety mechanisms
-
+- 
 ![Uploading image.png…]()
+
 
 
 
