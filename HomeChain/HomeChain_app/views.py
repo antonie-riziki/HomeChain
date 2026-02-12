@@ -24,3 +24,24 @@ def wallet(request):
 
 def worker_dashboard(request):
     return render(request, 'worker_dashboard.html')
+
+def login(request):
+    return render(request, 'login.html')
+
+def register(request):
+    return render(request, 'register.html')
+
+def browse_jobs(request):
+    return render(request, 'browse_jobs.html')
+
+def workers(request):
+    return render(request, 'workers.html')
+
+def about(request):
+    return render(request, 'about.html')
+
+def help_center(request):
+    return render(request, 'help.html')
+
+def contact(request):
+    return render(request, 'contact.html')

@@ -38,9 +38,9 @@ export default function Navbar() {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="flex items-center gap-2 rounded-full px-2 pr-4 hover:bg-muted">
                   <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground border border-border shadow-sm">
-                    {user?.first_name ? `${user.first_name[0]}${user.last_name ? user.last_name[0] : ''}` : <User className="h-4 w-4" />}
+                    {user?.full_name ? user.full_name.split(' ').map((n: string) => n[0]).join('').substring(0, 2) : user?.first_name ? `${user.first_name[0]}${user.last_name ? user.last_name[0] : ''}` : <User className="h-4 w-4" />}
                   </div>
-                  <span className="text-sm font-medium text-foreground">{user?.first_name || 'Profile'}</span>
+                  <span className="text-sm font-medium text-foreground">{user?.full_name || user?.first_name || 'Profile'}</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">

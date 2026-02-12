@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Browse Jobs - HomeChain</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1193d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen pb-24 md:pb-0">
+<!-- Header -->
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 md:px-6 py-4 flex justify-between items-center border-b border-primary/10">
+<div class="flex items-center gap-3">
+<button onclick="history.back()" class="md:hidden w-10 h-10 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+<span class="material-icons-round">arrow_back</span>
+</button>
+<h1 class="font-bold text-xl md:text-2xl tracking-tight">Browse Jobs</h1>
+</div>
+<div class="flex items-center gap-2">
+<button onclick="toggleFilters()" class="p-2 rounded-lg bg-white dark:bg-slate-800 shadow-sm border border-primary/10 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<span class="material-icons-round text-primary">tune</span>
+</button>
+</div>
+</header>
+
+<main class="px-4 md:px-6 lg:px-8 py-6 max-w-7xl mx-auto">
+<!-- Filters Section -->
+<div id="filters" class="hidden mb-6 bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 space-y-4">
+<div class="grid md:grid-cols-3 gap-4">
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Location</label>
+<input
+                        type="text"
+                        id="filter-location"
+                        placeholder="Enter city or zip code"
+                        class="w-full px-4 py-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    />
+</div>
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Job Type</label>
+<select id="filter-type" class="w-full px-4 py-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/50">
+<option value="">All Types</option>
+<option value="housekeeping">Housekeeping</option>
+<option value="childcare">Childcare</option>
+<option value="eldercare">Elder Care</option>
+<option value="gardening">Gardening</option>
+<option value="cooking">Cooking</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">Max Rate</label>
+<input
+                        type="number"
+                        id="filter-rate"
+                        placeholder="$ per hour"
+                        class="w-full px-4 py-2.5 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    />
+</div>
+</div>
+<button onclick="applyFilters()" class="w-full md:w-auto bg-primary text-white px-6 py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/90 transition-colors">
+                Apply Filters
+            </button>
+</div>
+
+<!-- Jobs Grid -->
+<div id="jobs-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Loading state -->
+<div class="col-span-full flex items-center justify-center py-12">
+<div class="flex flex-col items-center gap-3">
+<div class="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+<p class="text-slate-500">Loading available jobs...</p>
+</div>
+</div>
+</div>
+
+<!-- Empty state template (hidden) -->
+<div id="empty-state" class="hidden col-span-full">
+<div class="flex flex-col items-center justify-center py-12 text-center">
+<div class="w-16 h-16 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mb-4">
+<span class="material-icons-round text-slate-400 text-3xl">work_outline</span>
+</div>
+<h3 class="text-lg font-semibold mb-2">No jobs found</h3>
+<p class="text-slate-500 text-sm mb-4">Try adjusting your filters or check back later</p>
+<a href="/" class="text-primary font-medium text-sm hover:underline">Back to Home</a>
+</div>
+</div>
+</main>
+
+<!-- Bottom Navigation (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-6 py-4 flex justify-between items-center z-50">
+<a href="/" class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</a>
+<a href="/browse-jobs/" class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons-round">search</span>
+<span class="text-[10px] font-medium">Jobs</span>
+</a>
+<a href="/wallet/" class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">account_balance_wallet</span>
+<span class="text-[10px] font-medium">Wallet</span>
+</a>
+<a href="/login/" class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons-round">person_outline</span>
+<span class="text-[10px] font-medium">Profile</span>
+</a>
+</nav>
+
+<script>
+        const API_BASE_URL = window.location.origin + '/api';
+        let authToken = localStorage.getItem('access_token');
+        let allJobs = [];
+
+        // Toggle filters
+        function toggleFilters() {
+            const filters = document.getElementById('filters');
+            filters.classList.toggle('hidden');
+        }
+
+        // API call helper
+        async function apiCall(endpoint, options = {}) {
+            const headers = {
+                'Content-Type': 'application/json',
+                ...options.headers
+            };
+            
+            if (authToken) {
+                headers['Authorization'] = `Bearer ${authToken}`;
+            }
+            
+            try {
+                const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+                    ...options,
+                    headers
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.status}`);
+                }
+                
+                return await response.json();
+            } catch (error) {
+                console.error('API call failed:', error);
+                return null;
+            }
+        }
+
+        // Load jobs
+        async function loadJobs() {
+            const data = await apiCall('/jobs/jobs/browse/');
+            const container = document.getElementById('jobs-container');
+            const emptyState = document.getElementById('empty-state');
+            
+            if (data && data.results && data.results.length > 0) {
+                allJobs = data.results;
+                displayJobs(allJobs);
+            } else {
+                container.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                container.appendChild(emptyState);
+            }
+        }
+
+        // Display jobs
+        function displayJobs(jobs) {
+            const container = document.getElementById('jobs-container');
+            
+            if (jobs.length === 0) {
+                container.innerHTML = '';
+                document.getElementById('empty-state').classList.remove('hidden');
+                return;
+            }
+            
+            container.innerHTML = jobs.map(job => `
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 hover:shadow-md transition-shadow">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <h3 class="font-bold text-slate-800 dark:text-white mb-1">${job.title || 'Job Posting'}</h3>
+                            <div class="flex items-center gap-2 text-xs text-slate-500">
+                                <span class="flex items-center gap-0.5">
+                                    <span class="material-icons-round text-sm">location_on</span>
+                                    ${job.location || 'Location not specified'}
+                                </span>
+                                ${job.is_verified ? '<span class="text-primary font-medium">✓ Verified</span>' : ''}
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-primary font-bold">$${job.hourly_rate_min || job.budget || '0'}/hr</p>
+                            ${job.hourly_rate_max ? `<p class="text-xs text-slate-400">up to $${job.hourly_rate_max}/hr</p>` : ''}
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mb-3 line-clamp-2">${job.description || 'No description provided.'}</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${(job.skills_required || []).slice(0, 3).map(skill => `
+                            <span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded text-xs text-slate-600 dark:text-slate-300">${skill}</span>
+                        `).join('')}
+                    </div>
+                    
+                    <button onclick="applyToJob(${job.id})" class="w-full bg-primary text-white py-2.5 rounded-lg font-semibold text-sm hover:opacity-90 active:scale-[0.98] transition-all">
+                        Apply Now
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Apply filters
+        function applyFilters() {
+            const location = document.getElementById('filter-location').value.toLowerCase();
+            const type = document.getElementById('filter-type').value.toLowerCase();
+            const maxRate = parseFloat(document.getElementById('filter-rate').value) || Infinity;
+            
+            const filtered = allJobs.filter(job => {
+                const matchLocation = !location || (job.location || '').toLowerCase().includes(location);
+                const matchType = !type || (job.job_type || '').toLowerCase().includes(type);
+                const matchRate = (job.hourly_rate_min || job.budget || 0) <= maxRate;
+                
+                return matchLocation && matchType && matchRate;
+            });
+            
+            displayJobs(filtered);
+        }
+
+        // Apply to job
+        async function applyToJob(jobId) {
+            if (!authToken) {
+                window.location.href = '/login/?next=/browse-jobs/';
+                return;
+            }
+            
+            const result = await apiCall(`/jobs/applications/`, {
+                method: 'POST',
+                body: JSON.stringify({
+                    job: jobId,
+                    cover_letter: 'I am interested in this position.'
+                })
+            });
+            
+            if (result) {
+                alert('Application submitted successfully!');
+            } else {
+                alert('Failed to submit application. Please try again.');
+            }
+        }
+
+        // Load jobs on page load
+        loadJobs();
+    </script>
+</body></html>

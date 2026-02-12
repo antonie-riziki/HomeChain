@@ -4,7 +4,7 @@ import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff, Home } from 'lucide-react';
 import Navbar from '@/components/common/Navbar';
 
 export default function Login() {
@@ -28,16 +28,43 @@ export default function Login() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!email || !password) {
+      setError('Please enter both email and password.');
+      return;
+    }
     setError('');
     setLoading(true);
     try {
-      await login(email, password);
+      console.log('Attempting login with email:', email.trim());
+      await login(email.trim(), password);
+      // Navigation will happen automatically via useEffect when user is set
     } catch (err: any) {
       console.error('Login error:', err);
-      const msg = err?.response?.data?.non_field_errors?.[0]
-        || err?.response?.data?.detail
-        || err?.message
-        || 'Invalid email or password. Please try again.';
+      const errorData = err?.response?.data;
+      let msg = 'Invalid email or password. Please try again.';
+      
+      if (errorData) {
+        if (errorData.non_field_errors && Array.isArray(errorData.non_field_errors)) {
+          msg = errorData.non_field_errors[0];
+        } else if (errorData.detail) {
+          msg = errorData.detail;
+        } else if (errorData.error) {
+          msg = errorData.error;
+        } else if (typeof errorData === 'string') {
+          msg = errorData;
+        } else {
+          // Try to get first error message
+          const firstError = Object.values(errorData)[0];
+          if (Array.isArray(firstError) && firstError.length > 0) {
+            msg = firstError[0];
+          } else if (typeof firstError === 'string') {
+            msg = firstError;
+          }
+        }
+      } else if (err?.message) {
+        msg = err.message;
+      }
+      
       setError(msg);
     } finally {
       setLoading(false);
@@ -50,6 +77,12 @@ export default function Login() {
       <div className="flex items-center justify-center px-4 py-16">
         <div className="w-full max-w-md">
           <div className="rounded-2xl border border-border bg-card p-8 shadow-card">
+            <div className="mb-6">
+              <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Home className="h-4 w-4" />
+                Back to Home
+              </Link>
+            </div>
             <div className="text-center mb-8">
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary">
                 <span className="font-heading text-sm font-bold text-primary-foreground">HC</span>
@@ -60,7 +93,10 @@ export default function Login() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               {error && (
-                <div className="rounded-lg bg-destructive/10 px-4 py-3 text-sm text-destructive">{error}</div>
+                <div className="rounded-lg bg-destructive/10 px-4 py-3 text-sm text-destructive">
+                  <p className="font-semibold">Login Error</p>
+                  <p>{error}</p>
+                </div>
               )}
 
               <div className="space-y-2">

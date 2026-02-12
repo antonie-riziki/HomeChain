@@ -1,0 +1,306 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>HomeChain - Login</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1193d4",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101c22",
+            },
+            fontFamily: {
+              display: ["Lexend"],
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen flex items-center justify-center p-6 antialiased"
+  >
+    <div class="w-full max-w-md">
+      <!-- Back to Home Button -->
+      <div class="mb-6">
+        <a href="/" class="inline-flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
+          <span class="material-icons-round text-lg">home</span>
+          Back to Home
+        </a>
+      </div>
+      <!-- Header -->
+      <div class="text-center mb-8">
+        <div
+          class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 dark:bg-primary/20 rounded-xl mb-4"
+        >
+          <span class="material-icons-round text-4xl text-primary">lock</span>
+        </div>
+        <h1
+          class="text-3xl font-bold text-slate-900 dark:text-white mb-2 leading-tight"
+        >
+          Welcome back
+        </h1>
+        <p class="text-slate-500 dark:text-slate-400">
+          Log in to access your HomeChain account
+        </p>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="space-y-5">
+        <!-- Error Message -->
+        <div
+          id="errorMessage"
+          class="hidden bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 px-4 py-3 rounded-lg text-sm"
+        ></div>
+
+        <!-- Email Input -->
+        <div>
+          <label
+            for="email"
+            class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+            >Email Address</label
+          >
+          <div class="relative">
+            <span
+              class="absolute left-4 top-1/2 -translate-y-1/2 material-icons-round text-slate-400 text-xl"
+              >email</span
+            >
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full pl-12 pr-4 py-3.5 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+              placeholder="you@example.com"
+            />
+          </div>
+        </div>
+
+        <!-- Password Input -->
+        <div>
+          <label
+            for="password"
+            class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+            >Password</label
+          >
+          <div class="relative">
+            <span
+              class="absolute left-4 top-1/2 -translate-y-1/2 material-icons-round text-slate-400 text-xl"
+              >lock</span
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              class="w-full pl-12 pr-12 py-3.5 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+              placeholder="••••••••"
+            />
+            <button
+              type="button"
+              onclick="togglePassword()"
+              class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+            >
+              <span id="toggleIcon" class="material-icons-round text-xl"
+                >visibility_off</span
+              >
+            </button>
+          </div>
+        </div>
+
+        <!-- Remember Me & Forgot Password -->
+        <div class="flex items-center justify-between">
+          <label class="flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              name="remember"
+              class="w-4 h-4 text-primary bg-white dark:bg-slate-800 border-slate-300 dark:border-slate-600 rounded focus:ring-primary focus:ring-2"
+            />
+            <span class="ml-2 text-sm text-slate-600 dark:text-slate-400"
+              >Remember me</span
+            >
+          </label>
+          <a
+            href="#"
+            class="text-sm text-primary hover:text-primary/80 font-medium transition-colors"
+            >Forgot password?</a
+          >
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-4 rounded-xl shadow-lg shadow-primary/30 transition-all flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
+          id="submitBtn"
+        >
+          <span id="buttonText">Log In</span>
+          <span
+            class="material-icons-round text-xl group-hover:translate-x-1 transition-transform"
+            id="buttonIcon"
+            >arrow_forward</span
+          >
+        </button>
+
+        <!-- Divider -->
+        <div class="relative my-6">
+          <div class="absolute inset-0 flex items-center">
+            <div
+              class="w-full border-t border-slate-200 dark:border-slate-700"
+            ></div>
+          </div>
+          <div class="relative flex justify-center text-sm">
+            <span
+              class="px-2 bg-background-light dark:bg-background-dark text-slate-500"
+              >Don't have an account?</span
+            >
+          </div>
+        </div>
+
+        <!-- Register Link -->
+        <a
+          href="/role-selection/"
+          class="block text-center text-primary hover:text-primary/80 font-medium transition-colors"
+        >
+          Create an account
+        </a>
+      </form>
+
+      <!-- Footer -->
+      <div
+        class="mt-8 flex items-center justify-center gap-1.5 text-xs text-slate-400 dark:text-slate-500"
+      >
+        <span class="material-icons-round text-sm">lock</span>
+        <span>Secure Login</span>
+      </div>
+    </div>
+
+    <!-- Decorative Elements (Subtle) -->
+    <div
+      class="fixed -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"
+    ></div>
+    <div
+      class="fixed -bottom-24 -left-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none"
+    ></div>
+
+    <script>
+      // Toggle password visibility
+      function togglePassword() {
+        const passwordInput = document.getElementById("password");
+        const toggleIcon = document.getElementById("toggleIcon");
+
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          toggleIcon.textContent = "visibility";
+        } else {
+          passwordInput.type = "password";
+          toggleIcon.textContent = "visibility_off";
+        }
+      }
+
+      // Handle form submission
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          const submitBtn = document.getElementById("submitBtn");
+          const buttonText = document.getElementById("buttonText");
+          const buttonIcon = document.getElementById("buttonIcon");
+          const errorMessage = document.getElementById("errorMessage");
+
+          // Hide error message
+          errorMessage.classList.add("hidden");
+
+          // Disable button and show loading state
+          submitBtn.disabled = true;
+          buttonText.textContent = "Logging in...";
+          buttonIcon.textContent = "hourglass_empty";
+
+          const formData = {
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value,
+          };
+
+          try {
+            const response = await fetch("/api/accounts/login/", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+              // Store tokens
+              localStorage.setItem("access_token", data.access);
+              localStorage.setItem("refresh_token", data.refresh);
+              localStorage.setItem("user", JSON.stringify(data.user));
+
+              // Show success
+              buttonText.textContent = "Success!";
+              buttonIcon.textContent = "check_circle";
+
+              // Redirect based on user type
+              setTimeout(() => {
+                if (data.user.user_type === "EMPLOYER") {
+                  window.location.href = "/employer-dashboard/";
+                } else if (data.user.user_type === "WORKER") {
+                  window.location.href = "/worker-dashboard";
+                } else {
+                  window.location.href = "/";
+                }
+              }, 500);
+            } else {
+              // Show error message
+              errorMessage.textContent =
+                data.error || "Invalid email or password. Please try again.";
+              errorMessage.classList.remove("hidden");
+
+              // Re-enable button
+              submitBtn.disabled = false;
+              buttonText.textContent = "Log In";
+              buttonIcon.textContent = "arrow_forward";
+            }
+          } catch (error) {
+            console.error("Login error:", error);
+            errorMessage.textContent =
+              "An error occurred. Please try again later.";
+            errorMessage.classList.remove("hidden");
+
+            // Re-enable button
+            submitBtn.disabled = false;
+            buttonText.textContent = "Log In";
+            buttonIcon.textContent = "arrow_forward";
+          }
+        });
+    </script>
+  </body>
+</html>

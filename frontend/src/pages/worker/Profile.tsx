@@ -16,8 +16,9 @@ export default function WorkerProfile() {
   const { user, fetchProfile } = useAuth();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
-    first_name: user?.first_name || '',
-    last_name: user?.last_name || '',
+    full_name: user?.full_name || user?.first_name || '',
+    first_name: user?.first_name || user?.full_name?.split(' ')[0] || '',
+    last_name: user?.last_name || user?.full_name?.split(' ').slice(1).join(' ') || '',
     phone: user?.phone || '',
     location: user?.location || '',
     bio: user?.bio || '',
@@ -41,11 +42,19 @@ export default function WorkerProfile() {
   const handleSave = async () => {
     setLoading(true);
     try {
-      await authService.updateProfile(formData);
+      // Use full_name if available, otherwise combine first_name and last_name
+      const updateData = {
+        ...formData,
+        full_name: formData.full_name || `${formData.first_name} ${formData.last_name}`.trim(),
+      };
+      // Remove first_name and last_name as backend expects full_name
+      delete (updateData as any).first_name;
+      delete (updateData as any).last_name;
+      await authService.updateProfile(updateData);
       await fetchProfile();
       toast.success('Profile updated successfully');
     } catch (err: any) {
-      toast.error(err.response?.data?.message || 'Failed to update profile');
+      toast.error(err.response?.data?.error || err.response?.data?.message || 'Failed to update profile');
     } finally {
       setLoading(false);
     }
@@ -62,25 +71,19 @@ export default function WorkerProfile() {
           <CardContent className="space-y-4">
             <div className="flex items-center gap-4 mb-4">
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary font-heading text-xl font-bold text-primary-foreground">
-                {user?.first_name?.[0]}{user?.last_name?.[0]}
+                {(user?.full_name || user?.first_name || 'U').split(' ').map((n: string) => n[0]).join('').substring(0, 2)}
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <p className="font-heading font-semibold">{user?.first_name} {user?.last_name}</p>
+                  <p className="font-heading font-semibold">{user?.full_name || `${user?.first_name || ''} ${user?.last_name || ''}`.trim() || 'User'}</p>
                   {user?.is_verified && <BadgeCheck className="h-4 w-4 text-success" />}
                 </div>
                 <p className="text-sm text-muted-foreground">Worker Account · {user?.is_verified ? 'Verified' : 'Unverified'}</p>
               </div>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="space-y-2">
-                <Label htmlFor="first_name">First Name</Label>
-                <Input id="first_name" value={formData.first_name} onChange={handleChange} />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="last_name">Last Name</Label>
-                <Input id="last_name" value={formData.last_name} onChange={handleChange} />
-              </div>
+            <div className="space-y-2">
+              <Label htmlFor="full_name">Full Name</Label>
+              <Input id="full_name" value={formData.full_name || `${formData.first_name} ${formData.last_name}`.trim()} onChange={(e) => setFormData(prev => ({ ...prev, full_name: e.target.value }))} />
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>

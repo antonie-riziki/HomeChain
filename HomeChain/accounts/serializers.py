@@ -2,8 +2,12 @@ from rest_framework import serializers
 from django.contrib.auth import authenticate
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.utils import timezone
+import logging
+import uuid
 from .models import User, Skill, WorkerSkill, WorkerDocument, VerificationRequest
 from .utils import create_stellar_account, validate_file_size, validate_file_extension
+
+logger = logging.getLogger(__name__)
 
 class UserSerializer(serializers.ModelSerializer):
     """Main User serializer"""
@@ -52,58 +56,129 @@ class RegisterSerializer(serializers.ModelSerializer):
             'full_name', 'phone', 'location', 'skills', 'hourly_rate',
             'experience_years', 'bio', 'company_name', 'company_registration'
         ]
+        extra_kwargs = {
+            'username': {'required': True},
+            'email': {'required': True},
+            'password': {'required': True, 'write_only': True},
+            'confirm_password': {'required': True, 'write_only': True},
+            'user_type': {'required': True},
+            'full_name': {'required': False},
+            'phone': {'required': False},
+            'location': {'required': False},
+            'skills': {'required': False},
+            'hourly_rate': {'required': False},
+            'experience_years': {'required': False},
+            'bio': {'required': False},
+            'company_name': {'required': False},
+            'company_registration': {'required': False},
+        }
     
     def validate(self, data):
         # Validate passwords match
-        if data['password'] != data['confirm_password']:
+        if data.get('password') != data.get('confirm_password'):
             raise serializers.ValidationError({
                 "password": "Passwords do not match."
             })
         
+        # Validate required fields
+        if not data.get('username'):
+            raise serializers.ValidationError({
+                "username": "Username is required."
+            })
+        if not data.get('email'):
+            raise serializers.ValidationError({
+                "email": "Email is required."
+            })
+        if not data.get('user_type'):
+            raise serializers.ValidationError({
+                "user_type": "User type is required."
+            })
+        if data.get('user_type') not in ['WORKER', 'EMPLOYER']:
+            raise serializers.ValidationError({
+                "user_type": "User type must be either WORKER or EMPLOYER."
+            })
+        
         # Optional worker field validation
-        if data['user_type'] == 'WORKER':
-            if data.get('hourly_rate') and float(data['hourly_rate']) <= 0:
-                raise serializers.ValidationError({
-                    "hourly_rate": "Hourly rate must be greater than 0."
-                })
+        if data.get('user_type') == 'WORKER':
+            hourly_rate = data.get('hourly_rate')
+            if hourly_rate:
+                try:
+                    rate = float(hourly_rate)
+                    if rate <= 0:
+                        raise serializers.ValidationError({
+                            "hourly_rate": "Hourly rate must be greater than 0."
+                        })
+                except (ValueError, TypeError):
+                    raise serializers.ValidationError({
+                        "hourly_rate": "Hourly rate must be a valid number."
+                    })
         
         return data
     
     def create(self, validated_data):
         # Remove confirm_password
-        validated_data.pop('confirm_password')
+        validated_data.pop('confirm_password', None)
         password = validated_data.pop('password')
         
+        # Ensure full_name is provided (use username as fallback)
+        if not validated_data.get('full_name'):
+            validated_data['full_name'] = validated_data.get('username', 'User')
+        
         # Create user
-        user = User.objects.create_user(
-            username=validated_data['username'],
-            email=validated_data['email'],
-            password=password,
-            user_type=validated_data['user_type'],
-            full_name=validated_data.get('full_name', ''),
-            phone=validated_data.get('phone', ''),
-            location=validated_data.get('location', ''),
-            bio=validated_data.get('bio', ''),
-        )
-        
-        # Set worker-specific fields
-        if user.user_type == 'WORKER':
-            # Create Stellar wallet
-            stellar_account = create_stellar_account()
-            user.stellar_public_key = stellar_account['public_key']
-            user.stellar_secret_key = stellar_account['secret_key']
-            user.skills = validated_data.get('skills', [])
-            user.hourly_rate = validated_data.get('hourly_rate')
-            user.experience_years = validated_data.get('experience_years', 0)
-            user.is_available = True
-        
-        # Set employer-specific fields
-        elif user.user_type == 'EMPLOYER':
-            user.company_name = validated_data.get('company_name', '')
-            user.company_registration = validated_data.get('company_registration', '')
-        
-        user.save()
-        return user
+        try:
+            user = User.objects.create_user(
+                username=validated_data['username'],
+                email=validated_data['email'],
+                password=password,
+                user_type=validated_data['user_type'],
+                full_name=validated_data.get('full_name', validated_data['username']),
+                phone=validated_data.get('phone', ''),
+                location=validated_data.get('location', ''),
+                bio=validated_data.get('bio', ''),
+            )
+            
+            # Set worker-specific fields
+            if user.user_type == 'WORKER':
+                # Create Stellar wallet
+                try:
+                    stellar_account = create_stellar_account()
+                    user.stellar_public_key = stellar_account['public_key']
+                    user.stellar_secret_key = stellar_account['secret_key']
+                except Exception as e:
+                    # Log but don't fail registration if Stellar fails
+                    logger.warning(f"Failed to create Stellar account: {str(e)}")
+                    # Set placeholder keys
+                    user.stellar_public_key = f'G{uuid.uuid4().hex[:55]}'
+                    user.stellar_secret_key = f'S{uuid.uuid4().hex[:55]}'
+                
+                user.skills = validated_data.get('skills', [])
+                if validated_data.get('hourly_rate'):
+                    try:
+                        user.hourly_rate = float(validated_data['hourly_rate'])
+                    except (ValueError, TypeError):
+                        pass  # Skip if invalid
+                user.experience_years = validated_data.get('experience_years', 0)
+                user.is_available = True
+            
+            # Set employer-specific fields
+            elif user.user_type == 'EMPLOYER':
+                user.company_name = validated_data.get('company_name', '')
+                user.company_registration = validated_data.get('company_registration', '')
+            
+            user.save()
+            return user
+        except Exception as e:
+            logger.error(f"Failed to create user: {str(e)}", exc_info=True)
+            # Check for common errors
+            error_msg = 'Failed to create user account.'
+            if 'username' in str(e).lower() or 'unique' in str(e).lower():
+                error_msg = 'Username already exists. Please choose another.'
+            elif 'email' in str(e).lower():
+                error_msg = 'Email already registered. Please use a different email.'
+            raise serializers.ValidationError({
+                'error': error_msg,
+                'detail': str(e)
+            })
 
 
 class LoginSerializer(serializers.Serializer):

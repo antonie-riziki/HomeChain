@@ -192,8 +192,11 @@
 </div>
 </div>
 <div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-600 dark:text-slate-400">
-<p>&copy; 2024 HomeChain. All rights reserved.</p>
+<p>&copy; <span id="copyright-year"></span> HomeChain. All rights reserved.</p>
 </div>
 </div>
 </footer>
+<script>
+document.getElementById('copyright-year').textContent = new Date().getFullYear();
+</script>
 </body></html>

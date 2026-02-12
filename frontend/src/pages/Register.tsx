@@ -4,7 +4,7 @@ import { useAuth } from '@/context/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Eye, EyeOff, Briefcase, Wrench, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Eye, EyeOff, Briefcase, Wrench, ArrowLeft, ArrowRight, Home } from 'lucide-react';
 import Navbar from '@/components/common/Navbar';
 
 type UserType = 'employer' | 'worker' | null;
@@ -26,19 +26,76 @@ export default function Register() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!userType) {
+      setError('Please select a user type.');
+      return;
+    }
     if (formData.password !== formData.confirm_password) {
       setError('Passwords do not match.');
+      return;
+    }
+    if (formData.password.length < 8) {
+      setError('Password must be at least 8 characters long.');
       return;
     }
     setError('');
     setLoading(true);
     try {
-      // Transform user_type to uppercase for backend
-      await register({ ...formData, user_type: userType?.toUpperCase() });
+      // Prepare registration data matching backend expectations
+      const registrationData: any = {
+        username: formData.username.trim(),
+        email: formData.email.trim().toLowerCase(),
+        password: formData.password,
+        confirm_password: formData.confirm_password,
+        user_type: userType.toUpperCase(), // Backend expects WORKER or EMPLOYER
+        full_name: formData.full_name.trim() || formData.username.trim(),
+        phone: formData.phone?.trim() || '',
+        location: formData.location?.trim() || '',
+      };
+
+      // Add role-specific fields
+      if (userType === 'worker') {
+        if (formData.hourly_rate) {
+          const rate = parseFloat(formData.hourly_rate);
+          if (!isNaN(rate) && rate > 0) {
+            registrationData.hourly_rate = rate;
+          }
+        }
+      } else if (userType === 'employer') {
+        if (formData.company_name?.trim()) {
+          registrationData.company_name = formData.company_name.trim();
+        }
+      }
+
+      console.log('Registering with data:', { ...registrationData, password: '***', confirm_password: '***' });
+      await register(registrationData);
       navigate(userType === 'employer' ? '/employer/dashboard' : '/worker/dashboard');
     } catch (err: any) {
       console.error('Registration error:', err);
-      const errorMessage = err?.response?.data?.message || err?.message || 'Registration failed. Please try again.';
+      // Extract error message from various possible formats
+      const errorData = err?.response?.data;
+      let errorMessage = 'Registration failed. Please try again.';
+      
+      if (errorData) {
+        if (errorData.message) {
+          errorMessage = errorData.message;
+        } else if (errorData.error) {
+          errorMessage = errorData.error;
+        } else if (typeof errorData === 'string') {
+          errorMessage = errorData;
+        } else {
+          // Try to get first error message from any field
+          const firstError = Object.values(errorData)[0];
+          if (Array.isArray(firstError) && firstError.length > 0) {
+            errorMessage = firstError[0];
+          } else if (typeof firstError === 'string') {
+            errorMessage = firstError;
+          }
+        }
+      } else if (err?.message) {
+        errorMessage = err.message;
+      }
+      
       setError(errorMessage);
     } finally {
       setLoading(false);
@@ -51,6 +108,12 @@ export default function Register() {
       <div className="flex items-center justify-center px-4 py-12">
         <div className="w-full max-w-lg">
           <div className="rounded-2xl border border-border bg-card p-8 shadow-card">
+            <div className="mb-6">
+              <Link to="/" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Home className="h-4 w-4" />
+                Back to Home
+              </Link>
+            </div>
             <div className="text-center mb-8">
               <h1 className="font-heading text-2xl font-bold">Create Your Account</h1>
               <p className="mt-1 text-sm text-muted-foreground">Step {step} of 3</p>
@@ -62,7 +125,12 @@ export default function Register() {
               </div>
             </div>
 
-            {error && <div className="mb-4 rounded-lg bg-destructive/10 px-4 py-3 text-sm text-destructive">{error}</div>}
+            {error && (
+              <div className="mb-4 rounded-lg bg-destructive/10 px-4 py-3 text-sm text-destructive">
+                <p className="font-semibold">Registration Error</p>
+                <p>{error}</p>
+              </div>
+            )}
 
             {/* Step 1: Choose Type */}
             {step === 1 && (

@@ -4,10 +4,13 @@ import { authService } from '@/services';
 interface User {
   id: string;
   email: string;
-  first_name: string;
-  last_name: string;
+  username: string;
+  full_name: string;
+  first_name?: string; // For compatibility
+  last_name?: string; // For compatibility
   user_type: 'worker' | 'employer';
   avatar?: string;
+  profile_picture?: string;
   is_verified?: boolean;
   phone?: string;
   location?: string;
@@ -41,12 +44,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         return;
       }
       const { data } = await authService.getProfile();
+      // Normalize user data - backend uses full_name, frontend may expect first_name/last_name
       const normalizedUser = {
         ...data,
-        user_type: (data.user_type || '').toLowerCase()
+        user_type: (data.user_type || '').toLowerCase(),
+        // Split full_name for compatibility if needed
+        first_name: data.full_name?.split(' ')[0] || '',
+        last_name: data.full_name?.split(' ').slice(1).join(' ') || '',
       };
       setUser(normalizedUser);
-    } catch {
+    } catch (error) {
+      console.error('Failed to fetch profile:', error);
       localStorage.removeItem('access_token');
       localStorage.removeItem('refresh_token');
     } finally {
@@ -59,10 +67,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [fetchProfile]);
 
   const login = async (email: string, password: string) => {
-    const { data } = await authService.login({ email, password });
-    localStorage.setItem('access_token', data.access);
-    localStorage.setItem('refresh_token', data.refresh);
-    await fetchProfile();
+    try {
+      const { data } = await authService.login({ email, password });
+      if (!data.access || !data.refresh) {
+        throw new Error('Invalid response from server - missing tokens');
+      }
+      localStorage.setItem('access_token', data.access);
+      localStorage.setItem('refresh_token', data.refresh);
+      await fetchProfile();
+    } catch (error: any) {
+      console.error('Login error:', error);
+      throw error;
+    }
   };
 
   const register = async (regData: Record<string, unknown>) => {

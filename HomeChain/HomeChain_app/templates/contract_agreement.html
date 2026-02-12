@@ -52,7 +52,7 @@
 <div class="h-12 w-full"></div>
 <!-- Header Navigation -->
 <nav class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-primary/10">
-<button class="w-10 h-10 flex items-center justify-start text-primary">
+<button onclick="history.back()" class="w-10 h-10 flex items-center justify-start text-primary">
 <span class="material-icons">arrow_back_ios</span>
 </button>
 <h1 class="text-lg font-semibold tracking-tight">Contract Details</h1>
@@ -197,8 +197,8 @@
 <!-- Bottom Action Area -->
 <div class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-t border-primary/10 p-4 pb-8 safe-area-bottom">
 <div class="max-w-md mx-auto">
-<button class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl ios-shadow transition-all active:scale-[0.98] flex items-center justify-center gap-2">
-<span>Confirm Completion</span>
+<button onclick="confirmCompletion()" id="complete-btn" class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl ios-shadow transition-all active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+<span id="complete-text">Confirm Completion</span>
 <span class="material-icons text-sm">verified</span>
 </button>
 <p class="text-center text-[10px] text-slate-400 mt-3 uppercase tracking-widest font-medium">
@@ -206,4 +206,62 @@
             </p>
 </div>
 </div>
+
+<script>
+    async function confirmCompletion() {
+        if (!confirm('Are you sure you want to confirm completion? This will release the escrowed funds to the worker.')) {
+            return;
+        }
+        
+        const completeBtn = document.getElementById('complete-btn');
+        const completeText = document.getElementById('complete-text');
+        const authToken = localStorage.getItem('access_token');
+        
+        if (!authToken) {
+            alert('Please log in to continue');
+            window.location.href = '/login/';
+            return;
+        }
+        
+        // Disable button
+        completeBtn.disabled = true;
+        completeText.textContent = 'Processing...';
+        
+        // In a real app, would get contract ID from URL or data attribute
+        const contractId = 1; // Placeholder
+        
+        try {
+            const response = await fetch(window.location.origin + `/api/contracts/contracts/${contractId}/complete/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${authToken}`
+                }
+            });
+            
+            if (response.ok) {
+                completeText.textContent = 'Completed!';
+                alert('Contract completed successfully! Funds have been released.');
+                setTimeout(() => {
+                    const user = JSON.parse(localStorage.getItem('user') || '{}');
+                    if (user.user_type === 'EMPLOYER') {
+                        window.location.href = '/employer-dashboard/';
+                    } else {
+                        window.location.href = '/worker-dashboard/';
+                    }
+                }, 1000);
+            } else {
+                const data = await response.json();
+                alert(data.error || 'Failed to complete contract. Please try again.');
+                completeBtn.disabled = false;
+                completeText.textContent = 'Confirm Completion';
+            }
+        } catch (error) {
+            console.error('Error completing contract:', error);
+            alert('An error occurred. Please try again.');
+            completeBtn.disabled = false;
+            completeText.textContent = 'Confirm Completion';
+        }
+    }
+</script>
 </body></html>
