@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-&05a)z93zqyb3)=_8+229jijplh8kx)z_im_8=7+bj8sv5@24e
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -45,8 +45,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',
+    'django_filters',
+    'weasyprint',
 
     'accounts',
+    'jobs',
+    'contracts',
+    'payments',
+    'ratings',
 
 
     'HomeChain_app',
@@ -163,7 +169,29 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
 }
 
+# CORS Configuration - Allow all origins in development
 CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
 
 AUTH_USER_MODEL = 'accounts.User'
 
