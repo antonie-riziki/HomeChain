@@ -1,4 +1,4 @@
-import { FileText, Loader2, Download, CheckCircle, Clock } from 'lucide-react';
+import { FileText, Loader2, Download, CheckCircle, Clock, AlertCircle } from 'lucide-react';
 import DashboardLayout from '@/components/common/DashboardLayout';
 import StatusBadge from '@/components/common/StatusBadge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -14,9 +14,13 @@ export default function ContractsPage() {
     const queryClient = useQueryClient();
     const isEmployer = user?.user_type === 'employer';
 
-    const { data: contracts, isLoading } = useQuery({
+    const { data: contracts, isLoading, error } = useQuery({
         queryKey: ['contracts'],
         queryFn: () => contractService.getContracts().then(res => res.data),
+        retry: 2,
+        onError: (err: any) => {
+            console.error('Failed to load contracts:', err);
+        },
     });
 
     const signMutation = useMutation({
@@ -35,6 +39,22 @@ export default function ContractsPage() {
             <DashboardLayout>
                 <div className="flex h-64 items-center justify-center">
                     <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                </div>
+            </DashboardLayout>
+        );
+    }
+
+    if (error) {
+        return (
+            <DashboardLayout>
+                <div className="py-12 text-center">
+                    <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-destructive/10">
+                        <FileText className="h-8 w-8 text-destructive" />
+                    </div>
+                    <h3 className="font-medium text-lg">Failed to load contracts</h3>
+                    <p className="text-muted-foreground mt-1">
+                        Please try refreshing the page.
+                    </p>
                 </div>
             </DashboardLayout>
         );
@@ -72,6 +92,12 @@ export default function ContractsPage() {
                                                     <Clock className="h-3 w-3" />
                                                     Started: {c.start_date ? format(new Date(c.start_date), 'MMM dd, yyyy') : 'TBD'}
                                                 </p>
+                                                {c.escrow_id && (
+                                                    <p className="text-xs text-muted-foreground flex items-center gap-1 mt-1">
+                                                        <span className="material-icons-round text-xs">verified_user</span>
+                                                        Escrow: {c.escrow_id.substring(0, 8)}...
+                                                    </p>
+                                                )}
                                             </div>
                                         </div>
                                         <div className="flex items-center gap-3 self-end sm:self-center">

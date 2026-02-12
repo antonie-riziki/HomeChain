@@ -3,6 +3,7 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
 <title>HomeChain Worker Dashboard</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
@@ -32,9 +33,45 @@
     }
   </style>
   </head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen pb-24">
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 min-h-screen pb-24 md:pb-0">
+<!-- Desktop Sidebar -->
+<aside class="hidden md:flex fixed left-0 top-0 h-full w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-col z-40">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-primary p-2 rounded-lg">
+<span class="material-icons text-white text-xl">home_work</span>
+</div>
+<span class="font-bold text-lg tracking-tight text-slate-800 dark:text-white">HomeChain</span>
+</div>
+<div class="flex items-center gap-3">
+<img alt="Worker Profile Picture" class="w-10 h-12 rounded-full border-2 border-primary object-cover" data-alt="Professional portrait of a friendly female domestic worker" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC08XuiIdZ-WTrtQ9DMg-05VB4cFtBLFxYQE2pKtSBOS1Yq-qw86cqZct4gm0RZYJ_h7cKjvsvDFN8nq7W-wm2l4U7msEP8fmqQd1h0MycdhyjL_jLObI9Rjz3r6emoHBaLhTG0DnsTHhGK5kjqjBUeSSHlHbXwZhELqUbgCF1VeOjhfy4KgTQBm77-ThcSxlFdfLvDX0cugMQslUcEKcuvchKEM7_NC1gISrVU_bhd6wOcBxnTM1k4kr5pnBMhceE0PQn3lY-sqD0"/>
+<div>
+<p class="text-xs text-slate-500 font-medium">Welcome back,</p>
+<h1 class="text-sm font-bold">Maria Santos</h1>
+</div>
+</div>
+</div>
+<nav class="flex-1 p-4 space-y-2">
+<a href="/worker-dashboard" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-medium">
+<span class="material-icons">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a href="/browse-jobs" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons">work</span>
+<span>Browse Jobs</span>
+</a>
+<a href="/wallet" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons">account_balance_wallet</span>
+<span>Wallet</span>
+</a>
+<a href="/contract/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons">description</span>
+<span>Contracts</span>
+</a>
+</nav>
+</aside>
 <!-- Header Section -->
-<header class="px-6 pt-8 pb-4 flex justify-between items-center">
+<header class="px-4 md:pl-72 md:pr-6 pt-6 md:pt-8 pb-4 flex justify-between items-center">
 <div class="flex items-center gap-3">
 <img alt="Worker Profile Picture" class="w-12 h-12 rounded-full border-2 border-primary object-cover" data-alt="Professional portrait of a friendly female domestic worker" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC08XuiIdZ-WTrtQ9DMg-05VB4cFtBLFxYQE2pKtSBOS1Yq-qw86cqZct4gm0RZYJ_h7cKjvsvDFN8nq7W-wm2l4U7msEP8fmqQd1h0MycdhyjL_jLObI9Rjz3r6emoHBaLhTG0DnsTHhGK5kjqjBUeSSHlHbXwZhELqUbgCF1VeOjhfy4KgTQBm77-ThcSxlFdfLvDX0cugMQslUcEKcuvchKEM7_NC1gISrVU_bhd6wOcBxnTM1k4kr5pnBMhceE0PQn3lY-sqD0"/>
 <div>
@@ -49,24 +86,24 @@
 <span class="absolute top-0 right-0 w-3 h-3 bg-red-500 border-2 border-background-light rounded-full"></span>
 </div>
 </header>
-<main class="px-6 space-y-6">
+<main class="px-4 md:pl-72 md:pr-6 py-6 space-y-6 max-w-7xl">
 <!-- Earnings Summary Card -->
-<section class="bg-primary rounded-xl p-5 text-white shadow-lg shadow-primary/20">
+<section class="bg-primary rounded-xl p-5 md:p-6 text-white shadow-lg shadow-primary/20">
 <div class="flex justify-between items-start mb-4">
 <div>
-<p class="text-white/80 text-sm font-light">Total Earned</p>
-<h2 class="text-3xl font-bold">$1,240.50</h2>
+<p class="text-white/80 text-sm md:text-base font-light">Total Earned</p>
+<h2 class="text-3xl md:text-4xl font-bold">$1,240.50</h2>
 </div>
-<span class="material-icons text-white/40">account_balance_wallet</span>
+<span class="material-icons text-white/40 text-4xl md:text-5xl">account_balance_wallet</span>
 </div>
-<div class="flex gap-4 border-t border-white/20 pt-4">
+<div class="flex gap-4 md:gap-8 border-t border-white/20 pt-4">
 <div class="flex-1">
-<p class="text-white/70 text-xs">Pending in Escrow</p>
-<p class="font-semibold">$320.00</p>
+<p class="text-white/70 text-xs md:text-sm">Pending in Escrow</p>
+<p class="font-semibold text-base md:text-lg escrow-balance">$0.00</p>
 </div>
-<div class="flex-1 border-l border-white/20 pl-4">
-<p class="text-white/70 text-xs">This Month</p>
-<p class="font-semibold">+$450.00</p>
+<div class="flex-1 border-l border-white/20 pl-4 md:pl-8">
+<p class="text-white/70 text-xs md:text-sm">This Month</p>
+<p class="font-semibold text-base md:text-lg monthly-earnings">+$0.00</p>
 </div>
 </div>
 </section>
@@ -100,10 +137,10 @@
 <!-- Jobs Near Me -->
 <section>
 <div class="flex justify-between items-center mb-4">
-<h3 class="text-lg font-bold">Jobs Near Me</h3>
-<button class="text-primary text-sm font-semibold">View All</button>
+<h3 class="text-lg md:text-xl font-bold">Jobs Near Me</h3>
+<a href="/browse-jobs" class="text-primary text-sm font-semibold hover:underline">View All</a>
 </div>
-<div class="space-y-4">
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:space-y-0 space-y-4 jobs-container">
 <!-- Job Card 1 -->
 <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
 <div class="flex justify-between items-start mb-3">
@@ -159,7 +196,7 @@
 <!-- My Applications -->
 <section>
 <h3 class="text-lg font-bold mb-4">My Applications</h3>
-<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-700 applications-container">
 <div class="p-4 flex items-center justify-between border-b border-slate-50 dark:border-slate-700">
 <div class="flex items-center gap-3">
 <div class="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center">
@@ -191,24 +228,24 @@
 </div>
 </section>
 </main>
-<!-- Bottom Navigation -->
-<nav class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-6 py-4 flex justify-between items-center z-50">
-<button class="flex flex-col items-center gap-1 text-primary">
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-6 py-4 flex justify-between items-center z-50">
+<a href="/worker-dashboard" class="flex flex-col items-center gap-1 text-primary">
 <span class="material-icons">home</span>
 <span class="text-[10px] font-medium">Home</span>
-</button>
-<button class="flex flex-col items-center gap-1 text-slate-400">
+</a>
+<a href="/browse-jobs" class="flex flex-col items-center gap-1 text-slate-400">
 <span class="material-icons">search</span>
 <span class="text-[10px] font-medium">Jobs</span>
-</button>
-<button class="flex flex-col items-center gap-1 text-slate-400">
-<span class="material-icons">chat_bubble_outline</span>
-<span class="text-[10px] font-medium">Chat</span>
-</button>
-<button class="flex flex-col items-center gap-1 text-slate-400">
+</a>
+<a href="/wallet" class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons">account_balance_wallet</span>
+<span class="text-[10px] font-medium">Wallet</span>
+</a>
+<a href="/contract/" class="flex flex-col items-center gap-1 text-slate-400">
 <span class="material-icons">person_outline</span>
 <span class="text-[10px] font-medium">Profile</span>
-</button>
+</a>
 </nav>
 <!-- Map View Preview (Floating) -->
 <div class="fixed bottom-24 right-6">
@@ -217,4 +254,126 @@
 <span class="text-xs font-bold">Map View</span>
 </button>
 </div>
+<script>
+// API Configuration
+const API_BASE_URL = window.location.origin + '/api';
+let authToken = localStorage.getItem('access_token');
+
+// Helper function to make API calls
+async function apiCall(endpoint, options = {}) {
+    const headers = {
+        'Content-Type': 'application/json',
+        ...options.headers
+    };
+    
+    if (authToken) {
+        headers['Authorization'] = `Bearer ${authToken}`;
+    }
+    
+    try {
+        const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+            ...options,
+            headers
+        });
+        
+        if (response.status === 401) {
+            window.location.href = '/login';
+            return null;
+        }
+        
+        if (!response.ok) {
+            throw new Error(`API error: ${response.status}`);
+        }
+        
+        return await response.json();
+    } catch (error) {
+        console.error('API call failed:', error);
+        return null;
+    }
+}
+
+// Load dashboard data
+async function loadDashboardData() {
+    // Load wallet data
+    const walletData = await apiCall('/payments/wallets/me/');
+    if (walletData) {
+        const totalEarned = walletData.total_earned || 0;
+        const escrowBalance = walletData.escrow_balance || 0;
+        const monthlyEarnings = walletData.monthly_earnings || 0;
+        
+        const totalEarnedEl = document.querySelector('.total-earned');
+        const escrowEl = document.querySelector('.escrow-balance');
+        const monthlyEl = document.querySelector('.monthly-earnings');
+        
+        if (totalEarnedEl) totalEarnedEl.textContent = `$${totalEarned.toFixed(2)}`;
+        if (escrowEl) escrowEl.textContent = `$${escrowBalance.toFixed(2)}`;
+        if (monthlyEl) monthlyEl.textContent = `+$${monthlyEarnings.toFixed(2)}`;
+    }
+    
+    // Load jobs
+    const jobsData = await apiCall('/jobs/jobs/browse/');
+    if (jobsData && jobsData.results) {
+        const jobsContainer = document.querySelector('.jobs-container');
+        if (jobsContainer && jobsData.results.length > 0) {
+            jobsContainer.innerHTML = jobsData.results.slice(0, 3).map(job => `
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <h4 class="font-bold text-slate-800 dark:text-white">${job.title || 'Job'}</h4>
+                            <div class="flex items-center gap-2 mt-1">
+                                <span class="text-xs text-slate-500 flex items-center gap-0.5">
+                                    <span class="material-icons text-[14px]">location_on</span>
+                                    ${job.location || 'Location'}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-primary font-bold">$${job.budget || job.hourly_rate_min || '0'}/hr</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-2 mb-4">
+                        ${(job.skills_required || []).slice(0, 2).map(skill => `
+                            <span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded text-[10px] text-slate-600 dark:text-slate-300">${skill}</span>
+                        `).join('')}
+                    </div>
+                    <a href="/browse-jobs" class="w-full bg-primary text-white py-2.5 rounded-lg font-semibold text-sm hover:opacity-90 active:scale-[0.98] transition-all block text-center">
+                        Apply Now
+                    </a>
+                </div>
+            `).join('');
+        }
+    }
+    
+    // Load applications
+    const applicationsData = await apiCall('/jobs/applications/');
+    if (applicationsData && applicationsData.results) {
+        const appsContainer = document.querySelector('.applications-container');
+        if (appsContainer && applicationsData.results.length > 0) {
+            appsContainer.innerHTML = applicationsData.results.slice(0, 2).map(app => `
+                <div class="p-4 flex items-center justify-between border-b border-slate-50 dark:border-slate-700">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center">
+                            <span class="material-icons text-blue-500">assignment</span>
+                        </div>
+                        <div>
+                            <p class="text-sm font-semibold">${app.job_title || 'Job'}</p>
+                            <p class="text-[10px] text-slate-400 uppercase tracking-wider">Applied ${new Date(app.created_at).toLocaleDateString()}</p>
+                        </div>
+                    </div>
+                    <span class="bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400 text-[10px] font-bold px-2 py-1 rounded-full">
+                        ${app.status || 'PENDING'}
+                    </span>
+                </div>
+            `).join('');
+        }
+    }
+}
+
+// Initialize on page load
+if (authToken) {
+    loadDashboardData();
+} else {
+    window.location.href = '/login';
+}
+</script>
 </body></html>

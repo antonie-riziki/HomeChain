@@ -67,6 +67,10 @@ class StellarEscrowClient:
             logger.error(f"Failed to create escrow account: {str(e)}")
             raise
     
+    def create_escrow(self, employer_secret, worker_public, amount, job_id, contract_id):
+        """Create a new escrow contract on Stellar (alias for create_escrow_contract)"""
+        return self.create_escrow_contract(employer_secret, worker_public, amount, job_id, contract_id)
+    
     def create_escrow_contract(self, employer_secret, worker_public, amount, job_id, contract_id):
         """Create a new escrow contract on Stellar"""
         try:
