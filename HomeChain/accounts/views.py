@@ -8,8 +8,12 @@ from django_filters.rest_framework import DjangoFilterBackend
 from django.db.models import Q, Avg
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
+from django.db import IntegrityError
+import logging
 from .models import User, Skill, WorkerSkill, WorkerDocument, VerificationRequest
 from .serializers import *
+
+logger = logging.getLogger(__name__)
 
 # ============ AUTH VIEWS ============
 
@@ -18,18 +22,54 @@ class RegisterView(APIView):
     permission_classes = [permissions.AllowAny]
     
     def post(self, request):
-        serializer = RegisterSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = serializer.save()
-        
-        # Generate JWT tokens
-        refresh = RefreshToken.for_user(user)
-        
-        return Response({
-            'refresh': str(refresh),
-            'access': str(refresh.access_token),
-            'user': UserSerializer(user).data
-        }, status=status.HTTP_201_CREATED)
+        try:
+            serializer = RegisterSerializer(data=request.data)
+            if not serializer.is_valid():
+                # Return validation errors in a user-friendly format
+                errors = {}
+                for field, error_list in serializer.errors.items():
+                    if isinstance(error_list, list):
+                        errors[field] = error_list[0] if error_list else 'Invalid value'
+                    else:
+                        errors[field] = str(error_list)
+                
+                return Response(
+                    {'error': 'Validation failed', 'errors': errors},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            user = serializer.save()
+            
+            # Generate JWT tokens
+            refresh = RefreshToken.for_user(user)
+            
+            return Response({
+                'refresh': str(refresh),
+                'access': str(refresh.access_token),
+                'user': UserSerializer(user).data
+            }, status=status.HTTP_201_CREATED)
+        except IntegrityError as e:
+            logger.error(f"Integrity error during registration: {str(e)}")
+            error_msg = 'Username or email already exists. Please try a different one.'
+            if 'username' in str(e).lower():
+                error_msg = 'Username already taken. Please choose another.'
+            elif 'email' in str(e).lower():
+                error_msg = 'Email already registered. Please use a different email or log in.'
+            return Response(
+                {'error': error_msg},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        except Exception as e:
+            logger.error(f"Registration error: {str(e)}", exc_info=True)
+            error_msg = 'Registration failed. Please check your input and try again.'
+            if hasattr(e, 'detail'):
+                error_msg = str(e.detail)
+            elif hasattr(e, 'message'):
+                error_msg = str(e.message)
+            return Response(
+                {'error': error_msg},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
 
 class LoginView(APIView):
@@ -37,9 +77,43 @@ class LoginView(APIView):
     permission_classes = [permissions.AllowAny]
     
     def post(self, request):
-        serializer = LoginSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        return Response(serializer.validated_data, status=status.HTTP_200_OK)
+        try:
+            email = request.data.get('email', '').strip()
+            password = request.data.get('password', '')
+            
+            if not email or not password:
+                return Response(
+                    {'error': 'Email and password are required.'},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            serializer = LoginSerializer(data={'email': email, 'password': password})
+            if not serializer.is_valid():
+                # Return validation errors
+                errors = {}
+                for field, error_list in serializer.errors.items():
+                    if isinstance(error_list, list):
+                        errors[field] = error_list[0] if error_list else 'Invalid value'
+                    else:
+                        errors[field] = str(error_list)
+                
+                return Response(
+                    {'error': 'Invalid credentials', 'errors': errors},
+                    status=status.HTTP_400_BAD_REQUEST
+                )
+            
+            return Response(serializer.validated_data, status=status.HTTP_200_OK)
+        except Exception as e:
+            logger.error(f"Login error: {str(e)}", exc_info=True)
+            error_msg = 'Unable to log in with provided credentials.'
+            if hasattr(e, 'detail'):
+                error_msg = str(e.detail)
+            elif hasattr(e, 'message'):
+                error_msg = str(e.message)
+            return Response(
+                {'error': error_msg},
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
 
 class LogoutView(APIView):

@@ -1,10 +1,11 @@
 
+<img width="547" height="299" alt="image" src="https://github.com/user-attachments/assets/22eea8c6-bcad-4cab-b989-bd726480e385" />
+
+
 # 🌍 HomeChain
-## Decentralized Domestic Work Platform on Stellar
+## Decentralized Domestic Work Platform on Stellar, Protecting Employers, Formalizing Informal Labor — On-Chain.
 
-> Empowering Domestic Workers. Protecting Employers. Formalizing Informal Labor — On-Chain.
 
----
 
 # 🚀 Contract Deployment (Stellar Testnet)
 
@@ -220,4 +221,5 @@ To formalize domestic work globally by:
 MIT License
 
 ---
+
 

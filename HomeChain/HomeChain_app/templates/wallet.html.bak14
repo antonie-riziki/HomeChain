@@ -93,13 +93,6 @@
 <span class="material-icons-round">phone_android</span>
 <span>Wallet</span>
 </a>
-            <!-- Logout Button -->
-            <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
-                <button onclick="handleLogout()" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
-                    <span class="material-icons-round">logout</span>
-                    <span>Logout</span>
-                </button>
-            </div>
 </nav>
 </aside>
 <!-- Header -->
@@ -107,7 +100,7 @@
 <h1 class="text-xl font-semibold tracking-tight">Wallet</h1>
 <button class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 flex items-center justify-center shadow-sm border border-slate-200 dark:border-slate-700">
 <span class="material-icons-round text-primary">support_agent</span>
-</a>
+</button>
 </header>
 <main class="px-4 md:pl-72 md:pr-8 pb-8 md:pb-12 space-y-6 max-w-7xl mx-auto">
 <!-- Balance Card -->
@@ -126,11 +119,11 @@
 <button class="w-full md:flex-1 bg-primary hover:bg-primary/90 text-white font-semibold py-4 rounded-lg flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
 <span class="material-icons-round">phone_android</span>
                     Withdraw to MPesa
-                </a>
+                </button>
 <button class="w-full md:flex-1 bg-primary/10 hover:bg-primary/20 text-primary font-semibold py-3 rounded-lg flex items-center justify-center gap-2 transition-all active:scale-[0.98]">
 <span class="material-icons-round text-sm">add</span>
                     Add Funds
-                </a>
+                </button>
 </div>
 <div class="pt-4 border-t border-slate-100 dark:border-slate-700 flex items-center justify-center gap-2">
 <span class="material-icons-round text-green-500 text-sm">verified_user</span>
@@ -160,7 +153,7 @@
 <div class="space-y-4">
 <div class="flex justify-between items-end">
 <h3 class="text-lg md:text-xl font-semibold tracking-tight">Recent Activity</h3>
-<button class="text-sm font-medium text-primary hover:opacity-80 transition-opacity">See All</a>
+<button class="text-sm font-medium text-primary hover:opacity-80 transition-opacity">See All</button>
 </div>
 <div class="space-y-3">
 <!-- Transaction Item 1 -->
@@ -231,35 +224,18 @@
 <button class="flex flex-col items-center gap-1 text-slate-400">
 <span class="material-icons-round">home</span>
 <span class="text-[10px] font-medium">Home</span>
-</a>
+</button>
 <button class="flex flex-col items-center gap-1 text-slate-400">
 <span class="material-icons-round">description</span>
 <span class="text-[10px] font-medium">Jobs</span>
-</a>
+</button>
 <button class="flex flex-col items-center gap-1 text-primary">
 <span class="material-icons-round">phone_android</span>
 <span class="text-[10px] font-medium">Wallet</span>
-</a>
+</button>
 <button class="flex flex-col items-center gap-1 text-slate-400">
 <span class="material-icons-round">person</span>
 <span class="text-[10px] font-medium">Profile</span>
-</a>
-            <!-- Logout Button -->
-            <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
-                <button onclick="handleLogout()" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
-                    <span class="material-icons-round">logout</span>
-                    <span>Logout</span>
-                </button>
-            </div>
+</button>
 </nav>
-<script>
-function handleLogout() {
-    // Clear authentication tokens
-    localStorage.removeItem("access_token");
-    localStorage.removeItem("refresh_token");
-    localStorage.removeItem("user");
-    // Redirect to login page
-    window.location.href = "/login/";
-}
-</script>
 </body></html>

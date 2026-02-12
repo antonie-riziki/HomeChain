@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map View - Find Workers Nearby</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1193d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        #map {
+            height: calc(100vh - 180px);
+            min-height: 400px;
+        }
+        .leaflet-popup-content-wrapper {
+            border-radius: 12px;
+            font-family: 'Lexend', sans-serif;
+        }
+        .leaflet-popup-content {
+            margin: 8px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100 pb-24 md:pb-0">
+<!-- Desktop Sidebar -->
+<aside class="hidden md:flex fixed left-0 top-0 h-full w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-col z-50">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-primary p-2 rounded-lg">
+<span class="material-icons-round text-white text-xl">home_work</span>
+</div>
+<span class="font-bold text-lg tracking-tight text-slate-800 dark:text-white">HomeChain</span>
+</div>
+<div class="flex items-center gap-3">
+<img alt="Worker Profile Picture" class="w-10 h-10 rounded-full border-2 border-primary object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC08XuiIdZ-WTrtQ9DMg-05VB4cFtBLFxYQE2pKtSBOS1Yq-qw86cqZct4gm0RZYJ_h7cKjvsvDFN8nq7W-wm2l4U7msEP8fmqQd1h0MycdhyjL_jLObI9Rjz3r6emoHBaLhTG0DnsTHhGK5kjqjBUeSSHlHbXwZhELqUbgCF1VeOjhfy4KgTQBm77-ThcSxlFdfLvDX0cugMQslUcEKcuvchKEM7_NC1gISrVU_bhd6wOcBxnTM1k4kr5pnBMhceE0PQn3lY-sqD0"/>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400">Welcome back,</p>
+<h1 class="font-bold text-sm leading-tight">Lucy Njeri</h1>
+</div>
+</div>
+</div>
+<nav class="flex-1 p-4 space-y-2">
+<a href="/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons-round">home</span>
+<span>Home</span>
+</a>
+<a href="/worker-dashboard/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons-round">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a href="/browse-jobs/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons-round">work</span>
+<span>Browse Jobs</span>
+            <a href="/learn/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-icons-round">school</span>
+                <span>Learn Skills</span>
+            </a>
+</a>
+            <a href="/learn/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-icons-round">school</span>
+<span>Find Workers</span>
+</a>
+<a href="/map-view/" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-medium">
+<span class="material-icons-round">map</span>
+<span>Map View</span>
+</a>
+<a href="/contract/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons-round">description</span>
+<span>Contracts</span>
+</a>
+<a href="/wallet/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons-round">account_balance_wallet</span>
+<span>Wallet</span>
+</a>
+            <!-- Logout Button -->
+            <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
+                <button onclick="handleLogout()" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
+                    <span class="material-icons-round">logout</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+</nav>
+</aside>
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 md:pl-72 md:pr-6 py-4 border-b border-primary/10">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <button onclick="history.back()" class="w-10 h-10 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary transition-colors">
+                    <span class="material-icons-round">arrow_back</span>
+                </a>
+                <div>
+                    <h1 class="font-bold text-xl md:text-2xl">Map View</h1>
+                    <p class="text-xs text-slate-500" id="location-status">Finding your location...</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-2">
+                <button onclick="centerOnLocation()" class="p-2 rounded-lg bg-white dark:bg-slate-800 shadow-sm border border-primary/10 hover:bg-primary hover:text-white transition-colors" title="Center on my location">
+                    <span class="material-icons-round">my_location</span>
+                </a>
+                <button onclick="toggleView()" class="p-2 rounded-lg bg-white dark:bg-slate-800 shadow-sm border border-primary/10 hover:bg-primary hover:text-white transition-colors" title="Switch to list view">
+                    <span class="material-icons-round">view_list</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Bar -->\n    <div class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 px-4 md:pl-72 md:pr-6 py-3">
+        <div class="max-w-7xl flex items-center justify-between gap-4 text-sm">
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-2">
+                    <span class="material-icons-round text-primary text-lg">person</span>
+                    <span><span id="worker-count" class="font-bold">0</span> workers nearby</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="material-icons-round text-green-500 text-lg">verified</span>
+                    <span><span id="verified-count" class="font-bold">0</span> verified</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <label for="radius-slider" class="flex items-center gap-2 text-sm">
+                    <span class="material-icons-round text-primary">swap_horiz</span>
+                    <span class="hidden sm:inline">Radius:</span>
+                    <span id="radius-value" class="font-bold text-primary">5</span>
+                    <span>km</span>
+                </label>
+                <input 
+                    type="range" 
+                    id="radius-slider" 
+                    min="1" 
+                    max="20" 
+                    value="5" 
+                    class="w-24 sm:w-32 h-2 bg-slate-200 dark:bg-slate-600 rounded-lg appearance-none cursor-pointer accent-primary"
+                    onchange="updateRadius(this.value)"
+                />
+            </div>
+        </div>
+    </div>
+
+    <!-- Map Container -->
+    <main class="relative">
+        <div id="map" class="w-full"></div>
+        
+        <!-- Loading Overlay -->
+        <div id="loading-overlay" class="absolute inset-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm flex items-center justify-center z-50">
+            <div class="text-center">
+                <div class="w-16 h-16 border-4 border-primary/20 border-t-primary rounded-full animate-spin mx-auto mb-4"></div>
+                <p class="text-lg font-semibold">Loading map...</p>
+                <p class="text-sm text-slate-500">Fetching your location</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation (Mobile) -->
+    <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-6 py-4 flex justify-between items-center z-50">
+        <a href="/worker-dashboard/" class="flex flex-col items-center gap-1 text-slate-400">
+            <span class="material-icons-round">home</span>
+            <span class="text-[10px] font-medium">Home</span>
+        </a>
+        <a href="/browse-jobs/" class="flex flex-col items-center gap-1 text-slate-400">
+            <span class="material-icons-round">search</span>
+            <span class="text-[10px] font-medium">Jobs</span>
+        </a>
+        <a href="/map-view/" class="flex flex-col items-center gap-1 text-primary">
+            <span class="material-icons-round">map</span>
+            <span class="text-[10px] font-medium">Map</span>
+        </a>
+        <a href="/wallet/" class="flex flex-col items-center gap-1 text-slate-400">
+            <span class="material-icons-round">account_balance_wallet</span>
+            <span class="text-[10px] font-medium">Wallet</span>
+        </a>
+            <!-- Logout Button -->
+            <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
+                <button onclick="handleLogout()" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
+                    <span class="material-icons-round">logout</span>
+                    <span>Logout</span>
+                </button>
+            </div>
+    </nav>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script>
+        let map;
+        let userMarker;
+        let radiusCircle;
+        let workerMarkers = [];
+        let userLocation = null;
+        let currentRadius = 5; // Default 5km
+
+        // Dummy workers data generator
+        function generateDummyWorkers(lat, lon, count = 15) {
+            const names = [
+                'Mary Wanjiku', 'John Kamau', 'Grace Akinyi', 'Peter Ochieng', 'Sarah Muthoni',
+                'David Kipchoge', 'Jane Njeri', 'Michael Otieno', 'Lucy Wambui', 'James Karanja',
+                'Faith Adhiambo', 'Joseph Mwangi', 'Catherine Chebet', 'Daniel Omondi', 'Rose Wairimu'
+            ];
+            
+            const skills = [
+                ['Housekeeping', 'Cooking'],
+                ['Childcare', 'Tutoring'],
+                ['Elder Care', 'Nursing'],
+                ['Gardening', 'Landscaping'],
+                ['Cooking', 'Meal Prep'],
+                ['Cleaning', 'Laundry'],
+                ['Babysitting', 'Childcare'],
+                ['Home Care', 'Companionship']
+            ];
+
+            const workers = [];
+            
+            for (let i = 0; i < count; i++) {
+                // Generate random location within ~5km radius
+                const offsetLat = (Math.random() - 0.5) * 0.05; // ~5km
+                const offsetLon = (Math.random() - 0.5) * 0.05;
+                
+                workers.push({
+                    id: i + 1,
+                    full_name: names[i % names.length],
+                    lat: lat + offsetLat,
+                    lon: lon + offsetLon,
+                    skills: skills[i % skills.length],
+                    hourly_rate: Math.floor(Math.random() * 300) + 200, // KShs 200-500
+                    rating: (Math.random() * 1.5 + 3.5).toFixed(1), // 3.5-5.0
+                    total_reviews: Math.floor(Math.random() * 50) + 5,
+                    is_verified: Math.random() > 0.3, // 70% verified
+                    available: Math.random() > 0.4, // 60% available
+                    distance: (Math.random() * 5).toFixed(1) // 0-5 km
+                });
+            }
+            
+            return workers;
+        }
+
+        // Initialize map
+        function initMap(lat, lon) {
+            map = L.map('map').setView([lat, lon], 13);
+
+            // Add tile layer
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 19
+            }).addTo(map);
+
+            // Add user location marker
+            const userIcon = L.divIcon({
+                html: '<div class="flex items-center justify-center w-10 h-10 bg-blue-500 rounded-full border-4 border-white shadow-lg"><span class="material-icons-round text-white text-sm">person_pin</span></div>',
+                className: 'user-marker',
+                iconSize: [40, 40],
+                iconAnchor: [20, 20]
+            });
+
+            userMarker = L.marker([lat, lon], { icon: userIcon })
+                .addTo(map)
+                .bindPopup('<div class="text-center p-2"><strong>You are here</strong></div>');
+
+            // Add radius circle
+            radiusCircle = L.circle([lat, lon], {
+                radius: currentRadius * 1000, // Convert km to meters
+                color: '#1193d4',
+                fillColor: '#1193d4',
+                fillOpacity: 0.1,
+                weight: 2,
+                dashArray: '5, 5'
+            }).addTo(map);
+
+            // Generate and add worker markers
+            const workers = generateDummyWorkers(lat, lon);
+            addWorkerMarkers(workers);
+
+            // Update counts
+            document.getElementById('worker-count').textContent = workers.length;
+            document.getElementById('verified-count').textContent = workers.filter(w => w.is_verified).length;
+
+            // Hide loading overlay
+            document.getElementById('loading-overlay').style.display = 'none';
+        }
+
+        // Add worker markers to map
+        function addWorkerMarkers(workers) {
+            workers.forEach(worker => {
+                const workerIcon = L.divIcon({
+                    html: `<div class="flex items-center justify-center w-8 h-8 rounded-full shadow-lg ${worker.available ? 'bg-green-500' : 'bg-gray-400'} border-2 border-white">
+                        <span class="material-icons-round text-white text-xs">${worker.is_verified ? 'verified' : 'person'}</span>
+                    </div>`,
+                    className: 'worker-marker',
+                    iconSize: [32, 32],
+                    iconAnchor: [16, 16]
+                });
+
+                const marker = L.marker([worker.lat, worker.lon], { icon: workerIcon })
+                    .addTo(map)
+                    .bindPopup(`
+                        <div class="p-3 min-w-[200px]">
+                            <div class="flex items-center gap-2 mb-2">
+                                <strong class="text-base">${worker.full_name}</strong>
+                                ${worker.is_verified ? '<span class="material-icons-round text-primary text-sm">verified</span>' : ''}
+                            </div>
+                            
+                            <div class="flex items-center gap-1 text-amber-400 mb-2">
+                                <span class="material-icons-round text-sm">star</span>
+                                <span class="font-bold text-slate-700">${worker.rating}</span>
+                                <span class="text-xs text-slate-400">(${worker.total_reviews})</span>
+                            </div>
+                            
+                            <div class="flex flex-wrap gap-1 mb-2">
+                                ${worker.skills.map(skill => `<span class="bg-primary/10 text-primary text-xs px-2 py-0.5 rounded">${skill}</span>`).join('')}
+                            </div>
+                            
+                            <div class="flex items-center justify-between pt-2 border-t border-slate-200">
+                                <div>
+                                    <p class="text-xs text-slate-500">Hourly Rate</p>
+                                    <p class="font-bold text-primary">KShs ${worker.hourly_rate.toLocaleString()}</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-xs text-slate-500">Distance</p>
+                                    <p class="font-semibold">${worker.distance} km</p>
+                                </div>
+                            </div>
+                            
+                            <button onclick="viewWorkerProfile(${worker.id})" class="w-full mt-3 bg-primary text-white py-2 rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors">
+                                View Profile
+                            </a>
+                            
+                            <div class="mt-2 flex items-center gap-1 text-xs ${worker.available ? 'text-green-600' : 'text-gray-500'}">
+                                <span class="material-icons-round text-xs">circle</span>
+                                <span>${worker.available ? 'Available now' : 'Busy'}</span>
+                            </div>
+                        </div>
+                    `);
+
+                workerMarkers.push(marker);
+            });
+        }
+
+        // Center map on user location
+        function centerOnLocation() {
+            if (userLocation && map) {
+                map.setView([userLocation.lat, userLocation.lon], 13);
+            }
+        }
+
+        // Toggle to list view
+        function toggleView() {
+            window.location.href = '/workers/';
+        }
+
+        // Update radius circle
+        function updateRadius(radius) {
+            currentRadius = parseFloat(radius);
+            document.getElementById('radius-value').textContent = currentRadius;
+            
+            if (radiusCircle && userLocation) {
+                radiusCircle.setRadius(currentRadius * 1000); // Convert km to meters
+            }
+        }
+
+        // View worker profile
+        function viewWorkerProfile(workerId) {
+            window.location.href = `/workers/${workerId}/`;
+        }
+
+        // Get user's current location
+        function getCurrentLocation() {
+            const locationStatus = document.getElementById('location-status');
+            
+            if ('geolocation' in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        
+                        userLocation = { lat, lon };
+                        
+                        // Update location status
+                        locationStatus.textContent = 'Current location';
+                        
+                        // Initialize map
+                        initMap(lat, lon);
+                    },
+                    (error) => {
+                        console.error('Geolocation error:', error);
+                        locationStatus.textContent = 'Using default location (Nairobi)';
+                        
+                        // Fallback to Nairobi, Kenya coordinates
+                        const defaultLat = -1.2864;
+                        const defaultLon = 36.8172;
+                        userLocation = { lat: defaultLat, lon: defaultLon };
+                        
+                        initMap(defaultLat, defaultLon);
+                    },
+                    {
+                        enableHighAccuracy: true,
+                        timeout: 10000,
+                        maximumAge: 0
+                    }
+                );
+            } else {
+                locationStatus.textContent = 'Using default location';
+                
+                // Fallback to Nairobi if geolocation not supported
+                const defaultLat = -1.2864;
+                const defaultLon = 36.8172;
+                userLocation = { lat: defaultLat, lon: defaultLon };
+                
+                initMap(defaultLat, defaultLon);
+            }
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', getCurrentLocation);
+    </script>
+<script>
+function handleLogout() {
+    // Clear authentication tokens
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("refresh_token");
+    localStorage.removeItem("user");
+    // Redirect to login page
+    window.location.href = "/login/";
+}
+</script>
+</body>
+</html>

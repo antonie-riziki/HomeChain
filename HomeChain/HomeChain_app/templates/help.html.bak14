@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - HomeChain</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1193d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100">
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                        <span class="material-icons-round text-white">home_work</span>
+                    </div>
+                    <span class="font-bold text-xl">HomeChain</span>
+                </a>
+                <a href="/" class="inline-flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
+                    <span class="material-icons-round text-lg">home</span>
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-6 py-16">
+        <div class="text-center mb-12">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-primary/10 dark:bg-primary/20 rounded-xl mb-4">
+                <span class="material-icons-round text-4xl text-primary">help</span>
+            </div>
+            <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-4">Help Center</h1>
+            <p class="text-xl text-slate-600 dark:text-slate-400">Find answers to common questions</p>
+        </div>
+
+        <div class="space-y-6">
+            <!-- Getting Started -->
+            <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-6 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                    <span class="material-icons-round text-primary">rocket_launch</span>
+                    Getting Started
+            <a href="/learn/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-icons-round">school</span>
+                <span>Learn Skills</span>
+            </a>
+                </h2>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="font-semibold text-slate-900 dark:text-white mb-2">How do I create an account?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">Click "Get Started" on the homepage, choose whether you're an employer or worker, and fill out the registration form. Your Stellar wallet will be created automatically.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-slate-900 dark:text-white mb-2">What is a Stellar wallet?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">A Stellar wallet is a blockchain account that allows you to send and receive payments securely. HomeChain creates one for you automatically when you register.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- For Employers -->
+            <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-6 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                    <span class="material-icons-round text-primary">business</span>
+                    For Employers
+                </h2>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="font-semibold text-slate-900 dark:text-white mb-2">How do I post a job?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">Navigate to your dashboard and click "Post a Job". Fill in the job details including title, description, skills required, and payment terms.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-slate-900 dark:text-white mb-2">How does escrow payment work?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">When you hire a worker, funds are held in a secure escrow smart contract. The payment is released to the worker only after you confirm the work is completed satisfactorily.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-slate-900 dark:text-white mb-2">What if I'm not satisfied with the work?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">You can dispute the contract before releasing payment. Our dispute resolution system will mediate to find a fair solution.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- For Workers -->
+            <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-6 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                    <span class="material-icons-round text-primary">work</span>
+                    For Workers
+                </h2>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="font-semibold text-slate-900 dark:text-white mb-2">How do I find jobs?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">Browse available jobs in the "Browse Jobs" section. You can filter by location, skills, and payment range to find opportunities that match your profile.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-slate-900 dark:text-white mb-2">When do I get paid?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">Payment is held in escrow and automatically released to your wallet when the employer confirms your work is complete. No more chasing payments!</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-slate-900 dark:text-white mb-2">How do I build my reputation?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">Complete jobs successfully and receive ratings from employers. Your verified work history and ratings build your profile credibility.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payments -->
+            <div class="bg-white dark:bg-slate-800/50 rounded-2xl p-6 shadow-sm">
+                <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                    <span class="material-icons-round text-primary">payments</span>
+                    Payments & Blockchain
+                </h2>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="font-semibold text-slate-900 dark:text-white mb-2">What currency is used?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">HomeChain uses Kenyan Shillings (KShs) for all transactions. Payments are processed through the Stellar blockchain for secure and transparent transfers.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-slate-900 dark:text-white mb-2">Are there transaction fees?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">Stellar blockchain fees are minimal (fractions of a cent). HomeChain charges a small platform fee on completed contracts.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-slate-900 dark:text-white mb-2">Is my payment secure?</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">Yes! Smart contracts on the blockchain ensure payments are secure and transparent. Funds cannot be moved without contract conditions being met.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Support -->
+            <div class="bg-gradient-to-r from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 rounded-2xl p-8 text-center">
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Still need help?</h2>
+                <p class="text-slate-600 dark:text-slate-400 mb-6">Our support team is here to assist you</p>
+                <a href="/contact" class="inline-flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-xl font-semibold transition-colors">
+                    <span class="material-icons-round">mail</span>
+                    Contact Support
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-700 mt-16">
+        <div class="max-w-7xl mx-auto px-6 py-8">
+            <div class="text-center text-sm text-slate-600 dark:text-slate-400">
+                <p>&copy; <span id="copyright-year"></span> HomeChain. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -84,13 +84,6 @@
 <span class="material-icons-round">account_balance_wallet</span>
 <span>Wallet</span>
 </a>
-            <!-- Logout Button -->
-            <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
-                <button onclick="handleLogout()" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
-                    <span class="material-icons-round">logout</span>
-                    <span>Logout</span>
-                </button>
-            </div>
 </nav>
 </aside>
 <!-- Header Section -->
@@ -117,7 +110,7 @@
 <p class="text-white/80 text-sm md:text-base font-light">Total Earned</p>
 <h2 class="text-3xl md:text-4xl font-bold">KShs 124,050</h2>
 </div>
-<span class="material-icons-round text-white/40 text-4xl md:text-5xl" aria-label="wallet">account_balance_wallet</span>
+<span class="material-icons text-white/40 text-4xl md:text-5xl" aria-label="wallet"></span>
 </div>
 <div class="flex gap-4 md:gap-8 border-t border-white/20 pt-4">
 <div class="flex-1">
@@ -188,7 +181,7 @@
 </div>
 <button onclick="window.location.href='/browse-jobs'" class="w-full bg-primary text-white py-2.5 rounded-lg font-semibold text-sm hover:opacity-90 active:scale-[0.98] transition-all">
                         Apply Now
-                    </a>
+                    </button>
 </div>
 <!-- Job Card 2 -->
 <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
@@ -212,7 +205,7 @@
 </div>
 <button onclick="window.location.href='/browse-jobs'" class="w-full bg-primary/10 text-primary py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/20 transition-all">
                         View Details
-                    </a>
+                    </button>
 </div>
             <!-- Job Card 3 -->
             <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700">
@@ -236,7 +229,7 @@
                 </div>
                 <button onclick="window.location.href='/browse-jobs'" class="w-full bg-primary text-white py-2.5 rounded-lg font-semibold text-sm hover:opacity-90 active:scale-[0.98] transition-all">
                     Apply Now
-                </a>
+                </button>
             </div>
 </div>
 </section>
@@ -293,20 +286,13 @@
 <span class="material-icons-round">person_outline</span>
 <span class="text-[10px] font-medium">Profile</span>
 </a>
-            <!-- Logout Button -->
-            <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
-                <button onclick="handleLogout()" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
-                    <span class="material-icons-round">logout</span>
-                    <span>Logout</span>
-                </button>
-            </div>
 </nav>
 <!-- Map View Preview (Floating) -->
 <div class="fixed bottom-24 right-6">
 <button onclick="window.location.href='/map-view/'" class="bg-slate-900 text-white flex items-center gap-2 px-4 py-3 rounded-full shadow-xl hover:scale-105 active:scale-95 transition-all">
-<span class="material-icons-round text-sm">map</span>
+<span class="material-icons text-sm">map</span>
 <span class="text-xs font-bold">Map View</span>
-</a>
+</button>
 </div>
 <script>
 // API Configuration
@@ -428,16 +414,6 @@ if (authToken) {
     loadDashboardData();
 } else {
     window.location.href = '/login';
-}
-</script>
-<script>
-function handleLogout() {
-    // Clear authentication tokens
-    localStorage.removeItem("access_token");
-    localStorage.removeItem("refresh_token");
-    localStorage.removeItem("user");
-    // Redirect to login page
-    window.location.href = "/login/";
 }
 </script>
 </body></html>

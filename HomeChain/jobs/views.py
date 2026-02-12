@@ -375,9 +375,22 @@ class JobApplicationViewSet(viewsets.ModelViewSet):
     def get_permissions(self):
         if self.action in ['update', 'partial_update', 'destroy']:
             permission_classes = [permissions.IsAuthenticated, IsJobOwner]
+        elif self.action == 'create':
+            permission_classes = [permissions.IsAuthenticated, IsWorker]
         else:
             permission_classes = [permissions.IsAuthenticated]
         return [permission() for permission in permission_classes]
+    
+    def create(self, request, *args, **kwargs):
+        """Create job application - workers only"""
+        # Additional validation
+        if request.user.user_type != 'WORKER':
+            return Response(
+                {'error': 'Only workers can submit job applications'},
+                status=status.HTTP_403_FORBIDDEN
+            )
+        
+        return super().create(request, *args, **kwargs)
     
     @action(detail=True, methods=['post'])
     def withdraw(self, request, pk=None):
