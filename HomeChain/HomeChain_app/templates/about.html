@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - HomeChain</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1193d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-800 dark:text-slate-100">
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/" class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                        <span class="material-icons-round text-white">home_work</span>
+                    </div>
+                    <span class="font-bold text-xl">HomeChain</span>
+                </a>
+                <a href="/" class="inline-flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 hover:text-primary transition-colors">
+                    <span class="material-icons-round text-lg">home</span>
+                    Back to Home
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-6 py-16">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-4">About HomeChain</h1>
+            <p class="text-xl text-slate-600 dark:text-slate-400">Decentralizing Domestic Work</p>
+        </div>
+
+        <div class="space-y-12">
+            <!-- Overview -->
+            <section class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-sm">
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Our Mission</h2>
+                <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    HomeChain is a decentralized platform connecting domestic workers (nannies, housekeepers, caregivers, etc.) with employers through a secure, transparent, and intelligent system. We combine off-chain job discovery with on-chain smart contract agreements to ensure fair treatment and secure payments for all parties.
+                </p>
+            </section>
+
+            <!-- Problem -->
+            <section class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-sm">
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">The Problem We Solve</h2>
+                <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+                    Daily domestic workers rely heavily on word-of-mouth referrals, informal networks, and physical "tarmacking" to find opportunities. This results in:
+                </p>
+                <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+                    <li class="flex items-start gap-2">
+                        <span class="material-icons-round text-primary mt-1">check_circle</span>
+                        <span>Job insecurity and inconsistent income</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="material-icons-round text-primary mt-1">check_circle</span>
+                        <span>Wage exploitation and lack of payment protection</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="material-icons-round text-primary mt-1">check_circle</span>
+                        <span>No verified work history or career growth opportunities</span>
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="material-icons-round text-primary mt-1">check_circle</span>
+                        <span>Safety risks for both workers and employers</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Solution -->
+            <section class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-sm">
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Our Solution</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-primary/10 dark:bg-primary/20 rounded-lg flex items-center justify-center">
+                                <span class="material-icons-round text-primary">work</span>
+                            </div>
+                            <h3 class="font-semibold text-slate-900 dark:text-white">Job Marketplace</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">Employers post detailed job opportunities and workers can browse and apply</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-primary/10 dark:bg-primary/20 rounded-lg flex items-center justify-center">
+                                <span class="material-icons-round text-primary">verified</span>
+                            </div>
+                            <h3 class="font-semibold text-slate-900 dark:text-white">Smart Contracts</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">On-chain agreements ensure transparency and payment security</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-primary/10 dark:bg-primary/20 rounded-lg flex items-center justify-center">
+                                <span class="material-icons-round text-primary">account_balance_wallet</span>
+                            </div>
+                            <h3 class="font-semibold text-slate-900 dark:text-white">Escrow Payments</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">Secure payments held in escrow until work is completed and verified</p>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-primary/10 dark:bg-primary/20 rounded-lg flex items-center justify-center">
+                                <span class="material-icons-round text-primary">stars</span>
+                            </div>
+                            <h3 class="font-semibold text-slate-900 dark:text-white">Rating System</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">Build reputation through verified ratings and work history</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technology -->
+            <section class="bg-white dark:bg-slate-800/50 rounded-2xl p-8 shadow-sm">
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-4">Built on Stellar Blockchain</h2>
+                <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                    HomeChain leverages the Stellar blockchain for fast, low-cost transactions and smart contract functionality through Soroban. Our platform integrates blockchain technology seamlessly, providing the benefits of decentralization without compromising user experience.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-700 mt-16">
+        <div class="max-w-7xl mx-auto px-6 py-8">
+            <div class="text-center text-sm text-slate-600 dark:text-slate-400">
+                <p>&copy; <span id="copyright-year"></span> HomeChain. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('copyright-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
