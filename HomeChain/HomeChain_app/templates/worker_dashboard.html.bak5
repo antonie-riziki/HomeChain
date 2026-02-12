@@ -64,10 +64,6 @@
 <span class="material-icons-round">work</span>
 <span>Browse Jobs</span>
 </a>
-            <a href="/learn/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                <span class="material-icons-round">school</span>
-                <span>Learn Skills</span>
-            </a>
 <a href="/workers/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
 <span class="material-icons-round">group</span>
 <span>Find Workers</span>

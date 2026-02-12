@@ -75,10 +75,6 @@
 <span class="material-icons-round">work</span>
 <span>Browse Jobs</span>
 </a>
-            <a href="/learn/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                <span class="material-icons-round">school</span>
-                <span>Learn Skills</span>
-            </a>
 <a href="/workers/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
 <span class="material-icons-round">group</span>
 <span>Find Workers</span>
@@ -105,7 +101,7 @@
 </div>
 <div class="md:hidden">
 <p class="text-xs text-slate-500 dark:text-slate-400">Welcome back,</p>
-<h1 class="font-bold text-lg leading-tight">James Mwangi</h1>
+<h1 class="font-bold text-lg leading-tight">Alex Rivera</h1>
 </div>
 <div class="hidden md:block">
 <h1 class="font-bold text-xl leading-tight">Dashboard</h1>
@@ -164,7 +160,7 @@
 <img alt="Worker" class="w-full h-full object-cover" data-alt="Female domestic worker profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqENRvx5LkOsOkyRCWKK68g1fX8PeKDWGBojMDhh1Xvr92drVvkeGQhducYO-kyY_r7ifnn952NS5-iwzG7F6ax4P6g_JMX1drriz0St_YgNLx-1Eny0gTgh9Qe0RZQsRY7N13vcZ0YColhB-L11C_dAnh5w6Wz8Y3J9w4niOP8eNPyVu7CXsyLp7a_302Oh8u1fchUkpAFUB9BF4VtDnwmWmDe0Fwu1S3lWLe2-wrLpOKiPXyu9xDTSkGD2PvQ2epUZaEGSJMGJc"/>
 </div>
 <div class="flex-1">
-<h3 class="font-semibold text-sm">Grace Wanjiru</h3>
+<h3 class="font-semibold text-sm">Elena Rodriguez</h3>
 <p class="text-xs text-slate-500">Full-time Nanny</p>
 </div>
 <div class="flex flex-col items-end gap-1">
@@ -178,7 +174,7 @@
 <img alt="Worker" class="w-full h-full object-cover" data-alt="Male groundskeeper profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq-eXWvsw78JRehP3UET2uuNqATlCCZVfjMcxaYlemLYOokGYwv8GCnOxjsEUNDVHU1n1TuREscGmZ-JGBaqQV0bJz5lZA8Z5BaULEXrE5GaPudCJIx7bmNrMjFRso82BfPzja7hdraxm9a2kgbhDLG5kjUfTyLfMccigzlrWrFh8pToeNQ-pUexUF0g13oYJG3SrpadTJD3n4px7x0sSv6n7QrgXViq6xxzKszpS7_rBldnvfpx3R0Q-8UmAhn4yhFlrXxvBhJ6w"/>
 </div>
 <div class="flex-1">
-<h3 class="font-semibold text-sm">Peter Ochieng</h3>
+<h3 class="font-semibold text-sm">Marcus Chen</h3>
 <p class="text-xs text-slate-500">Gardening / Weekly</p>
 </div>
 <div class="flex flex-col items-end gap-1">
@@ -201,13 +197,13 @@
 <img alt="Applicant" class="w-16 h-16 rounded-full object-cover mb-3" data-alt="Female applicant profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8bf-NiZgfpP6QEeiWVi0-oNqpIHAln94YWRt8aVFgarWPrL94hTqIgg8lDv9OX9ckE69qz00kXcsOPtAHs6yvFdGsIq7GEML66d6yDaXjtGeKnqoi_47d7fShwEshjawaDLQGVxgStJnO4mU5qRMDEpm9qK1Zaj-el7FEUMlzRSMh9vTLBNef1viS3nWMmw32BmG5qk4aL0NAeqTK6gdfrSWT2T7TGkzi_cjhGbMjn754ZsxsLL8J7rIDlAoSUUfQtD0mt3H4Pso"/>
 <div class="absolute bottom-3 right-0 w-4 h-4 bg-green-500 border-2 border-white dark:border-slate-800 rounded-full"></div>
 </div>
-<h3 class="font-semibold text-sm">Faith K.</h3>
+<h3 class="font-semibold text-sm">Sofia L.</h3>
 <div class="flex items-center gap-1 text-primary mb-2">
 <span class="material-icons-round text-xs">star</span>
 <span class="text-xs font-bold">4.9</span>
 <span class="text-[10px] text-slate-400">(42)</span>
 </div>
-<button onclick="window.location.href='/workers/' class="w-full py-2 bg-primary/10 text-primary text-xs font-bold rounded-lg hover:bg-primary hover:text-white transition-colors">
+<button class="w-full py-2 bg-primary/10 text-primary text-xs font-bold rounded-lg hover:bg-primary hover:text-white transition-colors">
                         View Profile
                     </button>
 </div>
@@ -216,13 +212,13 @@
 <div class="relative">
 <img alt="Applicant" class="w-16 h-16 rounded-full object-cover mb-3" data-alt="Male applicant profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqHd3BvtD1mmVHTW6NVfwRyDinh_o4c985OjYj1OBb7JVyoWZGmv76NjxPuHr0vjRk11eHYXFXECB1yBeM6TnbJFf1ILPxbVAsztai5_KRoYgWCrOPPqtVazcAre10gVoRtEWzLXdS8n68ANMZkZ6tr26NBQudM3tfe0B98OBhKz2Gn8qJjAupAyMTw7SI0N0086jGJJnmDMHPskjN7aJ56663BmcNPbe_UXbAZNRo4bMXkyMe098dHVugVcVl2K1v-whP1kr0480"/>
 </div>
-<h3 class="font-semibold text-sm">Daniel M.</h3>
+<h3 class="font-semibold text-sm">Jordan K.</h3>
 <div class="flex items-center gap-1 text-primary mb-2">
 <span class="material-icons-round text-xs">star</span>
 <span class="text-xs font-bold">4.8</span>
 <span class="text-[10px] text-slate-400">(15)</span>
 </div>
-<button onclick="window.location.href='/workers/' class="w-full py-2 bg-primary/10 text-primary text-xs font-bold rounded-lg hover:bg-primary hover:text-white transition-colors">
+<button class="w-full py-2 bg-primary/10 text-primary text-xs font-bold rounded-lg hover:bg-primary hover:text-white transition-colors">
                         View Profile
                     </button>
 </div>
@@ -231,13 +227,13 @@
 <div class="relative">
 <img alt="Applicant" class="w-16 h-16 rounded-full object-cover mb-3" data-alt="Female applicant profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByUV_m0xs_Y3Izyo5V3zkjy2ICHUZOVmKrW07aI-r6FLzDnMZ3RjiENFLroiEhq_jT5tjiSi4kWWMnnsl47hjCuFiPsWiOnDHyPfv93HsDpG3Nn4J8BzkugZ_DDTJRxEDLBGRa0OfNxP4SZe4vttYBfBCoCFtt-P8CF_YIA6Ni7CtWdiF5NzROtNQeEEOM11dE8GMKSYBIPes77YJhAsjZRGT-IGUfiag764gc4vsOcPmOwhxhfGP4AVgwToFmTqohAKLPPul0XbE"/>
 </div>
-<h3 class="font-semibold text-sm">Mary N.</h3>
+<h3 class="font-semibold text-sm">Amara O.</h3>
 <div class="flex items-center gap-1 text-primary mb-2">
 <span class="material-icons-round text-xs">star</span>
 <span class="text-xs font-bold">5.0</span>
 <span class="text-[10px] text-slate-400">(8)</span>
 </div>
-<button onclick="window.location.href='/workers/' class="w-full py-2 bg-primary/10 text-primary text-xs font-bold rounded-lg hover:bg-primary hover:text-white transition-colors">
+<button class="w-full py-2 bg-primary/10 text-primary text-xs font-bold rounded-lg hover:bg-primary hover:text-white transition-colors">
                         View Profile
                     </button>
 </div>

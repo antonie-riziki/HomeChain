@@ -16,9 +16,11 @@ urlpatterns = [
     path('resolution/', views.resolution, name='resolution'),
     path('wallet/', views.wallet, name='wallet'),
     path('worker-dashboard/', views.worker_dashboard, name='worker-dashboard'),
+    path('map-view/', views.map_view, name='map-view'),
     path('about/', views.about, name='about'),
     path('help/', views.help_center, name='help'),
     path('contact/', views.contact, name='contact'),
+    path('learn/', views.learn_skills, name='learn-skills'),
 
 
 ]

@@ -64,10 +64,6 @@
 <span class="material-icons-round">work</span>
 <span>Browse Jobs</span>
 </a>
-            <a href="/learn/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                <span class="material-icons-round">school</span>
-                <span>Learn Skills</span>
-            </a>
 <a href="/workers/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
 <span class="material-icons-round">group</span>
 <span>Find Workers</span>
@@ -179,7 +175,7 @@
 <span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded text-[10px] text-slate-600 dark:text-slate-300">Elder Care</span>
 <span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded text-[10px] text-slate-600 dark:text-slate-300">Immediate Start</span>
 </div>
-<button onclick="window.location.href='/browse-jobs'" class="w-full bg-primary text-white py-2.5 rounded-lg font-semibold text-sm hover:opacity-90 active:scale-[0.98] transition-all">
+<button class="w-full bg-primary text-white py-2.5 rounded-lg font-semibold text-sm hover:opacity-90 active:scale-[0.98] transition-all">
                         Apply Now
                     </button>
 </div>
@@ -203,7 +199,7 @@
 <span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded text-[10px] text-slate-600 dark:text-slate-300">Flexible</span>
 <span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded text-[10px] text-slate-600 dark:text-slate-300">Part-time</span>
 </div>
-<button onclick="window.location.href='/browse-jobs'" class="w-full bg-primary/10 text-primary py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/20 transition-all">
+<button class="w-full bg-primary/10 text-primary py-2.5 rounded-lg font-semibold text-sm hover:bg-primary/20 transition-all">
                         View Details
                     </button>
 </div>

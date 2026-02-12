@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Learn Skills - HomeChain</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1193d4",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            -webkit-tap-highlight-color: transparent;
+        }
+        .skill-card {
+            transition: all 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-4px);
+        }
+        .skill-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        .skill-content.expanded {
+            max-height: 2000px;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100">
+<!-- Desktop Sidebar -->
+<aside class="hidden md:block fixed top-0 left-0 h-screen w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 overflow-y-auto">
+<div class="p-6">
+<div class="flex items-center gap-2 mb-8">
+<div class="bg-primary p-1.5 rounded-lg">
+<span class="material-icons-round text-white text-xl">home_work</span>
+</div>
+<span class="font-bold text-lg tracking-tight text-slate-800 dark:text-white">HomeChain</span>
+</div>
+<nav class="space-y-1">
+<a href="/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons-round">home</span>
+<span>Home</span>
+</a>
+<a href="/worker-dashboard/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons-round">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a href="/browse-jobs/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons-round">work</span>
+<span>Browse Jobs</span>
+</a>
+<a href="/learn/" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-medium">
+<span class="material-icons-round">school</span>
+<span>Learn Skills</span>
+</a>
+<a href="/workers/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons-round">group</span>
+<span>Find Workers</span>
+</a>
+<a href="/map-view/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons-round">map</span>
+<span>Map View</span>
+</a>
+<a href="/contract/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons-round">description</span>
+<span>Contracts</span>
+</a>
+<a href="/wallet/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons-round">account_balance_wallet</span>
+<span>Wallet</span>
+</a>
+</nav>
+</div>
+</aside>
+
+<!-- Main Content -->
+<main class="md:pl-72 min-h-screen">
+<!-- Header -->
+<header class="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-4 md:px-6 lg:px-8 py-4 border-b border-primary/10">
+<div class="flex justify-between items-center">
+<div>
+<h1 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">Skills Training</h1>
+<p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Advance your career as a domestic worker</p>
+</div>
+<button class="md:hidden p-2 rounded-lg bg-slate-100 dark:bg-slate-800">
+<span class="material-icons-round">menu</span>
+</button>
+</div>
+</header>
+
+<!-- Hero Section -->
+<section class="bg-gradient-to-r from-primary/10 to-primary/5 dark:from-primary/20 dark:to-primary/10 px-4 md:px-6 lg:px-8 py-8 md:py-12">
+<div class="max-w-4xl mx-auto text-center">
+<div class="inline-flex items-center gap-2 bg-primary/20 px-4 py-2 rounded-full mb-4">
+<span class="material-icons-round text-primary text-sm">workspace_premium</span>
+<span class="text-xs font-bold text-primary uppercase tracking-wider">Professional Development</span>
+</div>
+<h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">Master Essential Skills for Success</h2>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                    Learn professional skills that will help you excel in your career, earn more, and provide exceptional service to your employers.
+                </p>
+</div>
+</section>
+
+<!-- Skills Grid -->
+<section class="px-4 md:px-6 lg:px-8 py-8 md:py-12">
+<div class="max-w-6xl mx-auto">
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+<!-- Skill 1: Professional Housekeeping -->
+<div class="skill-card bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-primary/5 cursor-pointer" onclick="toggleSkill(1)">
+<div class="flex items-start justify-between mb-4">
+<div class="bg-primary/10 p-3 rounded-lg">
+<span class="material-icons-round text-primary text-3xl">cleaning_services</span>
+</div>
+<span class="material-icons-round text-slate-400 transform transition-transform" id="icon-1">expand_more</span>
+</div>
+<h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Professional Housekeeping</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Master cleaning techniques and home organization</p>
+                        
+<div class="skill-content" id="content-1">
+<div class="border-t border-slate-200 dark:border-slate-700 pt-4 mt-2">
+<h4 class="font-semibold text-sm mb-3 text-primary">What You'll Learn:</h4>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Deep cleaning techniques for different surfaces</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Organizing and decluttering methods</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Laundry care: washing, ironing, and fabric maintenance</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Eco-friendly cleaning products and methods</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Time management and creating cleaning schedules</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Safe handling of cleaning equipment and chemicals</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Skill 2: Cooking & Meal Preparation -->
+<div class="skill-card bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-primary/5 cursor-pointer" onclick="toggleSkill(2)">
+<div class="flex items-start justify-between mb-4">
+<div class="bg-primary/10 p-3 rounded-lg">
+<span class="material-icons-round text-primary text-3xl">restaurant</span>
+</div>
+<span class="material-icons-round text-slate-400 transform transition-transform" id="icon-2">expand_more</span>
+</div>
+<h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Cooking & Meal Preparation</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Learn nutritious cooking and Kenyan cuisine</p>
+                        
+<div class="skill-content" id="content-2">
+<div class="border-t border-slate-200 dark:border-slate-700 pt-4 mt-2">
+<h4 class="font-semibold text-sm mb-3 text-primary">What You'll Learn:</h4>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Traditional Kenyan dishes: Ugali, Githeri, Nyama Choma</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>International cuisine basics</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Nutrition and balanced meal planning</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Food safety and hygiene standards</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Special dietary requirements (vegetarian, diabetic, allergies)</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Kitchen organization and inventory management</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Skill 3: Childcare & Safety -->
+<div class="skill-card bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-primary/5 cursor-pointer" onclick="toggleSkill(3)">
+<div class="flex items-start justify-between mb-4">
+<div class="bg-primary/10 p-3 rounded-lg">
+<span class="material-icons-round text-primary text-3xl">child_care</span>
+</div>
+<span class="material-icons-round text-slate-400 transform transition-transform" id="icon-3">expand_more</span>
+</div>
+<h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Childcare & Safety</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Professional care for children of all ages</p>
+                        
+<div class="skill-content" id="content-3">
+<div class="border-t border-slate-200 dark:border-slate-700 pt-4 mt-2">
+<h4 class="font-semibold text-sm mb-3 text-primary">What You'll Learn:</h4>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Age-appropriate activities and developmental milestones</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Child nutrition and healthy eating habits</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Homework help and educational support</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Child safety and accident prevention</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Positive discipline and behavior management</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Infant care: feeding, bathing, sleeping routines</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Skill 4: Elderly Care -->
+<div class="skill-card bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-primary/5 cursor-pointer" onclick="toggleSkill(4)">
+<div class="flex items-start justify-between mb-4">
+<div class="bg-primary/10 p-3 rounded-lg">
+<span class="material-icons-round text-primary text-3xl">elderly</span>
+</div>
+<span class="material-icons-round text-slate-400 transform transition-transform" id="icon-4">expand_more</span>
+</div>
+<h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Elderly Care</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Compassionate care for senior citizens</p>
+                        
+<div class="skill-content" id="content-4">
+<div class="border-t border-slate-200 dark:border-slate-700 pt-4 mt-2">
+<h4 class="font-semibold text-sm mb-3 text-primary">What You'll Learn:</h4>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Understanding common elderly health conditions</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Mobility assistance and fall prevention</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Medication reminders and health monitoring</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Personal hygiene assistance with dignity</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Companionship and emotional support</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Emergency recognition and response for seniors</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Skill 5: First Aid & Emergency Response -->
+<div class="skill-card bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-primary/5 cursor-pointer" onclick="toggleSkill(5)">
+<div class="flex items-start justify-between mb-4">
+<div class="bg-primary/10 p-3 rounded-lg">
+<span class="material-icons-round text-primary text-3xl">medical_services</span>
+</div>
+<span class="material-icons-round text-slate-400 transform transition-transform" id="icon-5">expand_more</span>
+</div>
+<h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">First Aid & Emergency Response</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Life-saving skills for emergency situations</p>
+                        
+<div class="skill-content" id="content-5">
+<div class="border-t border-slate-200 dark:border-slate-700 pt-4 mt-2">
+<h4 class="font-semibold text-sm mb-3 text-primary">What You'll Learn:</h4>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Basic first aid for cuts, burns, and injuries</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>CPR (Cardiopulmonary Resuscitation) basics</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Choking response (Heimlich maneuver)</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Managing allergic reactions and asthma attacks</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Emergency contact procedures and when to call 999</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>First aid kit essentials and maintenance</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<!-- Skill 6: Communication & Professionalism -->
+<div class="skill-card bg-white dark:bg-slate-900 rounded-xl p-6 shadow-sm border border-primary/5 cursor-pointer" onclick="toggleSkill(6)">
+<div class="flex items-start justify-between mb-4">
+<div class="bg-primary/10 p-3 rounded-lg">
+<span class="material-icons-round text-primary text-3xl">forum</span>
+</div>
+<span class="material-icons-round text-slate-400 transform transition-transform" id="icon-6">expand_more</span>
+</div>
+<h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">Communication & Professionalism</h3>
+<p class="text-sm text-slate-600 dark:text-slate-400 mb-4">Excel in workplace relationships and ethics</p>
+                        
+<div class="skill-content" id="content-6">
+<div class="border-t border-slate-200 dark:border-slate-700 pt-4 mt-2">
+<h4 class="font-semibold text-sm mb-3 text-primary">What You'll Learn:</h4>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Effective communication with employers</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Professional boundaries and privacy</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Conflict resolution and problem-solving</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Time management and punctuality</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Understanding employment rights and contracts</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-icons-round text-primary text-sm mt-0.5">check_circle</span>
+<span>Building trust and maintaining confidentiality</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CTA Section -->
+<section class="bg-primary/5 dark:bg-primary/10 px-4 md:px-6 lg:px-8 py-12 md:py-16">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="text-2xl md:text-3xl font-bold mb-4 text-slate-900 dark:text-white">Ready to Start Learning?</h2>
+<p class="text-lg text-slate-600 dark:text-slate-400 mb-6">
+                    Invest in yourself and unlock better job opportunities with professional training.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<a href="/register?type=worker" class="bg-primary hover:opacity-90 text-white font-semibold py-3 px-8 rounded-lg transition-all active:scale-95 inline-flex items-center justify-center gap-2">
+<span>Get Started</span>
+<span class="material-icons-round text-sm">arrow_forward</span>
+</a>
+<a href="/browse-jobs" class="bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-primary font-semibold py-3 px-8 rounded-lg transition-all active:scale-95 border-2 border-primary/20">
+                        Browse Jobs
+                    </a>
+</div>
+</div>
+</section>
+</main>
+
+<script>
+        function toggleSkill(skillId) {
+            const content = document.getElementById(`content-${skillId}`);
+            const icon = document.getElementById(`icon-${skillId}`);
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.classList.add('expanded');
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body></html>

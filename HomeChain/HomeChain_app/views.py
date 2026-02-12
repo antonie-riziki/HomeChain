@@ -37,6 +37,9 @@ def browse_jobs(request):
 def workers(request):
     return render(request, 'workers.html')
 
+def map_view(request):
+    return render(request, 'map_view.html')
+
 def about(request):
     return render(request, 'about.html')
 
@@ -45,3 +48,6 @@ def help_center(request):
 
 def contact(request):
     return render(request, 'contact.html')
+
+def learn_skills(request):
+    return render(request, 'learn_skills.html')

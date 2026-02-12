@@ -142,7 +142,14 @@ class JobApplicationSerializer(serializers.ModelSerializer):
     
     def create(self, validated_data):
         validated_data['worker'] = self.context['request'].user
-        return super().create(validated_data)
+        application = super().create(validated_data)
+        
+        # Increment job applications count
+        job = application.job
+        job.applications_count += 1
+        job.save(update_fields=['applications_count'])
+        
+        return application
 
 
 class JobApplicationDetailSerializer(serializers.ModelSerializer):
