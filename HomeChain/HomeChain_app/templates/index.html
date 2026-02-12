@@ -2,7 +2,7 @@
 
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>HomeChain - Safe &amp; Fair Domestic Work</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
@@ -47,98 +47,153 @@
   </head>
 <body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
 <!-- Header -->
-<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 py-4 flex justify-between items-center border-b border-primary/10">
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 md:px-6 lg:px-8 py-4 flex justify-between items-center border-b border-primary/10">
 <div class="flex items-center gap-2">
 <div class="bg-primary p-1.5 rounded-lg">
 <span class="material-icons-round text-white text-xl">home_work</span>
 </div>
-<span class="font-bold text-lg tracking-tight text-slate-800 dark:text-white">HomeChain</span>
+<span class="font-bold text-lg md:text-xl tracking-tight text-slate-800 dark:text-white">HomeChain</span>
 </div>
-<button class="text-primary font-semibold text-sm hover:opacity-80 transition-opacity">
-            Sign In
-        </button>
+<div class="flex items-center gap-4">
+<nav class="hidden md:flex items-center gap-6">
+<a href="/browse-jobs" class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium">Browse Jobs</a>
+<a href="/workers" class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium">Find Workers</a>
+<a href="/about" class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium">About</a>
+</nav>
+<a href="/login" class="text-primary font-semibold text-sm hover:opacity-80 transition-opacity">Sign In</a>
+<a href="/register" class="hidden md:block bg-primary text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-primary/90 transition-colors">Sign Up</a>
+</div>
 </header>
 <main class="flex-1 overflow-y-auto">
 <!-- Hero Section -->
-<section class="px-6 pt-8 pb-6 text-center">
-<div class="mb-8 relative mx-auto max-w-sm aspect-[4/3] rounded-xl overflow-hidden shadow-2xl shadow-primary/10">
-<img alt="Employer and worker shaking hands" class="w-full h-full object-cover" data-alt="Professional handshake between a homeowner and a domestic service provider" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5uclL0IuoGKBPtfumEV_ZY5-5TxCg7vTu44I8FewKqcoLYaTg4KBJ0peJMwbKKLnfgEkkwIJVEolY0FEIn6c3zUbLpWoDanSl70-PGN01bFLFac_6vJVeNB37f4nwVyQwjqxmF6pkEXzmt4zky2mhJLs712tz8lo73Ca2VZ91feFH0-hrzkm_z8JQvORKnWtMJwIq8wm0dRO7IXvqbQSluH2g2hQqdMiZvG1XoOOXPYflIPuIllTBXwxRm43nQ9lUbqQyjXn_WEQ"/>
-<div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
-</div>
-<h1 class="text-3xl font-bold leading-tight mb-4 text-slate-900 dark:text-white">
+<section class="px-4 md:px-6 lg:px-8 pt-8 md:pt-12 lg:pt-16 pb-6 md:pb-8 lg:pb-12">
+<div class="max-w-7xl mx-auto">
+<div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+<div class="text-center md:text-left">
+<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 md:mb-6 text-slate-900 dark:text-white">
                 Safe &amp; Fair Domestic Work, <span class="text-primary">Powered by Smart Agreements</span>
-</h1>
-<p class="text-slate-600 dark:text-slate-400 text-base mb-8 px-4">
+            </h1>
+<p class="text-slate-600 dark:text-slate-400 text-base md:text-lg mb-6 md:mb-8 px-4 md:px-0 max-w-xl mx-auto md:mx-0">
                 The trust-first platform connecting domestic workers and employers with secure escrow payments.
             </p>
 <!-- CTA Buttons -->
-<div class="flex flex-col gap-4 max-w-sm mx-auto">
-<button class="bg-primary text-white font-semibold py-4 px-6 rounded-xl shadow-lg shadow-primary/30 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto md:mx-0">
+<a href="/register?type=employer" class="bg-primary text-white font-semibold py-4 px-6 rounded-xl shadow-lg shadow-primary/30 hover:shadow-primary/40 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
 <span class="material-icons-round">person_search</span>
                     Hire a Worker
-                </button>
-<button class="bg-white dark:bg-slate-800 border-2 border-primary/20 text-primary font-semibold py-4 px-6 rounded-xl active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                </a>
+<a href="/register?type=worker" class="bg-white dark:bg-slate-800 border-2 border-primary/20 text-primary font-semibold py-4 px-6 rounded-xl hover:border-primary/40 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
 <span class="material-icons-round">work_outline</span>
                     Find a Job
-                </button>
+                </a>
+</div>
+</div>
+<div class="relative mx-auto max-w-md md:max-w-lg lg:max-w-xl aspect-[4/3] rounded-xl overflow-hidden shadow-2xl shadow-primary/10">
+<img alt="Employer and worker shaking hands" class="w-full h-full object-cover" data-alt="Professional handshake between a homeowner and a domestic service provider" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5uclL0IuoGKBPtfumEV_ZY5-5TxCg7vTu44I8FewKqcoLYaTg4KBJ0peJMwbKKLnfgEkkwIJVEolY0FEIn6c3zUbLpWoDanSl70-PGN01bFLFac_6vJVeNB37f4nwVyQwjqxmF6pkEXzmt4zky2mhJLs712tz8lo73Ca2VZ91feFH0-hrzkm_z8JQvORKnWtMJwIq8wm0dRO7IXvqbQSluH2g2hQqdMiZvG1XoOOXPYflIPuIllTBXwxRm43nQ9lUbqQyjXn_WEQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
+</div>
+</div>
 </div>
 </section>
 <!-- Trust Indicators Section -->
-<section class="bg-primary/5 dark:bg-primary/10 py-10 px-6 mt-6 rounded-t-[2.5rem]">
-<div class="max-w-sm mx-auto space-y-8">
-<h3 class="text-center text-primary font-bold uppercase tracking-widest text-xs">Our Security Pillars</h3>
+<section class="bg-primary/5 dark:bg-primary/10 py-10 md:py-16 px-4 md:px-6 lg:px-8 mt-6 md:mt-12 rounded-t-[2.5rem] md:rounded-t-[3rem]">
+<div class="max-w-7xl mx-auto">
+<h3 class="text-center text-primary font-bold uppercase tracking-widest text-xs md:text-sm mb-8 md:mb-12">Our Security Pillars</h3>
+<div class="grid md:grid-cols-3 gap-6 md:gap-8 max-w-5xl mx-auto">
 <!-- Card 1 -->
-<div class="flex gap-4 items-start">
-<div class="bg-white dark:bg-slate-800 p-3 rounded-lg shadow-sm">
-<span class="material-icons-round text-primary">verified_user</span>
+<div class="bg-white dark:bg-slate-800 p-5 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex md:flex-col gap-4 items-start">
+<div class="bg-primary/10 p-3 rounded-lg">
+<span class="material-icons-round text-primary text-2xl md:text-3xl">verified_user</span>
 </div>
 <div>
-<h4 class="font-bold text-slate-800 dark:text-white text-lg">Escrow Protected</h4>
-<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Payments held securely and only released until the work is confirmed done.</p>
+<h4 class="font-bold text-slate-800 dark:text-white text-lg md:text-xl mb-2">Escrow Protected</h4>
+<p class="text-sm md:text-base text-slate-600 dark:text-slate-400 leading-relaxed">Payments held securely and only released until the work is confirmed done.</p>
+</div>
 </div>
 </div>
 <!-- Card 2 -->
-<div class="flex gap-4 items-start">
-<div class="bg-white dark:bg-slate-800 p-3 rounded-lg shadow-sm">
-<span class="material-icons-round text-primary">fact_check</span>
+<div class="bg-white dark:bg-slate-800 p-5 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex md:flex-col gap-4 items-start">
+<div class="bg-primary/10 p-3 rounded-lg">
+<span class="material-icons-round text-primary text-2xl md:text-3xl">fact_check</span>
 </div>
 <div>
-<h4 class="font-bold text-slate-800 dark:text-white text-lg">Verified Profiles</h4>
-<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Rigorous background checks and ID verification for total peace of mind.</p>
+<h4 class="font-bold text-slate-800 dark:text-white text-lg md:text-xl mb-2">Verified Profiles</h4>
+<p class="text-sm md:text-base text-slate-600 dark:text-slate-400 leading-relaxed">Rigorous background checks and ID verification for total peace of mind.</p>
+</div>
 </div>
 </div>
 <!-- Card 3 -->
-<div class="flex gap-4 items-start pb-4">
-<div class="bg-white dark:bg-slate-800 p-3 rounded-lg shadow-sm">
-<span class="material-icons-round text-primary">support_agent</span>
+<div class="bg-white dark:bg-slate-800 p-5 md:p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+<div class="flex md:flex-col gap-4 items-start">
+<div class="bg-primary/10 p-3 rounded-lg">
+<span class="material-icons-round text-primary text-2xl md:text-3xl">support_agent</span>
 </div>
 <div>
-<h4 class="font-bold text-slate-800 dark:text-white text-lg">24/7 Support</h4>
-<p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Human assistance whenever you need help navigating your agreements.</p>
+<h4 class="font-bold text-slate-800 dark:text-white text-lg md:text-xl mb-2">24/7 Support</h4>
+<p class="text-sm md:text-base text-slate-600 dark:text-slate-400 leading-relaxed">Human assistance whenever you need help navigating your agreements.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
 </main>
-<!-- Bottom Navigation Bar (iOS Style) -->
-<footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 safe-area-bottom">
+<!-- Bottom Navigation Bar (Mobile Only) -->
+<footer class="md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 safe-area-bottom">
 <div class="grid grid-cols-4 px-4 py-3">
-<button class="flex flex-col items-center gap-1 text-primary">
+<a href="/" class="flex flex-col items-center gap-1 text-primary">
 <span class="material-icons-round">home</span>
 <span class="text-[10px] font-medium">Home</span>
-</button>
-<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+</a>
+<a href="/browse-jobs" class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
 <span class="material-icons-round">explore</span>
 <span class="text-[10px] font-medium">Explore</span>
-</button>
-<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+</a>
+<a href="/workers" class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
 <span class="material-icons-round">handshake</span>
-<span class="text-[10px] font-medium">Deals</span>
-</button>
-<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+<span class="text-[10px] font-medium">Workers</span>
+</a>
+<a href="/login" class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
 <span class="material-icons-round">person</span>
 <span class="text-[10px] font-medium">Profile</span>
-</button>
+</a>
+</div>
+</footer>
+<!-- Desktop Footer -->
+<footer class="hidden md:block bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8 mt-12">
+<div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+<div class="grid md:grid-cols-4 gap-8">
+<div>
+<h4 class="font-bold text-slate-800 dark:text-white mb-4">HomeChain</h4>
+<p class="text-sm text-slate-600 dark:text-slate-400">Connecting domestic workers and employers with secure, transparent agreements.</p>
+</div>
+<div>
+<h4 class="font-semibold text-slate-800 dark:text-white mb-4">For Employers</h4>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a href="/register?type=employer" class="hover:text-primary transition-colors">Post a Job</a></li>
+<li><a href="/workers" class="hover:text-primary transition-colors">Find Workers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-slate-800 dark:text-white mb-4">For Workers</h4>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a href="/register?type=worker" class="hover:text-primary transition-colors">Create Profile</a></li>
+<li><a href="/browse-jobs" class="hover:text-primary transition-colors">Browse Jobs</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-slate-800 dark:text-white mb-4">Support</h4>
+<ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+<li><a href="/help" class="hover:text-primary transition-colors">Help Center</a></li>
+<li><a href="/contact" class="hover:text-primary transition-colors">Contact Us</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800 text-center text-sm text-slate-600 dark:text-slate-400">
+<p>&copy; 2024 HomeChain. All rights reserved.</p>
+</div>
 </div>
 </footer>
 </body></html>

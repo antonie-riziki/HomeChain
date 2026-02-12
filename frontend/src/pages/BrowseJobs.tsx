@@ -18,7 +18,7 @@ export default function BrowseJobs() {
   const [sortBy, setSortBy] = useState('newest');
   const { isAuthenticated } = useAuth();
 
-  const { data: jobs, isLoading } = useQuery({
+  const { data: jobsResponse, isLoading } = useQuery({
     queryKey: ['browse-jobs', search, category, sortBy],
     queryFn: () => jobService.browseJobs({
       search,
@@ -26,6 +26,9 @@ export default function BrowseJobs() {
       ordering: sortBy === 'newest' ? '-created_at' : sortBy === 'budget_high' ? '-budget' : 'budget'
     }).then(res => res.data),
   });
+
+  // Handle paginated response
+  const jobs = jobsResponse?.results || jobsResponse || [];
 
   const content = (
     <div className="space-y-8">

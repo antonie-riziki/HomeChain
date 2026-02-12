@@ -21,6 +21,7 @@ import WorkerProfile from "./pages/worker/Profile";
 import WorkerRatings from "./pages/worker/Ratings";
 import WorkerApplications from "./pages/worker/Applications";
 import SavedJobs from "./pages/worker/SavedJobs";
+import JobDetail from "./pages/JobDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/register" element={<Register />} />
             <Route path="/browse-jobs" element={<BrowseJobs />} />
             <Route path="/workers" element={<BrowseWorkers />} />
+            <Route path="/job/:id" element={<JobDetail />} />
 
             {/* Employer Routes */}
             <Route path="/employer/dashboard" element={<EmployerDashboard />} />

@@ -16,7 +16,7 @@ export default function BrowseWorkers() {
   const [skill, setSkill] = useState('all');
   const [sortBy, setSortBy] = useState('rating');
 
-  const { data: workers, isLoading } = useQuery({
+  const { data: workersResponse, isLoading } = useQuery({
     queryKey: ['workers', search, skill, sortBy],
     queryFn: () => userService.listWorkers({
       search,
@@ -24,6 +24,9 @@ export default function BrowseWorkers() {
       ordering: sortBy === 'rating' ? '-average_rating' : sortBy === 'jobs' ? '-completed_jobs' : sortBy === 'rate_low' ? 'hourly_rate' : '-hourly_rate'
     }).then(res => res.data),
   });
+
+  // Handle paginated response
+  const workers = workersResponse?.results || workersResponse || [];
 
   const isEmployer = user?.user_type?.toLowerCase() === 'employer';
 

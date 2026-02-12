@@ -3,6 +3,7 @@
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
 <title>HomeChain | Employer Dashboard</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
@@ -50,30 +51,69 @@
     }
   </style>
   </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen pb-24">
-<!-- Top Navigation Bar -->
-<header class="sticky top-0 z-30 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 py-4 flex items-center justify-between">
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen pb-24 md:pb-0">
+<!-- Desktop Sidebar -->
+<aside class="hidden md:flex fixed left-0 top-0 h-full w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-col z-40">
+<div class="p-6 border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-primary p-2 rounded-lg">
+<span class="material-icons-round text-white text-xl">home_work</span>
+</div>
+<span class="font-bold text-lg tracking-tight text-slate-800 dark:text-white">HomeChain</span>
+</div>
 <div class="flex items-center gap-3">
-<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<img alt="Profile" class="w-10 h-10 rounded-full border-2 border-primary/20" data-alt="Portrait of a male business professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYoXc39e_sesxWpOCwznuX-P7DfEgzpV6G75ljDR2ZcXT29_i2Kd_teNLbPGFqAZ08wtmE1UVhCUr2gs4ziNePUJK_z34B-NO2l2XPTqlpfiuxYS3rjIehkrT8l8IsfV7GpHVPpYRd1C5izGNBkGEuRuxj_HJ4ZPRBkoXNoG9cfZ02bEPdejzxIF4pVmlMaHUxv6yt1DI7omh8NEDO5Fq-1poKgGSDvxIv3q7FkCxMqkCDbxGWiyvyFtLmRyrI8AV8Me9hRGh8eyE"/>
+<div>
+<p class="text-xs text-slate-500 dark:text-slate-400">Welcome back,</p>
+<h1 class="font-bold text-sm leading-tight">Alex Rivera</h1>
+</div>
+</div>
+</div>
+<nav class="flex-1 p-4 space-y-2">
+<a href="/employer-dashboard/" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-medium">
+<span class="material-icons-round">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a href="/job-post/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons-round">work</span>
+<span>My Jobs</span>
+</a>
+<a href="/contract/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons-round">description</span>
+<span>Contracts</span>
+</a>
+<a href="/wallet" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons-round">account_balance_wallet</span>
+<span>Payments</span>
+</a>
+</nav>
+</aside>
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-30 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 md:pl-72 md:pr-6 py-4 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="md:hidden w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
 <img alt="Profile" class="w-10 h-10 rounded-full border-2 border-primary/20" data-alt="Portrait of a male business professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYoXc39e_sesxWpOCwznuX-P7DfEgzpV6G75ljDR2ZcXT29_i2Kd_teNLbPGFqAZ08wtmE1UVhCUr2gs4ziNePUJK_z34B-NO2l2XPTqlpfiuxYS3rjIehkrT8l8IsfV7GpHVPpYRd1C5izGNBkGEuRuxj_HJ4ZPRBkoXNoG9cfZ02bEPdejzxIF4pVmlMaHUxv6yt1DI7omh8NEDO5Fq-1poKgGSDvxIv3q7FkCxMqkCDbxGWiyvyFtLmRyrI8AV8Me9hRGh8eyE"/>
 </div>
-<div>
+<div class="md:hidden">
 <p class="text-xs text-slate-500 dark:text-slate-400">Welcome back,</p>
 <h1 class="font-bold text-lg leading-tight">Alex Rivera</h1>
 </div>
+<div class="hidden md:block">
+<h1 class="font-bold text-xl leading-tight">Dashboard</h1>
+</div>
 </div>
 <div class="flex gap-2">
-<button class="p-2 rounded-full bg-white dark:bg-slate-800 shadow-sm border border-primary/10">
+<button class="p-2 rounded-full bg-white dark:bg-slate-800 shadow-sm border border-primary/10 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
 <span class="material-icons-round text-primary">notifications</span>
 </button>
 </div>
 </header>
-<main class="px-6 space-y-6">
+<main class="px-4 md:pl-72 md:pr-6 py-6 space-y-6 max-w-7xl">
 <!-- Wallet Card (Bank-grade style) -->
 <section>
-<div class="relative overflow-hidden bg-slate-900 dark:bg-slate-950 rounded-xl p-6 text-white shadow-xl">
+<div class="relative overflow-hidden bg-slate-900 dark:bg-slate-950 rounded-xl p-6 md:p-8 text-white shadow-xl">
 <div class="absolute top-0 right-0 p-4 opacity-10">
-<span class="material-icons-round text-8xl">account_balance_wallet</span>
+<span class="material-icons-round text-6xl md:text-8xl">account_balance_wallet</span>
 </div>
 <div class="relative z-10">
 <div class="flex items-center gap-2 mb-1">
@@ -81,34 +121,34 @@
 <span class="material-icons-round text-xs text-primary">verified_user</span>
 </div>
 <div class="flex items-end gap-1 mb-6">
-<span class="text-3xl font-bold leading-none">$2,840.00</span>
+<span class="text-3xl md:text-4xl font-bold leading-none escrow-balance">$0.00</span>
 <span class="text-sm font-medium text-primary mb-1">USD</span>
 </div>
-<div class="flex gap-3">
-<button class="flex-1 bg-primary hover:bg-primary/90 py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition-colors">
+<div class="flex flex-col sm:flex-row gap-3">
+<a href="/wallet" class="flex-1 bg-primary hover:bg-primary/90 py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition-colors">
 <span class="material-icons-round text-sm">add</span> Deposit
-                        </button>
-<button class="flex-1 bg-white/10 hover:bg-white/20 py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition-colors backdrop-blur-sm">
+                        </a>
+<a href="/wallet" class="flex-1 bg-white/10 hover:bg-white/20 py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition-colors backdrop-blur-sm">
 <span class="material-icons-round text-sm">history</span> History
-                        </button>
+                        </a>
 </div>
 </div>
 </div>
 </section>
 <!-- Main Action -->
 <section>
-<button class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 flex items-center justify-center gap-2 active:scale-[0.98] transition-all">
+<a href="/job-post/" class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 flex items-center justify-center gap-2 hover:bg-primary/90 active:scale-[0.98] transition-all">
 <span class="material-icons-round">add_circle</span>
                 Post a Job
-            </button>
+            </a>
 </section>
 <!-- Active Contracts -->
 <section>
 <div class="flex items-center justify-between mb-4">
-<h2 class="font-bold text-lg">Active Contracts</h2>
-<button class="text-primary text-sm font-semibold">View All</button>
+<h2 class="font-bold text-lg md:text-xl">Active Contracts</h2>
+<a href="/contract/" class="text-primary text-sm font-semibold hover:underline">View All</a>
 </div>
-<div class="space-y-3">
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:space-y-0 space-y-3">
 <!-- Contract Card 1 -->
 <div class="bg-white dark:bg-slate-800 p-4 rounded-lg border border-primary/5 shadow-sm flex items-center gap-4">
 <div class="w-12 h-12 rounded-lg bg-background-light dark:bg-slate-700 overflow-hidden">
@@ -142,10 +182,10 @@
 <!-- Recent Applicants -->
 <section>
 <div class="flex items-center justify-between mb-4">
-<h2 class="font-bold text-lg">Recent Applicants</h2>
-<button class="text-primary text-sm font-semibold">12 New</button>
+<h2 class="font-bold text-lg md:text-xl">Recent Applicants</h2>
+<span class="text-primary text-sm font-semibold">12 New</span>
 </div>
-<div class="flex gap-4 overflow-x-auto pb-4 hide-scrollbar -mx-6 px-6">
+<div class="flex gap-4 overflow-x-auto pb-4 hide-scrollbar -mx-4 md:-mx-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:overflow-visible">
 <!-- Applicant 1 -->
 <div class="min-w-[160px] bg-white dark:bg-slate-800 p-4 rounded-xl border border-primary/5 shadow-sm flex flex-col items-center text-center">
 <div class="relative">
@@ -212,23 +252,120 @@
 </div>
 </section>
 </main>
-<!-- Bottom Navigation Bar -->
-<nav class="fixed bottom-0 inset-x-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-8 py-3 pb-8 flex items-center justify-between z-40">
-<button class="flex flex-col items-center gap-1 text-primary">
+<!-- Bottom Navigation Bar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 inset-x-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-8 py-3 pb-8 flex items-center justify-between z-40">
+<a href="/employer-dashboard/" class="flex flex-col items-center gap-1 text-primary">
 <span class="material-icons-round">home</span>
 <span class="text-[10px] font-semibold">Home</span>
-</button>
-<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+</a>
+<a href="/contract/" class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
 <span class="material-icons-round">forum</span>
-<span class="text-[10px] font-semibold">Messages</span>
-</button>
-<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+<span class="text-[10px] font-semibold">Contracts</span>
+</a>
+<a href="/job-post/" class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
 <span class="material-icons-round">work</span>
 <span class="text-[10px] font-semibold">My Jobs</span>
-</button>
-<button class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+</a>
+<a href="/wallet" class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
 <span class="material-icons-round">person</span>
 <span class="text-[10px] font-semibold">Profile</span>
-</button>
+</a>
 </nav>
+<script>
+// API Configuration
+const API_BASE_URL = window.location.origin + '/api';
+let authToken = localStorage.getItem('access_token');
+
+// Helper function to make API calls
+async function apiCall(endpoint, options = {}) {
+    const headers = {
+        'Content-Type': 'application/json',
+        ...options.headers
+    };
+    
+    if (authToken) {
+        headers['Authorization'] = `Bearer ${authToken}`;
+    }
+    
+    try {
+        const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+            ...options,
+            headers
+        });
+        
+        if (response.status === 401) {
+            // Token expired, redirect to login
+            window.location.href = '/login';
+            return null;
+        }
+        
+        if (!response.ok) {
+            throw new Error(`API error: ${response.status}`);
+        }
+        
+        return await response.json();
+    } catch (error) {
+        console.error('API call failed:', error);
+        return null;
+    }
+}
+
+// Load dashboard data
+async function loadDashboardData() {
+    // Load wallet data
+    const walletData = await apiCall('/payments/wallets/me/');
+    if (walletData) {
+        const escrowBalance = walletData.escrow_balance || 0;
+        const balanceElement = document.querySelector('.escrow-balance');
+        if (balanceElement) {
+            balanceElement.textContent = `$${escrowBalance.toFixed(2)}`;
+        }
+    }
+    
+    // Load contracts
+    const contractsData = await apiCall('/contracts/contracts/');
+    if (contractsData && contractsData.results) {
+        const contractsContainer = document.querySelector('.contracts-container');
+        if (contractsContainer && contractsData.results.length > 0) {
+            contractsContainer.innerHTML = contractsData.results.slice(0, 2).map(contract => `
+                <div class="bg-white dark:bg-slate-800 p-4 rounded-lg border border-primary/5 shadow-sm flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-lg bg-background-light dark:bg-slate-700 overflow-hidden">
+                        <div class="w-full h-full bg-primary/10 flex items-center justify-center">
+                            <span class="material-icons-round text-primary">person</span>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-sm">${contract.worker_name || 'Worker'}</h3>
+                        <p class="text-xs text-slate-500">${contract.title || 'Contract'}</p>
+                    </div>
+                    <div class="flex flex-col items-end gap-1">
+                        <span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">${contract.status || 'Active'}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+    }
+    
+    // Load jobs stats
+    const jobsData = await apiCall('/jobs/jobs/my_jobs/');
+    if (jobsData) {
+        const activeJobs = jobsData.filter(job => job.status === 'OPEN' || job.status === 'IN_PROGRESS').length;
+        const totalJobs = jobsData.length;
+        // Update stats if elements exist
+        const statsElements = document.querySelectorAll('.job-stat');
+        if (statsElements.length > 0) {
+            statsElements[0].textContent = activeJobs;
+            statsElements[1].textContent = totalJobs;
+        }
+    }
+}
+
+// Initialize on page load
+if (authToken) {
+    loadDashboardData();
+} else {
+    // Redirect to login if not authenticated
+    window.location.href = '/login';
+}
+</script>
 </body></html>
