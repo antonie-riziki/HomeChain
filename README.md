@@ -1,198 +1,226 @@
 <img width="547" height="299" alt="image" src="https://github.com/user-attachments/assets/22eea8c6-bcad-4cab-b989-bd726480e385" />
 
-# HomeChain
-Decentralized Domestic Work Platform
 
-## Overview
-This platform connects domestic workers (nannies, housekeepers, caregivers, etc.) with employers through a secure, transparent, and intelligent system. 
+# 🌍 HomeChain
+## Decentralized Domestic Work Platform on Stellar
 
-The platform combines:
-- Off-chain job discovery and skill development
-- On-chain smart contract agreements
-- Escrow-based payment protection
-- AI-powered job matching and salary prediction
-- Credit scoring and safety mechanisms
-  
-
+> Empowering Domestic Workers. Protecting Employers. Formalizing Informal Labor — On-Chain.
 
 ---
 
-## Problem
+# 🚀 Contract Deployment (Stellar Testnet)
 
-Daily domestic workers rely heavily on:
-- Word-of-mouth referrals
-- Informal networks
-- Physical “tarmacking” to find opportunities
-- Unstructured agreements with no legal or financial protection
+**Wallet Address:**  
+`GAW2M5XAXJT32WCDV4QA2CG2N2QEAQRC5UKMRF4UJ7WEZOFBUPHGM57Z`
 
-This results in:
-- Job insecurity
+**Transaction Hash:**  
+`aa7b7cb306bebed515c1637aa15882efd36571953c78b2d7dcfda8df1f1cb8fb`
+
+**Smart Contract ID:**  
+`CA7BYUTTIFJQGOFCQ7BHTWVEPSWQ5BI5M5TGFK67A3VFDQT2HLE6PM3S`
+
+🔎 **Block Explorer:**  
+https://stellar.expert/explorer/testnet/contract/CA7BYUTTIFJQGOFCQ7BHTWVEPSWQ5BI5M5TGFK67A3VFDQT2HLE6PM3S
+
+---
+
+# 🧠 Overview
+
+HomeChain is a hybrid decentralized platform connecting domestic workers
+(nannies, housekeepers, caregivers, cooks, drivers) with employers
+through secure smart contract agreements on the **Stellar blockchain**.
+
+We combine:
+
+- 🔗 On-chain escrow smart contracts (Soroban)
+- 🤖 AI-powered job matching & salary prediction
+- 📊 Credit scoring & trust metrics
+- 🔐 Identity verification & dispute handling
+- 💸 Secure payment release logic
+
+---
+
+# ❗ The Problem
+
+Domestic workers face:
+
+- Informal job sourcing ("tarmacking")
 - Wage exploitation
-- Lack of career growth
+- No enforceable agreements
 - No verified work history
-- Safety risks for both parties
+- Safety risks
+- No financial credibility
+
+Employers face:
+
+- Trust issues
+- No verified worker background
+- Payment disputes
+- No structured contracts
 
 ---
 
-## Solution
+# 💡 The Solution
 
-We provide a hybrid decentralized platform that:
+HomeChain introduces a **decentralized domestic labor protocol**:
 
-1. Allows employers to post detailed domestic job opportunities.
-2. Matches employees based on skills, distance, availability, and ratings.
-3. Provides skill recognition and upskilling programs off-chain.
-4. Generates a smart contract agreement on-chain.
-5. Uses escrow-like wallets to secure payments.
-6. Predicts fair salary using AI (location, distance, skills, demand).
-7. Tracks work verification from both parties before releasing funds.
+### 1️⃣ Job Posting (Off-chain)
+Employers post detailed domestic job opportunities.
 
----
-
-## Key Differentiators
-
-### 1. Credit Scoring
-- Work history
-- Completion rate
+### 2️⃣ AI Matching
+Workers matched by:
+- Skills
+- Location
+- Availability
 - Ratings
+- Demand index
+
+### 3️⃣ Smart Contract Generation (On-chain)
+Soroban contract auto-generates agreement terms:
+- Job duration
+- Payment terms
+- Work verification triggers
+- Escrow rules
+
+### 4️⃣ Escrow Protection
+Funds locked in Stellar-based escrow until:
+- Worker confirms completion
+- Employer verifies work
+
+### 5️⃣ Automated Release
+Dual confirmation triggers on-chain payment release.
+
+---
+
+# ⭐ Why Stellar?
+
+HomeChain is built on **Stellar + Soroban** because:
+
+- ⚡ Low transaction fees
+- 🌍 Cross-border payment ready
+- 🧾 Native asset & contract support
+- 🚀 Fast settlement
+- 💚 Energy efficient
+
+Stellar enables affordable micro-escrow contracts perfect for domestic work economies.
+
+---
+
+# 🏆 Key Differentiators
+
+## 📊 Credit Scoring Engine
+- Completion rate
+- Employer ratings
 - Dispute record
 - Financial reliability
+- Work consistency
 
-### 2. Safety & Protection
+## 🛡 Safety Layer
 - Identity verification
-- Emergency support integration
-- Dispute resolution system
-- Escrow protection
+- Escrow-protected payments
+- Dispute resolution
+- Emergency integration roadmap
 
-### 3. Customer Support
-- Dedicated support for employers and employees
-- Escalation process
-- Mediation tools
+## 🤖 AI Intelligence
+- Salary prediction model
+- Demand heat mapping
+- Smart matching optimization
 
 ---
 
-## Business Model
+# 💰 Business Model
 
-### Freemium Model
-- Basic job posting (employers)
-- Basic job applications (employees)
-- Limited visibility
+## Freemium
+- Basic job posts
+- Limited applications
 
-### Premium Subscription
+## Premium
 - Higher visibility
-- Priority matching
 - Verified badge
-- Advanced analytics
-- Access to premium opportunities
 - Lower transaction fees
+- Priority matching
 
-### Revenue Streams
-- Subscription fees (Employer & Employee)
-- Small transaction fee on completed contracts
-- Upskilling program partnerships
-- Financial service integrations (withdrawal fees)
+## Revenue Streams
+- Subscription plans
+- Small contract transaction fee
+- Upskilling partnerships
+- Financial integrations
 
 ---
 
-## System Architecture
+# 🏗 Architecture
 
-### Off-Chain
-- Job marketplace
-- Skill verification
-- AI salary prediction engine
-- Credit scoring system
-- Knowledge base (MCP servers)
-- Matching engine
+## Off-Chain
+- Next.js / React Frontend
+- Node.js Backend
+- PostgreSQL
+- Redis
+- AI Matching Engine
 
-### On-Chain
+## On-Chain (Stellar Soroban)
 - Smart contract agreements
 - Escrow logic
-- Payment release logic
-- Work verification triggers
+- Dual verification triggers
+- Payment release automation
 
 ---
 
-## Roadmap
+# 🛣 Roadmap
 
-### Phase 1 – MVP (Hackathon)
-- Employer job posting
-- Worker profile creation
-- Basic matching logic
+### Phase 1 – Hackathon MVP
+- Employer & Worker roles
+- Job posting form
+- Worker profile
 - Smart contract template
-- Manual escrow simulation
-- Basic UI/UX
+- Escrow simulation
 
 ### Phase 2 – Beta
-- Real smart contract deployment
 - Wallet integration
-- Salary prediction engine
+- Real Soroban escrow contracts
+- Salary AI engine
 - Ratings system
-- Credit scoring prototype
 
 ### Phase 3 – Public Launch
 - Mobile app
 - Full escrow automation
-- AI-enhanced matching
 - Customer support dashboard
 - Skill certification marketplace
 
 ### Phase 4 – Scale
-- Cross-border payments
-- Financial services integration
+- Cross-border remittances
 - Insurance partnerships
-- Government & NGO collaborations
+- Government collaboration
+- Micro-loans for workers
 
 ---
 
-## Tech Stack (Suggested)
-
-Frontend:
-- Next.js / React
-- TailwindCSS
-- Framer Motion
-
-Backend:
-- Node.js / Express
-- PostgreSQL
-- Redis
-
-Blockchain:
-- Ethereum / Polygon
-- Solidity smart contracts
-
-AI:
-- MCP Server integration
-- Salary prediction model
-- Matching optimization
-
-Payments:
-- Wallet integration
-- Mobile money API integration
-
----
-
-## MVP Strategy (Hackathon)
-
-Focus on:
-
-1. Simple UI with 2 roles (Employer & Worker)
-2. Job posting form
-3. Worker profile + skills
-4. Smart contract mock generation
-5. Escrow simulation logic
-6. Payment release button after dual confirmation
-
-Do NOT overbuild blockchain.
-Show working prototype + strong demo narrative.
-
----
-
-## Vision
+# 🌍 Vision
 
 To formalize domestic work globally by:
+
 - Protecting workers
 - Protecting employers
 - Creating verifiable work history
-- Increasing income opportunities
-- Bringing transparency through decentralized agreements
+- Increasing income access
+- Unlocking financial inclusion
 
 ---
+
+# 🏅 Why This Wins Hackathons
+
+✅ Real-world problem  
+✅ Web3 + AI integration  
+✅ Stellar smart contracts live on testnet  
+✅ Social impact  
+✅ Scalable global infrastructure  
+✅ Clear monetization strategy  
+
+---
+
+# 📜 License
+
+MIT License
+
+---
+
+
