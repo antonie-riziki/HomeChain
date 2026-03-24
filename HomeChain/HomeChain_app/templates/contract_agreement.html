@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Contract Agreement Details</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Contract Agreement Details</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -32,339 +37,379 @@
             },
         }
     </script>
-<style>
+    <style>
         body {
             font-family: 'Lexend', sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
+
         .ios-shadow {
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
         }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen font-display pb-24 md:pb-0">
-<!-- Desktop Sidebar -->
-<aside class="hidden md:flex fixed left-0 top-0 h-full w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-col z-50">
-<div class="p-6 border-b border-slate-200 dark:border-slate-800">
-<div class="flex items-center gap-3 mb-6">
-<div class="bg-primary p-2 rounded-lg">
-<span class="material-icons-round text-white text-xl">home_work</span>
-</div>
-<span class="font-bold text-lg tracking-tight text-slate-800 dark:text-white">HomeChain</span>
-</div>
-<div class="flex items-center gap-3">
-<img alt="Worker Profile Picture" class="w-10 h-10 rounded-full border-2 border-primary object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC08XuiIdZ-WTrtQ9DMg-05VB4cFtBLFxYQE2pKtSBOS1Yq-qw86cqZct4gm0RZYJ_h7cKjvsvDFN8nq7W-wm2l4U7msEP8fmqQd1h0MycdhyjL_jLObI9Rjz3r6emoHBaLhTG0DnsTHhGK5kjqjBUeSSHlHbXwZhELqUbgCF1VeOjhfy4KgTQBm77-ThcSxlFdfLvDX0cugMQslUcEKcuvchKEM7_NC1gISrVU_bhd6wOcBxnTM1k4kr5pnBMhceE0PQn3lY-sqD0"/>
-<div>
-<p class="text-xs text-slate-500 dark:text-slate-400">Welcome back,</p>
-<h1 class="font-bold text-sm leading-tight">Lucy Njeri</h1>
-</div>
-</div>
-</div>
-<nav class="flex-1 p-4 space-y-2">
-<a href="/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-<span class="material-icons-round">home</span>
-<span>Home</span>
-</a>
-<a href="/worker-dashboard/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-<span class="material-icons-round">dashboard</span>
-<span>Dashboard</span>
-</a>
-<a href="/browse-jobs/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-<span class="material-icons-round">work</span>
-<span>Browse Jobs</span>
-            <a href="/learn/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                <span class="material-icons-round">school</span>
-                <span>Learn Skills</span>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen font-display pb-24 md:pb-0">
+    <!-- Desktop Sidebar -->
+    <aside
+        class="hidden md:flex fixed left-0 top-0 h-full w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-col z-50">
+        <div class="p-6 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="bg-primary p-2 rounded-lg">
+                    <span class="material-icons-round text-white text-xl">home_work</span>
+                </div>
+                <span class="font-bold text-lg tracking-tight text-slate-800 dark:text-white">HomeChain</span>
+            </div>
+            <div class="flex items-center gap-3">
+                <img alt="Worker Profile Picture" class="w-10 h-10 rounded-full border-2 border-primary object-cover"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC08XuiIdZ-WTrtQ9DMg-05VB4cFtBLFxYQE2pKtSBOS1Yq-qw86cqZct4gm0RZYJ_h7cKjvsvDFN8nq7W-wm2l4U7msEP8fmqQd1h0MycdhyjL_jLObI9Rjz3r6emoHBaLhTG0DnsTHhGK5kjqjBUeSSHlHbXwZhELqUbgCF1VeOjhfy4KgTQBm77-ThcSxlFdfLvDX0cugMQslUcEKcuvchKEM7_NC1gISrVU_bhd6wOcBxnTM1k4kr5pnBMhceE0PQn3lY-sqD0" />
+                <div>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">Welcome back,</p>
+                    <h1 class="font-bold text-sm leading-tight">Lucy Njeri</h1>
+                </div>
+            </div>
+        </div>
+        <nav class="flex-1 p-4 space-y-2">
+            <a href="/"
+                class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-icons-round">home</span>
+                <span>Home</span>
             </a>
-</a>
-            <a href="/learn/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            <a href="/worker-dashboard/"
+                class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-icons-round">dashboard</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="/browse-jobs/"
+                class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-icons-round">work</span>
+                <span>Browse Jobs</span>
+                <a href="/learn/"
+                    class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                    <span class="material-icons-round">school</span>
+                    <span>Learn Skills</span>
+                </a>
+            </a>
+            <a href="/learn/"
+                class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
                 <span class="material-icons-round">school</span>
-<span>Find Workers</span>
-</a>
-<a href="/map-view/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-<span class="material-icons-round">map</span>
-<span>Map View</span>
-</a>
-<a href="/contract/" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-medium">
-<span class="material-icons-round">description</span>
-<span>Contracts</span>
-</a>
-<a href="/wallet/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-<span class="material-icons-round">account_balance_wallet</span>
-<span>Wallet</span>
-</a>
+                <span>Find Workers</span>
+            </a>
+            <a href="/map-view/"
+                class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-icons-round">map</span>
+                <span>Map View</span>
+            </a>
+            <a href="/contract/"
+                class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-medium">
+                <span class="material-icons-round">description</span>
+                <span>Contracts</span>
+            </a>
+            <a href="/wallet/"
+                class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-icons-round">account_balance_wallet</span>
+                <span>Wallet</span>
+            </a>
             <!-- Logout Button -->
             <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
-                <button onclick="handleLogout()" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
+                <button onclick="handleLogout()"
+                    class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
                     <span class="material-icons-round">logout</span>
                     <span>Logout</span>
                 </button>
             </div>
-</nav>
-</aside>
-<!-- iOS Status Bar Spacer -->
-<div class="h-12 w-full md:hidden"></div>
-<!-- Header Navigation -->
-<nav class="sticky top-0 z-40 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 md:pl-72 md:pr-6 lg:pr-8 py-3 flex items-center justify-between border-b border-primary/10">
-<button onclick="history.back()" class="w-10 h-10 flex items-center justify-start text-primary">
-<span class="material-icons-round">arrow_back_ios</span>
-</a>
-<h1 class="text-lg font-semibold tracking-tight">Contract Details</h1>
-<button class="w-10 h-10 flex items-center justify-end text-primary">
-<span class="material-icons-round">more_horiz</span>
-</a>
-            <!-- Logout Button -->
-            <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
-                <button onclick="handleLogout()" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
-                    <span class="material-icons-round">logout</span>
-                    <span>Logout</span>
-                </button>
+        </nav>
+    </aside>
+    <!-- iOS Status Bar Spacer -->
+    <div class="h-12 w-full md:hidden"></div>
+    <!-- Header Navigation -->
+    <nav
+        class="sticky top-0 z-40 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 md:pl-72 md:pr-6 lg:pr-8 py-3 flex items-center justify-between border-b border-primary/10">
+        <button onclick="history.back()" class="w-10 h-10 flex items-center justify-start text-primary">
+            <span class="material-icons-round">arrow_back_ios</span>
+            </a>
+            <h1 class="text-lg font-semibold tracking-tight">Contract Details</h1>
+            <button class="w-10 h-10 flex items-center justify-end text-primary">
+                <span class="material-icons-round">more_horiz</span>
+                </a>
+                <!-- Logout Button -->
+                <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
+                    <button onclick="handleLogout()"
+                        class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
+                        <span class="material-icons-round">logout</span>
+                        <span>Logout</span>
+                    </button>
+                </div>
+    </nav>
+    <main class="p-4 md:pl-72 md:pr-8 pb-32 md:pb-12 space-y-6 max-w-7xl mx-auto">
+        <!-- Escrow Badge Section -->
+        <div class="flex justify-center">
+            <div
+                class="bg-royal-blue text-white px-4 md:px-6 py-2 md:py-3 rounded-full flex items-center gap-2 ios-shadow border border-white/10">
+                <span class="material-icons text-sm md:text-base">verified_user</span>
+                <span class="text-xs md:text-sm font-bold uppercase tracking-wider">Escrow Protected</span>
             </div>
-</nav>
-<main class="p-4 md:pl-72 md:pr-8 pb-32 md:pb-12 space-y-6 max-w-7xl mx-auto">
-<!-- Escrow Badge Section -->
-<div class="flex justify-center">
-<div class="bg-royal-blue text-white px-4 md:px-6 py-2 md:py-3 rounded-full flex items-center gap-2 ios-shadow border border-white/10">
-<span class="material-icons text-sm md:text-base">verified_user</span>
-<span class="text-xs md:text-sm font-bold uppercase tracking-wider">Escrow Protected</span>
-</div>
-</div>
+        </div>
 
-<!-- Main Contract Grid -->
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-<!-- Left Column - Contract Details -->
-<div class="lg:col-span-2 space-y-6">
-<!-- Agreement Header Card -->
-<div class="bg-white dark:bg-slate-900 rounded-xl p-5 md:p-6 ios-shadow border border-primary/5">
-<div class="flex flex-col md:flex-row justify-between md:items-start gap-4 mb-4">
-<div class="flex-1">
-<span class="text-xs font-medium text-primary uppercase tracking-widest">Job Title</span>
-<h2 class="text-xl md:text-2xl font-bold mt-1">Deep Cleaning Service</h2>
-</div>
-<div class="text-left md:text-right">
-<span class="text-xs font-medium text-slate-400 uppercase tracking-widest">Contract ID</span>
-<p class="text-sm md:text-base font-mono mt-1">#HC-88219</p>
-</div>
-</div>
-<div class="grid grid-cols-2 gap-4 py-4 border-y border-primary/5">
-<div>
-<p class="text-sm text-slate-500 dark:text-slate-400">Total Payment</p>
-<p class="text-2xl md:text-3xl font-bold text-primary">KShs 18,500</p>
-</div>
-<div>
-<p class="text-sm text-slate-500 dark:text-slate-400">Status</p>
-<div class="flex items-center gap-1 text-emerald-500">
-<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-<p class="text-sm font-semibold uppercase tracking-wide">In Progress</p>
-</div>
-</div>
-</div>
-<div class="mt-4 flex items-center gap-2 text-slate-500 dark:text-slate-400">
-<span class="material-icons text-sm">calendar_today</span>
-<span class="text-sm">Scheduled: Oct 24, 2023 • 09:00 AM</span>
-</div>
-</div>
+        <!-- Main Contract Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Left Column - Contract Details -->
+            <div class="lg:col-span-2 space-y-6">
+                <!-- Agreement Header Card -->
+                <div class="bg-white dark:bg-slate-900 rounded-xl p-5 md:p-6 ios-shadow border border-primary/5">
+                    <div class="flex flex-col md:flex-row justify-between md:items-start gap-4 mb-4">
+                        <div class="flex-1">
+                            <span class="text-xs font-medium text-primary uppercase tracking-widest">Job Title</span>
+                            <h2 class="text-xl md:text-2xl font-bold mt-1">Deep Cleaning Service</h2>
+                        </div>
+                        <div class="text-left md:text-right">
+                            <span class="text-xs font-medium text-slate-400 uppercase tracking-widest">Contract
+                                ID</span>
+                            <p class="text-sm md:text-base font-mono mt-1">#HC-88219</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 py-4 border-y border-primary/5">
+                        <div>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Total Payment</p>
+                            <p class="text-2xl md:text-3xl font-bold text-primary">KShs 18,500</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-slate-500 dark:text-slate-400">Status</p>
+                            <div class="flex items-center gap-1 text-emerald-500">
+                                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                                <p class="text-sm font-semibold uppercase tracking-wide">In Progress</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 flex items-center gap-2 text-slate-500 dark:text-slate-400">
+                        <span class="material-icons text-sm">calendar_today</span>
+                        <span class="text-sm">Scheduled: Oct 24, 2023 • 09:00 AM</span>
+                    </div>
+                </div>
 
-<!-- Participants Section -->
-<div class="grid grid-cols-2 gap-3 md:gap-4">
-<!-- Employer -->
-<div class="bg-white dark:bg-slate-900 rounded-lg p-4 md:p-5 ios-shadow border border-primary/5">
-<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-3">Employer</span>
-<div class="flex items-center gap-3">
-<img alt="Employer" class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover flex-shrink-0" data-alt="Professional woman portrait smiling for profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJY4kkkusazs_hqDqZL7HtaXjtgowzdZl5lZktyCaMJtKM-4WTbMY6j5Ckckk-0V2ymGOk4-5Ry0ELbbyEhWFo3vp_uKgjLjLqPc2_1Pfktqx6WUVTRVrB2Xaz8B3WIL-PyUzFSiGO3QYQDD4ysRiBmuSp2g-8l4r_VOVV06jhnXRLZdemIlsy2eOj7Q5GPtBGguruh29qx9lYQcpmsMiJOUhVEZ1rTM5oYl8ecky6PTViawFLhPO0lFVU-idnzlnzaLSI0_LOdYA"/>
-<div class="min-w-0">
-<p class="text-sm md:text-base font-bold truncate">Lucy K.</p>
-<div class="flex items-center text-amber-400">
-<span class="material-icons text-xs">star</span>
-<span class="text-xs font-semibold ml-0.5 text-slate-600 dark:text-slate-300">4.9</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Worker -->
-<div class="bg-white dark:bg-slate-900 rounded-lg p-4 md:p-5 ios-shadow border border-primary/5">
-<span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-3">Worker</span>
-<div class="flex items-center gap-3">
-<img alt="Worker" class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover flex-shrink-0" data-alt="Professional man portrait smiling for profile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6azrnZzxdrs87CnQCVJOd1x48kUSCxIvEOvwCzut89sTEK7T97uStaRTyrI98uqwpIXa9c2mN63NSF30jl4FqMY1OinhmUps6U3UpHS0W44Soox_vNG2m2ToZEjtNCaFRnJuIJZ7-0Ae9CzT5rxtxSnscNnMHbRZdWdzF-snSYiEHN3sPJZ_Z2IcD23NsrbZzSe9F6MJTb4jr6Kx1mIoCDvecw0Yoiy0Dsjfrll7YNv62BWJPwwBYDFZN1iwjWKg2-cOh3JwT46I"/>
-<div class="min-w-0">
-<p class="text-sm md:text-base font-bold truncate">John M.</p>
-<div class="flex items-center text-amber-400">
-<span class="material-icons text-xs">star</span>
-<span class="text-xs font-semibold ml-0.5 text-slate-600 dark:text-slate-300">4.8</span>
-</div>
-</div>
-</div>
-</div>
-</div>
+                <!-- Participants Section -->
+                <div class="grid grid-cols-2 gap-3 md:gap-4">
+                    <!-- Employer -->
+                    <div class="bg-white dark:bg-slate-900 rounded-lg p-4 md:p-5 ios-shadow border border-primary/5">
+                        <span
+                            class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-3">Employer</span>
+                        <div class="flex items-center gap-3">
+                            <img alt="Employer"
+                                class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover flex-shrink-0"
+                                data-alt="Professional woman portrait smiling for profile"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJY4kkkusazs_hqDqZL7HtaXjtgowzdZl5lZktyCaMJtKM-4WTbMY6j5Ckckk-0V2ymGOk4-5Ry0ELbbyEhWFo3vp_uKgjLjLqPc2_1Pfktqx6WUVTRVrB2Xaz8B3WIL-PyUzFSiGO3QYQDD4ysRiBmuSp2g-8l4r_VOVV06jhnXRLZdemIlsy2eOj7Q5GPtBGguruh29qx9lYQcpmsMiJOUhVEZ1rTM5oYl8ecky6PTViawFLhPO0lFVU-idnzlnzaLSI0_LOdYA" />
+                            <div class="min-w-0">
+                                <p class="text-sm md:text-base font-bold truncate">Lucy K.</p>
+                                <div class="flex items-center text-amber-400">
+                                    <span class="material-icons text-xs">star</span>
+                                    <span
+                                        class="text-xs font-semibold ml-0.5 text-slate-600 dark:text-slate-300">4.9</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Worker -->
+                    <div class="bg-white dark:bg-slate-900 rounded-lg p-4 md:p-5 ios-shadow border border-primary/5">
+                        <span
+                            class="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-3">Worker</span>
+                        <div class="flex items-center gap-3">
+                            <img alt="Worker" class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover flex-shrink-0"
+                                data-alt="Professional man portrait smiling for profile"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6azrnZzxdrs87CnQCVJOd1x48kUSCxIvEOvwCzut89sTEK7T97uStaRTyrI98uqwpIXa9c2mN63NSF30jl4FqMY1OinhmUps6U3UpHS0W44Soox_vNG2m2ToZEjtNCaFRnJuIJZ7-0Ae9CzT5rxtxSnscNnMHbRZdWdzF-snSYiEHN3sPJZ_Z2IcD23NsrbZzSe9F6MJTb4jr6Kx1mIoCDvecw0Yoiy0Dsjfrll7YNv62BWJPwwBYDFZN1iwjWKg2-cOh3JwT46I" />
+                            <div class="min-w-0">
+                                <p class="text-sm md:text-base font-bold truncate">John M.</p>
+                                <div class="flex items-center text-amber-400">
+                                    <span class="material-icons text-xs">star</span>
+                                    <span
+                                        class="text-xs font-semibold ml-0.5 text-slate-600 dark:text-slate-300">4.8</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-<!-- Security Info -->
-<div class="bg-primary/5 rounded-lg p-4 md:p-5 border border-primary/10 flex items-start gap-3">
-<span class="material-icons text-primary flex-shrink-0">info</span>
-<p class="text-xs md:text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                    Your payment of <span class="font-bold">KShs 18,500</span> is securely held in <span class="font-bold text-primary">HomeChain Escrow</span>. It will only be released to the worker once you confirm the work is complete.
+                <!-- Security Info -->
+                <div class="bg-primary/5 rounded-lg p-4 md:p-5 border border-primary/10 flex items-start gap-3">
+                    <span class="material-icons text-primary flex-shrink-0">info</span>
+                    <p class="text-xs md:text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                        Your payment of <span class="font-bold">KShs 18,500</span> is securely held in <span
+                            class="font-bold text-primary">HomeChain Escrow</span>. It will only be released to the
+                        worker once you confirm the work is complete.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Right Column - Timeline -->
+            <div class="lg:col-span-1">
+                <!-- Timeline Progress -->
+                <div
+                    class="bg-white dark:bg-slate-900 rounded-xl p-5 md:p-6 ios-shadow border border-primary/5 sticky top-20">
+                    <h3 class="text-sm font-bold mb-6 text-slate-400 uppercase tracking-widest">Progress Timeline</h3>
+                    <div class="space-y-0">
+                        <!-- Step 1 -->
+                        <div class="flex gap-4">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-6 h-6 md:w-7 md:h-7 rounded-full bg-primary flex items-center justify-center">
+                                    <span class="material-icons text-white text-[14px] md:text-[16px]">check</span>
+                                </div>
+                                <div class="w-0.5 h-12 md:h-14 bg-primary/30"></div>
+                            </div>
+                            <div class="pt-0.5 flex-1">
+                                <p class="text-sm md:text-base font-bold">Agreement Signed</p>
+                                <p class="text-xs text-slate-500">Oct 20, 2023 • 02:45 PM</p>
+                            </div>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="flex gap-4">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-6 h-6 md:w-7 md:h-7 rounded-full bg-primary flex items-center justify-center">
+                                    <span class="material-icons text-white text-[14px] md:text-[16px]">check</span>
+                                </div>
+                                <div class="w-0.5 h-12 md:h-14 bg-primary/30"></div>
+                            </div>
+                            <div class="pt-0.5 flex-1">
+                                <p class="text-sm md:text-base font-bold">Funds Escrowed</p>
+                                <p class="text-xs text-slate-500">Oct 21, 2023 • 10:15 AM</p>
+                            </div>
+                        </div>
+                        <!-- Step 3 (Current) -->
+                        <div class="flex gap-4">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-6 h-6 md:w-7 md:h-7 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center">
+                                    <div class="w-2 h-2 rounded-full bg-primary"></div>
+                                </div>
+                                <div class="w-0.5 h-12 md:h-14 bg-slate-200 dark:bg-slate-700"></div>
+                            </div>
+                            <div class="pt-0.5 flex-1">
+                                <p class="text-sm md:text-base font-bold text-primary">Work in Progress</p>
+                                <p class="text-xs text-slate-500">Ongoing since 09:12 AM</p>
+                            </div>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="flex gap-4">
+                            <div class="flex flex-col items-center">
+                                <div
+                                    class="w-6 h-6 md:w-7 md:h-7 rounded-full border-2 border-slate-200 dark:border-slate-700 bg-transparent flex items-center justify-center">
+                                </div>
+                            </div>
+                            <div class="pt-0.5 flex-1">
+                                <p class="text-sm md:text-base font-medium text-slate-400">Payment Released</p>
+                                <p class="text-xs text-slate-400">Pending confirmation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Bottom Action Area -->
+    <div
+        class="md:hidden fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-t border-primary/10 p-4 pb-8 safe-area-bottom">
+        <div class="max-w-md mx-auto">
+            <button onclick="confirmCompletion()" id="complete-btn"
+                class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl ios-shadow transition-all active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                <span id="complete-text">Confirm Completion</span>
+                <span class="material-icons text-sm">verified</span>
+                </a>
+                <p class="text-center text-[10px] text-slate-400 mt-3 uppercase tracking-widest font-medium">
+                    Both parties must confirm to release funds
                 </p>
-</div>
-</div>
+        </div>
+    </div>
 
-<!-- Right Column - Timeline -->
-<div class="lg:col-span-1">
-<!-- Timeline Progress -->
-<div class="bg-white dark:bg-slate-900 rounded-xl p-5 md:p-6 ios-shadow border border-primary/5 sticky top-20">
-<h3 class="text-sm font-bold mb-6 text-slate-400 uppercase tracking-widest">Progress Timeline</h3>
-<div class="space-y-0">
-<!-- Step 1 -->
-<div class="flex gap-4">
-<div class="flex flex-col items-center">
-<div class="w-6 h-6 md:w-7 md:h-7 rounded-full bg-primary flex items-center justify-center">
-<span class="material-icons text-white text-[14px] md:text-[16px]">check</span>
-</div>
-<div class="w-0.5 h-12 md:h-14 bg-primary/30"></div>
-</div>
-<div class="pt-0.5 flex-1">
-<p class="text-sm md:text-base font-bold">Agreement Signed</p>
-<p class="text-xs text-slate-500">Oct 20, 2023 • 02:45 PM</p>
-</div>
-</div>
-<!-- Step 2 -->
-<div class="flex gap-4">
-<div class="flex flex-col items-center">
-<div class="w-6 h-6 md:w-7 md:h-7 rounded-full bg-primary flex items-center justify-center">
-<span class="material-icons text-white text-[14px] md:text-[16px]">check</span>
-</div>
-<div class="w-0.5 h-12 md:h-14 bg-primary/30"></div>
-</div>
-<div class="pt-0.5 flex-1">
-<p class="text-sm md:text-base font-bold">Funds Escrowed</p>
-<p class="text-xs text-slate-500">Oct 21, 2023 • 10:15 AM</p>
-</div>
-</div>
-<!-- Step 3 (Current) -->
-<div class="flex gap-4">
-<div class="flex flex-col items-center">
-<div class="w-6 h-6 md:w-7 md:h-7 rounded-full border-2 border-primary bg-primary/10 flex items-center justify-center">
-<div class="w-2 h-2 rounded-full bg-primary"></div>
-</div>
-<div class="w-0.5 h-12 md:h-14 bg-slate-200 dark:bg-slate-700"></div>
-</div>
-<div class="pt-0.5 flex-1">
-<p class="text-sm md:text-base font-bold text-primary">Work in Progress</p>
-<p class="text-xs text-slate-500">Ongoing since 09:12 AM</p>
-</div>
-</div>
-<!-- Step 4 -->
-<div class="flex gap-4">
-<div class="flex flex-col items-center">
-<div class="w-6 h-6 md:w-7 md:h-7 rounded-full border-2 border-slate-200 dark:border-slate-700 bg-transparent flex items-center justify-center">
-</div>
-</div>
-<div class="pt-0.5 flex-1">
-<p class="text-sm md:text-base font-medium text-slate-400">Payment Released</p>
-<p class="text-xs text-slate-400">Pending confirmation</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</main>
-<!-- Bottom Action Area -->
-<div class="md:hidden fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-t border-primary/10 p-4 pb-8 safe-area-bottom">
-<div class="max-w-md mx-auto">
-<button onclick="confirmCompletion()" id="complete-btn" class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-xl ios-shadow transition-all active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
-<span id="complete-text">Confirm Completion</span>
-<span class="material-icons text-sm">verified</span>
-</a>
-<p class="text-center text-[10px] text-slate-400 mt-3 uppercase tracking-widest font-medium">
-                Both parties must confirm to release funds
-            </p>
-</div>
-</div>
-
-<!-- Desktop Action Area -->
-<div class="hidden md:block fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-t border-primary/10 z-40">
-<div class="pl-72 pr-8 py-4 max-w-7xl">
-<div class="flex items-center justify-between gap-4">
-<p class="text-xs text-slate-500 dark:text-slate-400">
-<span class="font-semibold">Note:</span> Both parties must confirm to release funds from escrow
+    <!-- Desktop Action Area -->
+    <div
+        class="hidden md:block fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-t border-primary/10 z-40">
+        <div class="pl-72 pr-8 py-4 max-w-7xl">
+            <div class="flex items-center justify-between gap-4">
+                <p class="text-xs text-slate-500 dark:text-slate-400">
+                    <span class="font-semibold">Note:</span> Both parties must confirm to release funds from escrow
                 </p>
-<button onclick="confirmCompletion()" id="complete-btn-desktop" class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg ios-shadow transition-all active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
-<span id="complete-text-desktop">Confirm Completion</span>
-<span class="material-icons text-sm">verified</span>
-</a>
-</div>
-</div>
-</div>
+                <button onclick="confirmCompletion()" id="complete-btn-desktop"
+                    class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg ios-shadow transition-all active:scale-[0.98] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                    <span id="complete-text-desktop">Confirm Completion</span>
+                    <span class="material-icons text-sm">verified</span>
+                    </a>
+            </div>
+        </div>
+    </div>
 
-<script>
-    async function confirmCompletion() {
-        if (!confirm('Are you sure you want to confirm completion? This will release the escrowed funds to the worker.')) {
-            return;
-        }
-        
-        const completeBtn = document.getElementById('complete-btn');
-        const completeText = document.getElementById('complete-text');
-        const authToken = localStorage.getItem('access_token');
-        
-        if (!authToken) {
-            alert('Please log in to continue');
-            window.location.href = '/login/';
-            return;
-        }
-        
-        // Disable button
-        completeBtn.disabled = true;
-        completeText.textContent = 'Processing...';
-        
-        // In a real app, would get contract ID from URL or data attribute
-        const contractId = 1; // Placeholder
-        
-        try {
-            const response = await fetch(window.location.origin + `/api/contracts/contracts/${contractId}/complete/`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${authToken}`
-                }
-            });
-            
-            if (response.ok) {
-                completeText.textContent = 'Completed!';
-                alert('Contract completed successfully! Funds have been released.');
-                setTimeout(() => {
-                    const user = JSON.parse(localStorage.getItem('user') || '{}');
-                    if (user.user_type === 'EMPLOYER') {
-                        window.location.href = '/employer-dashboard/';
-                    } else {
-                        window.location.href = '/worker-dashboard/';
+    <script>
+        async function confirmCompletion() {
+            if (!confirm('Are you sure you want to confirm completion? This will release the escrowed funds to the worker.')) {
+                return;
+            }
+
+            const completeBtn = document.getElementById('complete-btn');
+            const completeText = document.getElementById('complete-text');
+            const authToken = localStorage.getItem('access_token');
+
+            if (!authToken) {
+                alert('Please log in to continue');
+                window.location.href = '/login/';
+                return;
+            }
+
+            // Disable button
+            completeBtn.disabled = true;
+            completeText.textContent = 'Processing...';
+
+            // In a real app, would get contract ID from URL or data attribute
+            const contractId = 1; // Placeholder
+
+            try {
+                const response = await fetch(window.location.origin + `/api/contracts/contracts/${contractId}/complete/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${authToken}`
                     }
-                }, 1000);
-            } else {
-                const data = await response.json();
-                alert(data.error || 'Failed to complete contract. Please try again.');
+                });
+
+                if (response.ok) {
+                    completeText.textContent = 'Completed!';
+                    alert('Contract completed successfully! Funds have been released.');
+                    setTimeout(() => {
+                        const user = JSON.parse(localStorage.getItem('user') || '{}');
+                        if (user.user_type === 'EMPLOYER') {
+                            window.location.href = '/employer-dashboard/';
+                        } else {
+                            window.location.href = '/worker-dashboard/';
+                        }
+                    }, 1000);
+                } else {
+                    const data = await response.json();
+                    alert(data.error || 'Failed to complete contract. Please try again.');
+                    completeBtn.disabled = false;
+                    completeText.textContent = 'Confirm Completion';
+                }
+            } catch (error) {
+                console.error('Error completing contract:', error);
+                alert('An error occurred. Please try again.');
                 completeBtn.disabled = false;
                 completeText.textContent = 'Confirm Completion';
             }
-        } catch (error) {
-            console.error('Error completing contract:', error);
-            alert('An error occurred. Please try again.');
-            completeBtn.disabled = false;
-            completeText.textContent = 'Confirm Completion';
         }
-    }
-</script>
-<script>
-function handleLogout() {
-    // Clear authentication tokens
-    localStorage.removeItem("access_token");
-    localStorage.removeItem("refresh_token");
-    localStorage.removeItem("user");
-    // Redirect to login page
-    window.location.href = "/login/";
-}
-</script>
-</body></html>
+    </script>
+    <script>
+        function handleLogout() {
+            // Clear authentication tokens
+            localStorage.removeItem("access_token");
+            localStorage.removeItem("refresh_token");
+            localStorage.removeItem("user");
+            // Redirect to login page
+            window.location.href = "/login/";
+        }
+    </script>
+</body>
+
+</html>

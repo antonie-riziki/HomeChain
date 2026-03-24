@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
-<title>HomeChain | Employer Dashboard</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>HomeChain | Employer Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -32,325 +37,371 @@
             },
         }
     </script>
-<style>
+    <style>
         body {
             font-family: 'Lexend', sans-serif;
             -webkit-tap-highlight-color: transparent;
         }
+
         .hide-scrollbar::-webkit-scrollbar {
             display: none;
         }
+
         .hide-scrollbar {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
 <body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 min-h-screen pb-24 md:pb-0">
-<!-- Desktop Sidebar -->
-<aside class="hidden md:flex fixed left-0 top-0 h-full w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-col z-50">
-<div class="p-6 border-b border-slate-200 dark:border-slate-800">
-<div class="flex items-center gap-3 mb-6">
-<div class="bg-primary p-2 rounded-lg">
-<span class="material-icons-round text-white text-xl">home_work</span>
-</div>
-<span class="font-bold text-lg tracking-tight text-slate-800 dark:text-white">HomeChain</span>
-</div>
-</div>
-<nav class="flex-1 p-4 space-y-2">
-<a href="/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-<span class="material-icons-round">home</span>
-<span>Home</span>
-</a>
-<a href="/employer-dashboard/" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-medium">
-<span class="material-icons-round">dashboard</span>
-<span>Dashboard</span>
-</a>
-<a href="/browse-jobs/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-<span class="material-icons-round">work</span>
-<span>Browse Jobs</span>
-</a>
-            <a href="/learn/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+    <!-- Desktop Sidebar -->
+    <aside
+        class="hidden md:flex fixed left-0 top-0 h-full w-64 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 flex-col z-50">
+        <div class="p-6 border-b border-slate-200 dark:border-slate-800">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="bg-primary p-2 rounded-lg">
+                    <span class="material-icons-round text-white text-xl">home_work</span>
+                </div>
+                <span class="font-bold text-lg tracking-tight text-slate-800 dark:text-white">HomeChain</span>
+            </div>
+        </div>
+        <nav class="flex-1 p-4 space-y-2">
+            <a href="/"
+                class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-icons-round">home</span>
+                <span>Home</span>
+            </a>
+            <a href="/employer-dashboard/"
+                class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-medium">
+                <span class="material-icons-round">dashboard</span>
+                <span>Dashboard</span>
+            </a>
+            <a href="/browse-jobs/"
+                class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-icons-round">work</span>
+                <span>Browse Jobs</span>
+            </a>
+            <a href="/learn/"
+                class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
                 <span class="material-icons-round">school</span>
                 <span>Learn Skills</span>
             </a>
-<a href="/workers/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-<span class="material-icons-round">group</span>
-<span>Find Workers</span>
-</a>
-<a href="/map-view/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-<span class="material-icons-round">map</span>
-<span>Map View</span>
-</a>
-<a href="/contract/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-<span class="material-icons-round">description</span>
-<span>Contracts</span>
-</a>
-<a href="/wallet/" class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-<span class="material-icons-round">account_balance_wallet</span>
-<span>Wallet</span>
-</a>
+            <a href="/workers/"
+                class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-icons-round">group</span>
+                <span>Find Workers</span>
+            </a>
+            <a href="/map-view/"
+                class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-icons-round">map</span>
+                <span>Map View</span>
+            </a>
+            <a href="/contract/"
+                class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-icons-round">description</span>
+                <span>Contracts</span>
+            </a>
+            <a href="/wallet/"
+                class="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                <span class="material-icons-round">account_balance_wallet</span>
+                <span>Wallet</span>
+            </a>
             <!-- Logout Button -->
             <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
-                <button onclick="handleLogout()" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
+                <button onclick="handleLogout()"
+                    class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
                     <span class="material-icons-round">logout</span>
                     <span>Logout</span>
                 </button>
             </div>
-</nav>
-</aside>
-<!-- Top Navigation Bar -->
-<header class="sticky top-0 z-40 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 md:pl-72 md:pr-6 py-4 flex items-center justify-between">
-<div class="flex items-center gap-3">
-<div class="md:hidden w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-<img alt="Profile" class="w-10 h-10 rounded-full border-2 border-primary/20" data-alt="Portrait of a male business professional" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYoXc39e_sesxWpOCwznuX-P7DfEgzpV6G75ljDR2ZcXT29_i2Kd_teNLbPGFqAZ08wtmE1UVhCUr2gs4ziNePUJK_z34B-NO2l2XPTqlpfiuxYS3rjIehkrT8l8IsfV7GpHVPpYRd1C5izGNBkGEuRuxj_HJ4ZPRBkoXNoG9cfZ02bEPdejzxIF4pVmlMaHUxv6yt1DI7omh8NEDO5Fq-1poKgGSDvxIv3q7FkCxMqkCDbxGWiyvyFtLmRyrI8AV8Me9hRGh8eyE"/>
-</div>
-<div class="md:hidden">
-<p class="text-xs text-slate-500 dark:text-slate-400">Welcome back,</p>
-<h1 class="font-bold text-lg leading-tight">James Mwangi</h1>
-</div>
-<div class="hidden md:block">
-<h1 class="font-bold text-xl leading-tight">Dashboard</h1>
-</div>
-</div>
-<div class="flex gap-2">
-<button class="p-2 rounded-full bg-white dark:bg-slate-800 shadow-sm border border-primary/10 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
-<span class="material-icons-round text-primary">notifications</span>
-</a>
-</div>
-</header>
-<main class="px-4 md:pl-72 md:pr-6 py-6 space-y-6 max-w-7xl">
-<!-- Wallet Card (Bank-grade style) -->
-<section>
-<div class="relative overflow-hidden bg-slate-900 dark:bg-slate-950 rounded-xl p-6 md:p-8 text-white shadow-xl">
-<div class="absolute top-0 right-0 p-4 opacity-10">
-<span class="material-icons-round text-6xl md:text-8xl" aria-label="wallet">account_balance_wallet</span>
-</div>
-<div class="relative z-10">
-<div class="flex items-center gap-2 mb-1">
-<span class="text-xs font-medium text-slate-400 tracking-wider uppercase">Escrow Balance</span>
-<span class="material-icons-round text-xs text-primary">verified_user</span>
-</div>
-<div class="flex items-end gap-1 mb-6">
-<span class="text-3xl md:text-4xl font-bold leading-none escrow-balance">KShs 0</span>
-<span class="text-sm font-medium text-primary mb-1">Kenyan Shillings</span>
-</div>
-<div class="flex flex-col sm:flex-row gap-3">
-<a href="/wallet" class="flex-1 bg-primary hover:bg-primary/90 py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition-colors">
-<span class="material-icons-round text-sm">add</span> Deposit
+        </nav>
+    </aside>
+    <!-- Top Navigation Bar -->
+    <header
+        class="sticky top-0 z-40 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-4 md:pl-72 md:pr-6 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <div class="md:hidden w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                <img alt="Profile" class="w-10 h-10 rounded-full border-2 border-primary/20"
+                    data-alt="Portrait of a male business professional"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYoXc39e_sesxWpOCwznuX-P7DfEgzpV6G75ljDR2ZcXT29_i2Kd_teNLbPGFqAZ08wtmE1UVhCUr2gs4ziNePUJK_z34B-NO2l2XPTqlpfiuxYS3rjIehkrT8l8IsfV7GpHVPpYRd1C5izGNBkGEuRuxj_HJ4ZPRBkoXNoG9cfZ02bEPdejzxIF4pVmlMaHUxv6yt1DI7omh8NEDO5Fq-1poKgGSDvxIv3q7FkCxMqkCDbxGWiyvyFtLmRyrI8AV8Me9hRGh8eyE" />
+            </div>
+            <div class="md:hidden">
+                <p class="text-xs text-slate-500 dark:text-slate-400">Welcome back,</p>
+                <h1 class="font-bold text-lg leading-tight">James Mwangi</h1>
+            </div>
+            <div class="hidden md:block">
+                <h1 class="font-bold text-xl leading-tight">Dashboard</h1>
+            </div>
+        </div>
+        <div class="flex gap-2">
+            <button
+                class="p-2 rounded-full bg-white dark:bg-slate-800 shadow-sm border border-primary/10 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+                <span class="material-icons-round text-primary">notifications</span>
+                </a>
+        </div>
+    </header>
+    <main class="px-4 md:pl-72 md:pr-6 py-6 space-y-6 max-w-7xl">
+        <!-- Wallet Card (Bank-grade style) -->
+        <section>
+            <div
+                class="relative overflow-hidden bg-slate-900 dark:bg-slate-950 rounded-xl p-6 md:p-8 text-white shadow-xl">
+                <div class="absolute top-0 right-0 p-4 opacity-10">
+                    <span class="material-icons-round text-6xl md:text-8xl"
+                        aria-label="wallet">account_balance_wallet</span>
+                </div>
+                <div class="relative z-10">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-xs font-medium text-slate-400 tracking-wider uppercase">Escrow Balance</span>
+                        <span class="material-icons-round text-xs text-primary">verified_user</span>
+                    </div>
+                    <div class="flex items-end gap-1 mb-6">
+                        <span class="text-3xl md:text-4xl font-bold leading-none escrow-balance">KShs 0</span>
+                        <span class="text-sm font-medium text-primary mb-1">Kenyan Shillings</span>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="/wallet"
+                            class="flex-1 bg-primary hover:bg-primary/90 py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition-colors">
+                            <span class="material-icons-round text-sm">add</span> Deposit
                         </a>
-<a href="/wallet" class="flex-1 bg-white/10 hover:bg-white/20 py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition-colors backdrop-blur-sm">
-<span class="material-icons-round text-sm">history</span> History
+                        <a href="/wallet"
+                            class="flex-1 bg-white/10 hover:bg-white/20 py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition-colors backdrop-blur-sm">
+                            <span class="material-icons-round text-sm">history</span> History
                         </a>
-</div>
-</div>
-</div>
-</section>
-<!-- Main Action -->
-<section>
-<a href="/job-post/" class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 flex items-center justify-center gap-2 hover:bg-primary/90 active:scale-[0.98] transition-all">
-<span class="material-icons-round">add_circle</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Main Action -->
+        <section>
+            <a href="/job-post/"
+                class="w-full bg-primary text-white py-4 rounded-xl font-bold text-lg shadow-lg shadow-primary/20 flex items-center justify-center gap-2 hover:bg-primary/90 active:scale-[0.98] transition-all">
+                <span class="material-icons-round">add_circle</span>
                 Post a Job
             </a>
-</section>
-<!-- Active Contracts -->
-<section>
-<div class="flex items-center justify-between mb-4">
-<h2 class="font-bold text-lg md:text-xl">Active Contracts</h2>
-<a href="/contract/" class="text-primary text-sm font-semibold hover:underline">View All</a>
-</div>
-<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:space-y-0 space-y-3">
-<!-- Contract Card 1 -->
-<div class="bg-white dark:bg-slate-800 p-4 rounded-lg border border-primary/5 shadow-sm flex items-center gap-4">
-<div class="w-12 h-12 rounded-lg bg-background-light dark:bg-slate-700 overflow-hidden">
-<img alt="Worker" class="w-full h-full object-cover" data-alt="Female domestic worker profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqENRvx5LkOsOkyRCWKK68g1fX8PeKDWGBojMDhh1Xvr92drVvkeGQhducYO-kyY_r7ifnn952NS5-iwzG7F6ax4P6g_JMX1drriz0St_YgNLx-1Eny0gTgh9Qe0RZQsRY7N13vcZ0YColhB-L11C_dAnh5w6Wz8Y3J9w4niOP8eNPyVu7CXsyLp7a_302Oh8u1fchUkpAFUB9BF4VtDnwmWmDe0Fwu1S3lWLe2-wrLpOKiPXyu9xDTSkGD2PvQ2epUZaEGSJMGJc"/>
-</div>
-<div class="flex-1">
-<h3 class="font-semibold text-sm">Grace Wanjiru</h3>
-<p class="text-xs text-slate-500">Full-time Nanny</p>
-</div>
-<div class="flex flex-col items-end gap-1">
-<span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">Active</span>
-<p class="text-[10px] text-slate-400 font-medium">Next: May 15</p>
-</div>
-</div>
-<!-- Contract Card 2 -->
-<div class="bg-white dark:bg-slate-800 p-4 rounded-lg border border-primary/5 shadow-sm flex items-center gap-4">
-<div class="w-12 h-12 rounded-lg bg-background-light dark:bg-slate-700 overflow-hidden">
-<img alt="Worker" class="w-full h-full object-cover" data-alt="Male groundskeeper profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq-eXWvsw78JRehP3UET2uuNqATlCCZVfjMcxaYlemLYOokGYwv8GCnOxjsEUNDVHU1n1TuREscGmZ-JGBaqQV0bJz5lZA8Z5BaULEXrE5GaPudCJIx7bmNrMjFRso82BfPzja7hdraxm9a2kgbhDLG5kjUfTyLfMccigzlrWrFh8pToeNQ-pUexUF0g13oYJG3SrpadTJD3n4px7x0sSv6n7QrgXViq6xxzKszpS7_rBldnvfpx3R0Q-8UmAhn4yhFlrXxvBhJ6w"/>
-</div>
-<div class="flex-1">
-<h3 class="font-semibold text-sm">Peter Ochieng</h3>
-<p class="text-xs text-slate-500">Gardening / Weekly</p>
-</div>
-<div class="flex flex-col items-end gap-1">
-<span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">Active</span>
-<p class="text-[10px] text-slate-400 font-medium">Next: May 18</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Recent Applicants -->
-<section>
-<div class="flex items-center justify-between mb-4">
-<h2 class="font-bold text-lg md:text-xl">Recent Applicants</h2>
-<span class="text-primary text-sm font-semibold">12 New</span>
-</div>
-<div class="flex gap-4 overflow-x-auto pb-4 hide-scrollbar -mx-4 md:-mx-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:overflow-visible">
-<!-- Applicant 1 -->
-<div class="min-w-[160px] bg-white dark:bg-slate-800 p-4 rounded-xl border border-primary/5 shadow-sm flex flex-col items-center text-center">
-<div class="relative">
-<img alt="Applicant" class="w-16 h-16 rounded-full object-cover mb-3" data-alt="Female applicant profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8bf-NiZgfpP6QEeiWVi0-oNqpIHAln94YWRt8aVFgarWPrL94hTqIgg8lDv9OX9ckE69qz00kXcsOPtAHs6yvFdGsIq7GEML66d6yDaXjtGeKnqoi_47d7fShwEshjawaDLQGVxgStJnO4mU5qRMDEpm9qK1Zaj-el7FEUMlzRSMh9vTLBNef1viS3nWMmw32BmG5qk4aL0NAeqTK6gdfrSWT2T7TGkzi_cjhGbMjn754ZsxsLL8J7rIDlAoSUUfQtD0mt3H4Pso"/>
-<div class="absolute bottom-3 right-0 w-4 h-4 bg-green-500 border-2 border-white dark:border-slate-800 rounded-full"></div>
-</div>
-<h3 class="font-semibold text-sm">Faith K.</h3>
-<div class="flex items-center gap-1 text-primary mb-2">
-<span class="material-icons-round text-xs">star</span>
-<span class="text-xs font-bold">4.9</span>
-<span class="text-[10px] text-slate-400">(42)</span>
-</div>
-<button onclick="window.location.href='/workers/' class="w-full py-2 bg-primary/10 text-primary text-xs font-bold rounded-lg hover:bg-primary hover:text-white transition-colors">
-                        View Profile
-                    </a>
-</div>
-<!-- Applicant 2 -->
-<div class="min-w-[160px] bg-white dark:bg-slate-800 p-4 rounded-xl border border-primary/5 shadow-sm flex flex-col items-center text-center">
-<div class="relative">
-<img alt="Applicant" class="w-16 h-16 rounded-full object-cover mb-3" data-alt="Male applicant profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqHd3BvtD1mmVHTW6NVfwRyDinh_o4c985OjYj1OBb7JVyoWZGmv76NjxPuHr0vjRk11eHYXFXECB1yBeM6TnbJFf1ILPxbVAsztai5_KRoYgWCrOPPqtVazcAre10gVoRtEWzLXdS8n68ANMZkZ6tr26NBQudM3tfe0B98OBhKz2Gn8qJjAupAyMTw7SI0N0086jGJJnmDMHPskjN7aJ56663BmcNPbe_UXbAZNRo4bMXkyMe098dHVugVcVl2K1v-whP1kr0480"/>
-</div>
-<h3 class="font-semibold text-sm">Daniel M.</h3>
-<div class="flex items-center gap-1 text-primary mb-2">
-<span class="material-icons-round text-xs">star</span>
-<span class="text-xs font-bold">4.8</span>
-<span class="text-[10px] text-slate-400">(15)</span>
-</div>
-<button onclick="window.location.href='/workers/' class="w-full py-2 bg-primary/10 text-primary text-xs font-bold rounded-lg hover:bg-primary hover:text-white transition-colors">
-                        View Profile
-                    </a>
-</div>
-<!-- Applicant 3 -->
-<div class="min-w-[160px] bg-white dark:bg-slate-800 p-4 rounded-xl border border-primary/5 shadow-sm flex flex-col items-center text-center">
-<div class="relative">
-<img alt="Applicant" class="w-16 h-16 rounded-full object-cover mb-3" data-alt="Female applicant profile photo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByUV_m0xs_Y3Izyo5V3zkjy2ICHUZOVmKrW07aI-r6FLzDnMZ3RjiENFLroiEhq_jT5tjiSi4kWWMnnsl47hjCuFiPsWiOnDHyPfv93HsDpG3Nn4J8BzkugZ_DDTJRxEDLBGRa0OfNxP4SZe4vttYBfBCoCFtt-P8CF_YIA6Ni7CtWdiF5NzROtNQeEEOM11dE8GMKSYBIPes77YJhAsjZRGT-IGUfiag764gc4vsOcPmOwhxhfGP4AVgwToFmTqohAKLPPul0XbE"/>
-</div>
-<h3 class="font-semibold text-sm">Mary N.</h3>
-<div class="flex items-center gap-1 text-primary mb-2">
-<span class="material-icons-round text-xs">star</span>
-<span class="text-xs font-bold">5.0</span>
-<span class="text-[10px] text-slate-400">(8)</span>
-</div>
-<button onclick="window.location.href='/workers/' class="w-full py-2 bg-primary/10 text-primary text-xs font-bold rounded-lg hover:bg-primary hover:text-white transition-colors">
-                        View Profile
-                    </a>
-</div>
-</div>
-</section>
-<!-- Trust Stats -->
-<section class="bg-primary/5 rounded-xl p-4 border border-primary/10 flex items-center justify-around">
-<div class="text-center">
-<p class="text-2xl font-bold text-primary">12</p>
-<p class="text-[10px] text-slate-500 uppercase font-medium">Completed Jobs</p>
-</div>
-<div class="h-8 w-px bg-primary/20"></div>
-<div class="text-center">
-<p class="text-2xl font-bold text-primary">4.9</p>
-<p class="text-[10px] text-slate-500 uppercase font-medium">Employer Rating</p>
-</div>
-<div class="h-8 w-px bg-primary/20"></div>
-<div class="text-center">
-<p class="text-2xl font-bold text-primary">100%</p>
-<p class="text-[10px] text-slate-500 uppercase font-medium">Payment Score</p>
-</div>
-</section>
-</main>
-<!-- Bottom Navigation Bar (Mobile Only) -->
-<nav class="md:hidden fixed bottom-0 inset-x-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-8 py-3 pb-8 flex items-center justify-between z-40">
-<a href="/employer-dashboard/" class="flex flex-col items-center gap-1 text-primary">
-<span class="material-icons-round">home</span>
-<span class="text-[10px] font-semibold">Home</span>
-</a>
-<a href="/contract/" class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
-<span class="material-icons-round">forum</span>
-<span class="text-[10px] font-semibold">Contracts</span>
-</a>
-<a href="/job-post/" class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
-<span class="material-icons-round">work</span>
-<span class="text-[10px] font-semibold">My Jobs</span>
-</a>
-<a href="/wallet" class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
-<span class="material-icons-round">person</span>
-<span class="text-[10px] font-semibold">Profile</span>
-</a>
-            <!-- Logout Button -->
-            <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
-                <button onclick="handleLogout()" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
-                    <span class="material-icons-round">logout</span>
-                    <span>Logout</span>
-                </button>
+        </section>
+        <!-- Active Contracts -->
+        <section>
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="font-bold text-lg md:text-xl">Active Contracts</h2>
+                <a href="/contract/" class="text-primary text-sm font-semibold hover:underline">View All</a>
             </div>
-</nav>
-<script>
-// API Configuration
-const API_BASE_URL = window.location.origin + '/api';
-let authToken = localStorage.getItem('access_token');
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:space-y-0 space-y-3">
+                <!-- Contract Card 1 -->
+                <div
+                    class="bg-white dark:bg-slate-800 p-4 rounded-lg border border-primary/5 shadow-sm flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-lg bg-background-light dark:bg-slate-700 overflow-hidden">
+                        <img alt="Worker" class="w-full h-full object-cover"
+                            data-alt="Female domestic worker profile photo"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqENRvx5LkOsOkyRCWKK68g1fX8PeKDWGBojMDhh1Xvr92drVvkeGQhducYO-kyY_r7ifnn952NS5-iwzG7F6ax4P6g_JMX1drriz0St_YgNLx-1Eny0gTgh9Qe0RZQsRY7N13vcZ0YColhB-L11C_dAnh5w6Wz8Y3J9w4niOP8eNPyVu7CXsyLp7a_302Oh8u1fchUkpAFUB9BF4VtDnwmWmDe0Fwu1S3lWLe2-wrLpOKiPXyu9xDTSkGD2PvQ2epUZaEGSJMGJc" />
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-sm">Grace Wanjiru</h3>
+                        <p class="text-xs text-slate-500">Full-time Nanny</p>
+                    </div>
+                    <div class="flex flex-col items-end gap-1">
+                        <span
+                            class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">Active</span>
+                        <p class="text-[10px] text-slate-400 font-medium">Next: May 15</p>
+                    </div>
+                </div>
+                <!-- Contract Card 2 -->
+                <div
+                    class="bg-white dark:bg-slate-800 p-4 rounded-lg border border-primary/5 shadow-sm flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-lg bg-background-light dark:bg-slate-700 overflow-hidden">
+                        <img alt="Worker" class="w-full h-full object-cover" data-alt="Male groundskeeper profile photo"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq-eXWvsw78JRehP3UET2uuNqATlCCZVfjMcxaYlemLYOokGYwv8GCnOxjsEUNDVHU1n1TuREscGmZ-JGBaqQV0bJz5lZA8Z5BaULEXrE5GaPudCJIx7bmNrMjFRso82BfPzja7hdraxm9a2kgbhDLG5kjUfTyLfMccigzlrWrFh8pToeNQ-pUexUF0g13oYJG3SrpadTJD3n4px7x0sSv6n7QrgXViq6xxzKszpS7_rBldnvfpx3R0Q-8UmAhn4yhFlrXxvBhJ6w" />
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-semibold text-sm">Peter Ochieng</h3>
+                        <p class="text-xs text-slate-500">Gardening / Weekly</p>
+                    </div>
+                    <div class="flex flex-col items-end gap-1">
+                        <span
+                            class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">Active</span>
+                        <p class="text-[10px] text-slate-400 font-medium">Next: May 18</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Recent Applicants -->
+        <section>
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="font-bold text-lg md:text-xl">Recent Applicants</h2>
+                <span class="text-primary text-sm font-semibold">12 New</span>
+            </div>
+            <div
+                class="flex gap-4 overflow-x-auto pb-4 hide-scrollbar -mx-4 md:-mx-0 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-6 md:overflow-visible">
+                <!-- Applicant 1 -->
+                <div
+                    class="min-w-[160px] bg-white dark:bg-slate-800 p-4 rounded-xl border border-primary/5 shadow-sm flex flex-col items-center text-center">
+                    <div class="relative">
+                        <img alt="Applicant" class="w-16 h-16 rounded-full object-cover mb-3"
+                            data-alt="Female applicant profile photo"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8bf-NiZgfpP6QEeiWVi0-oNqpIHAln94YWRt8aVFgarWPrL94hTqIgg8lDv9OX9ckE69qz00kXcsOPtAHs6yvFdGsIq7GEML66d6yDaXjtGeKnqoi_47d7fShwEshjawaDLQGVxgStJnO4mU5qRMDEpm9qK1Zaj-el7FEUMlzRSMh9vTLBNef1viS3nWMmw32BmG5qk4aL0NAeqTK6gdfrSWT2T7TGkzi_cjhGbMjn754ZsxsLL8J7rIDlAoSUUfQtD0mt3H4Pso" />
+                        <div
+                            class="absolute bottom-3 right-0 w-4 h-4 bg-green-500 border-2 border-white dark:border-slate-800 rounded-full">
+                        </div>
+                    </div>
+                    <h3 class="font-semibold text-sm">Faith K.</h3>
+                    <div class="flex items-center gap-1 text-primary mb-2">
+                        <span class="material-icons-round text-xs">star</span>
+                        <span class="text-xs font-bold">4.9</span>
+                        <span class="text-[10px] text-slate-400">(42)</span>
+                    </div>
+                    <button onclick="window.location.href='/workers/'" class=" w-full py-2 bg-primary/10 text-primary
+                        text-xs font-bold rounded-lg hover:bg-primary hover:text-white transition-colors">
+                        View Profile
+                        </a>
+                </div>
+                <!-- Applicant 2 -->
+                <div
+                    class="min-w-[160px] bg-white dark:bg-slate-800 p-4 rounded-xl border border-primary/5 shadow-sm flex flex-col items-center text-center">
+                    <div class="relative">
+                        <img alt="Applicant" class="w-16 h-16 rounded-full object-cover mb-3"
+                            data-alt="Male applicant profile photo"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqHd3BvtD1mmVHTW6NVfwRyDinh_o4c985OjYj1OBb7JVyoWZGmv76NjxPuHr0vjRk11eHYXFXECB1yBeM6TnbJFf1ILPxbVAsztai5_KRoYgWCrOPPqtVazcAre10gVoRtEWzLXdS8n68ANMZkZ6tr26NBQudM3tfe0B98OBhKz2Gn8qJjAupAyMTw7SI0N0086jGJJnmDMHPskjN7aJ56663BmcNPbe_UXbAZNRo4bMXkyMe098dHVugVcVl2K1v-whP1kr0480" />
+                    </div>
+                    <h3 class="font-semibold text-sm">Daniel M.</h3>
+                    <div class="flex items-center gap-1 text-primary mb-2">
+                        <span class="material-icons-round text-xs">star</span>
+                        <span class="text-xs font-bold">4.8</span>
+                        <span class="text-[10px] text-slate-400">(15)</span>
+                    </div>
+                    <button onclick="window.location.href='/workers/'"
+                        class="w-full py-2 bg-primary/10 text-primary text-xs font-bold rounded-lg hover:bg-primary hover:text-white transition-colors">
+                        View Profile
+                        </a>
+                </div>
+                <!-- Applicant 3 -->
+                <div
+                    class="min-w-[160px] bg-white dark:bg-slate-800 p-4 rounded-xl border border-primary/5 shadow-sm flex flex-col items-center text-center">
+                    <div class="relative">
+                        <img alt="Applicant" class="w-16 h-16 rounded-full object-cover mb-3"
+                            data-alt="Female applicant profile photo"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuByUV_m0xs_Y3Izyo5V3zkjy2ICHUZOVmKrW07aI-r6FLzDnMZ3RjiENFLroiEhq_jT5tjiSi4kWWMnnsl47hjCuFiPsWiOnDHyPfv93HsDpG3Nn4J8BzkugZ_DDTJRxEDLBGRa0OfNxP4SZe4vttYBfBCoCFtt-P8CF_YIA6Ni7CtWdiF5NzROtNQeEEOM11dE8GMKSYBIPes77YJhAsjZRGT-IGUfiag764gc4vsOcPmOwhxhfGP4AVgwToFmTqohAKLPPul0XbE" />
+                    </div>
+                    <h3 class="font-semibold text-sm">Mary N.</h3>
+                    <div class="flex items-center gap-1 text-primary mb-2">
+                        <span class="material-icons-round text-xs">star</span>
+                        <span class="text-xs font-bold">5.0</span>
+                        <span class="text-[10px] text-slate-400">(8)</span>
+                    </div>
+                    <button onclick="window.location.href='/workers/'" class=" w-full py-2 bg-primary/10 text-primary
+                        text-xs font-bold rounded-lg hover:bg-primary hover:text-white transition-colors">
+                        View Profile
+                        </a>
+                </div>
+            </div>
+        </section>
+        <!-- Trust Stats -->
+        <section class="bg-primary/5 rounded-xl p-4 border border-primary/10 flex items-center justify-around">
+            <div class="text-center">
+                <p class="text-2xl font-bold text-primary">12</p>
+                <p class="text-[10px] text-slate-500 uppercase font-medium">Completed Jobs</p>
+            </div>
+            <div class="h-8 w-px bg-primary/20"></div>
+            <div class="text-center">
+                <p class="text-2xl font-bold text-primary">4.9</p>
+                <p class="text-[10px] text-slate-500 uppercase font-medium">Employer Rating</p>
+            </div>
+            <div class="h-8 w-px bg-primary/20"></div>
+            <div class="text-center">
+                <p class="text-2xl font-bold text-primary">100%</p>
+                <p class="text-[10px] text-slate-500 uppercase font-medium">Payment Score</p>
+            </div>
+        </section>
+    </main>
+    <!-- Bottom Navigation Bar (Mobile Only) -->
+    <nav
+        class="md:hidden fixed bottom-0 inset-x-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-t border-slate-200 dark:border-slate-800 px-8 py-3 pb-8 flex items-center justify-between z-40">
+        <a href="/employer-dashboard/" class="flex flex-col items-center gap-1 text-primary">
+            <span class="material-icons-round">home</span>
+            <span class="text-[10px] font-semibold">Home</span>
+        </a>
+        <a href="/contract/" class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+            <span class="material-icons-round">forum</span>
+            <span class="text-[10px] font-semibold">Contracts</span>
+        </a>
+        <a href="/job-post/" class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+            <span class="material-icons-round">work</span>
+            <span class="text-[10px] font-semibold">My Jobs</span>
+        </a>
+        <a href="/wallet" class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500">
+            <span class="material-icons-round">person</span>
+            <span class="text-[10px] font-semibold">Profile</span>
+        </a>
+        <!-- Logout Button -->
+        <div class="mt-auto pt-4 border-t border-slate-200 dark:border-slate-700">
+            <button onclick="handleLogout()"
+                class="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors">
+                <span class="material-icons-round">logout</span>
+                <span>Logout</span>
+            </button>
+        </div>
+    </nav>
+    <script>
+        // API Configuration
+        const API_BASE_URL = window.location.origin + '/api';
+        let authToken = localStorage.getItem('access_token');
 
-// Helper function to make API calls
-async function apiCall(endpoint, options = {}) {
-    const headers = {
-        'Content-Type': 'application/json',
-        ...options.headers
-    };
-    
-    if (authToken) {
-        headers['Authorization'] = `Bearer ${authToken}`;
-    }
-    
-    try {
-        const response = await fetch(`${API_BASE_URL}${endpoint}`, {
-            ...options,
-            headers
-        });
-        
-        if (response.status === 401) {
-            // Token expired, redirect to login
-            window.location.href = '/login';
-            return null;
-        }
-        
-        if (!response.ok) {
-            throw new Error(`API error: ${response.status}`);
-        }
-        
-        return await response.json();
-    } catch (error) {
-        console.error('API call failed:', error);
-        return null;
-    }
-}
+        // Helper function to make API calls
+        async function apiCall(endpoint, options = {}) {
+            const headers = {
+                'Content-Type': 'application/json',
+                ...options.headers
+            };
 
-// Load dashboard data
-async function loadDashboardData() {
-    // Load wallet data
-    const walletData = await apiCall('/payments/wallets/me/');
-    if (walletData) {
-        const escrowBalance = walletData.escrow_balance || 0;
-        const balanceElement = document.querySelector('.escrow-balance');
-        if (balanceElement) {
-            balanceElement.textContent = `KShs ${escrowBalance.toLocaleString()}`;
+            if (authToken) {
+                headers['Authorization'] = `Bearer ${authToken}`;
+            }
+
+            try {
+                const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+                    ...options,
+                    headers
+                });
+
+                if (response.status === 401) {
+                    // Token expired, redirect to login
+                    window.location.href = '/login';
+                    return null;
+                }
+
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.status}`);
+                }
+
+                return await response.json();
+            } catch (error) {
+                console.error('API call failed:', error);
+                return null;
+            }
         }
-    }
-    
-    // Load contracts
-    const contractsData = await apiCall('/contracts/contracts/');
-    if (contractsData && contractsData.results) {
-        const contractsContainer = document.querySelector('.contracts-container');
-        if (contractsContainer && contractsData.results.length > 0) {
-            contractsContainer.innerHTML = contractsData.results.slice(0, 2).map(contract => `
+
+        // Load dashboard data
+        async function loadDashboardData() {
+            // Load wallet data
+            const walletData = await apiCall('/payments/wallets/me/');
+            if (walletData) {
+                const escrowBalance = walletData.escrow_balance || 0;
+                const balanceElement = document.querySelector('.escrow-balance');
+                if (balanceElement) {
+                    balanceElement.textContent = `KShs ${escrowBalance.toLocaleString()}`;
+                }
+            }
+
+            // Load contracts
+            const contractsData = await apiCall('/contracts/contracts/');
+            if (contractsData && contractsData.results) {
+                const contractsContainer = document.querySelector('.contracts-container');
+                if (contractsContainer && contractsData.results.length > 0) {
+                    contractsContainer.innerHTML = contractsData.results.slice(0, 2).map(contract => `
                 <div class="bg-white dark:bg-slate-800 p-4 rounded-lg border border-primary/5 shadow-sm flex items-center gap-4">
                     <div class="w-12 h-12 rounded-lg bg-background-light dark:bg-slate-700 overflow-hidden">
                         <div class="w-full h-full bg-primary/10 flex items-center justify-center">
@@ -366,39 +417,41 @@ async function loadDashboardData() {
                     </div>
                 </div>
             `).join('');
-        }
-    }
-    
-    // Load jobs stats
-    const jobsData = await apiCall('/jobs/jobs/my_jobs/');
-    if (jobsData) {
-        const activeJobs = jobsData.filter(job => job.status === 'OPEN' || job.status === 'IN_PROGRESS').length;
-        const totalJobs = jobsData.length;
-        // Update stats if elements exist
-        const statsElements = document.querySelectorAll('.job-stat');
-        if (statsElements.length > 0) {
-            statsElements[0].textContent = activeJobs;
-            statsElements[1].textContent = totalJobs;
-        }
-    }
-}
+                }
+            }
 
-// Initialize on page load
-if (authToken) {
-    loadDashboardData();
-} else {
-    // Redirect to login if not authenticated
-    window.location.href = '/login';
-}
-</script>
-<script>
-function handleLogout() {
-    // Clear authentication tokens
-    localStorage.removeItem("access_token");
-    localStorage.removeItem("refresh_token");
-    localStorage.removeItem("user");
-    // Redirect to login page
-    window.location.href = "/login/";
-}
-</script>
-</body></html>
+            // Load jobs stats
+            const jobsData = await apiCall('/jobs/jobs/my_jobs/');
+            if (jobsData) {
+                const activeJobs = jobsData.filter(job => job.status === 'OPEN' || job.status === 'IN_PROGRESS').length;
+                const totalJobs = jobsData.length;
+                // Update stats if elements exist
+                const statsElements = document.querySelectorAll('.job-stat');
+                if (statsElements.length > 0) {
+                    statsElements[0].textContent = activeJobs;
+                    statsElements[1].textContent = totalJobs;
+                }
+            }
+        }
+
+        // Initialize on page load
+        if (authToken) {
+            loadDashboardData();
+        } else {
+            // Redirect to login if not authenticated
+            window.location.href = '/login';
+        }
+    </script>
+    <script>
+        function handleLogout() {
+            // Clear authentication tokens
+            localStorage.removeItem("access_token");
+            localStorage.removeItem("refresh_token");
+            localStorage.removeItem("user");
+            // Redirect to login page
+            window.location.href = "/login/";
+        }
+    </script>
+</body>
+
+</html>
